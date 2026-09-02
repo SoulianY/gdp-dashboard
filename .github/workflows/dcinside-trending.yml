@@ -1,0 +1,22 @@
+name: dcinside-trending
+
+# 매일 07:00 KST (22:00 UTC) 에 인기급상승 게시물 10개를 텔레그램으로 보낸다.
+on:
+  schedule:
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r dcinside_bot/requirements.txt
+      - run: python -m dcinside_bot --limit 10
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
