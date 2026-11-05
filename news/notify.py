@@ -12,7 +12,7 @@ import requests
 
 TOKEN_URL = "https://kauth.kakao.com/oauth/token"
 SEND_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
-LIST_MAX = 3  # 리스트 템플릿이 담을 수 있는 최대 항목 수
+TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
 
 
 def _access_token() -> str:
@@ -36,43 +36,26 @@ def _access_token() -> str:
     return token["access_token"]
 
 
-def _link(url: str) -> dict:
-    return {"web_url": url, "mobile_web_url": url}
-
-
-def _description(item: dict) -> str:
-    more = f" 외 {item['outlets'] - 1}곳" if item["outlets"] > 1 else ""
-    return f"[{item['category']}] {item['source']}{more}"
-
-
-def _template(heading: str, items: list[dict]) -> dict:
-    if len(items) == 1:  # 리스트 템플릿은 2건 이상이어야 해서 1건이면 피드 템플릿
-        item = items[0]
-        return {
-            "object_type": "feed",
-            "content": {"title": f"{heading}\n{item['title']}", "description": _description(item),
-                        "image_url": item["image"] or "", "link": _link(item["link"])},
-        }
+def _template(label: str, briefing: dict) -> dict:
+    """핵심 요약 + '브리핑 보기' 버튼. 버튼은 대시보드(DASHBOARD_URL)로, 없으면 첫 꼭지 기사로 연결."""
+    url = os.environ.get("DASHBOARD_URL") or briefing["stories"][0]["sources"][0]["link"]
+    text = f"{label}\n\n{briefing['overview']}"
     return {
-        "object_type": "list",
-        "header_title": heading,
-        "header_link": _link(items[0]["link"]),
-        "contents": [
-            {"title": item["title"], "description": _description(item),
-             "image_url": item["image"] or "", "link": _link(item["link"])}
-            for item in items[:LIST_MAX]
-        ],
+        "object_type": "text",
+        "text": text if len(text) <= TEXT_MAX else text[:TEXT_MAX - 1] + "…",
+        "link": {"web_url": url, "mobile_web_url": url},
+        "button_title": "브리핑 보기",
     }
 
 
-def send(heading: str, items: list[dict]) -> None:
+def send(label: str, briefing: dict) -> None:
     if not (os.environ.get("KAKAO_REST_API_KEY") and os.environ.get("KAKAO_REFRESH_TOKEN")):
         print("[notify] KAKAO_REST_API_KEY / KAKAO_REFRESH_TOKEN 미설정 — 알림 생략", file=sys.stderr)
         return
     resp = requests.post(
         SEND_URL,
         headers={"Authorization": f"Bearer {_access_token()}"},
-        data={"template_object": json.dumps(_template(heading, items), ensure_ascii=False)},
+        data={"template_object": json.dumps(_template(label, briefing), ensure_ascii=False)},
         timeout=15,
     )
     resp.raise_for_status()

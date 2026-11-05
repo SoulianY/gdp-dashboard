@@ -1,7 +1,8 @@
 """브리핑 실행: python -m news.briefing {news|politics}
 
-news     : 정치 제외 카테고리. 직전 브리핑에 없던 기사가 있을 때만 알림.
-politics : 정치면. 하루 한 번 실행하며 매번 알림.
+news     : 정치 제외 카테고리. 직전 브리핑 이후 새 기사가 실린 이슈만 모아 브리핑하고,
+           새 기사가 없으면 브리핑·알림 모두 생략.
+politics : 정치면. 하루 한 번, 최근 24시간 이슈 전체로 브리핑.
 """
 
 import json
@@ -10,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from news import notify
+from news import brief, notify
 from news.collect import collect
 from news.sources import FEEDS, POLITICS, POLITICS_FEEDS
 
@@ -27,32 +28,30 @@ def load(kind: str) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
-def _links(items: list[dict]) -> set[str]:
-    return {a["link"] for item in items for a in item["articles"]}
-
-
 def run(kind: str) -> None:
     politics = {POLITICS: POLITICS_FEEDS}
-    items = collect(politics) if kind == "politics" else collect(FEEDS, exclude=politics)
-    now = datetime.now(KST)
-
     if kind == "politics":
-        new = items
-        heading = f"🏛 {now:%m/%d} 정치 브리핑 — {len(items)}건"
+        issues = collect(politics)
+        fresh, categories = issues, [POLITICS]
     else:
+        issues = collect(FEEDS, exclude=politics)
         previous = load(kind)
-        seen = _links(previous["items"]) if previous else set()
-        new = [item for item in items if not {a["link"] for a in item["articles"]} & seen]
-        heading = f"🗞 {now:%m/%d %H:%M} 브리핑 — 새 소식 {len(new)}건"
+        seen = set(previous["links"]) if previous else set()
+        fresh = [i for i in issues if any(a["link"] not in seen for a in i["articles"])]
+        categories = list(FEEDS)
 
+    links = sorted({a["link"] for i in issues for a in i["articles"]})
+    print(f"{kind}: 이슈 {len(issues)}건, 새 기사가 있는 이슈 {len(fresh)}건")
+    if not fresh:
+        return
+
+    now = datetime.now(KST)
+    snapshot = {"generated_at": now.isoformat(), **brief.write(fresh, categories), "links": links}
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    snapshot_path(kind).write_text(
-        json.dumps({"generated_at": now.isoformat(), "items": items}, ensure_ascii=False, indent=1),
-        encoding="utf-8",
-    )
-    print(f"{kind}: {len(items)}건 저장, 새 소식 {len(new)}건")
-    if new:
-        notify.send(heading, new)
+    snapshot_path(kind).write_text(json.dumps(snapshot, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    label = f"🏛 {now:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {now:%m/%d %H:%M} 뉴스 브리핑"
+    notify.send(label, snapshot)
 
 
 if __name__ == "__main__":

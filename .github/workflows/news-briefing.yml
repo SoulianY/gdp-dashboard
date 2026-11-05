@@ -31,6 +31,8 @@ jobs:
       - name: Run briefing
         env:
           KIND: ${{ github.event.schedule == '30 23 * * *' && 'politics' || inputs.kind || 'news' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
           KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
           KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
           KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
