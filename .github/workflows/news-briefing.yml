@@ -1,23 +1,46 @@
-name: news-briefing-notify
+name: news-briefing-publish
 
-# 예약 작업 세션이 data/news/<kind>.json 브리핑을 main에 푸시하면 카톡으로 알린다.
+# 예약 작업 세션이 data/news/<kind>.json 브리핑을 main에 푸시하면
+# 1) 브리핑 페이지(GitHub Pages)를 갱신하고 2) 카톡으로 알린다.
 on:
   push:
     branches: [main]
-    paths: ["data/news/news.json", "data/news/politics.json"]
+    paths: ["data/news/news.json", "data/news/politics.json", "site/**"]
   workflow_dispatch:
     inputs:
       kind:
+        description: 카톡을 보낼 브리핑 (비우면 페이지만 갱신)
         type: choice
-        options: [news, politics]
-        default: news
+        options: ["", news, politics]
+        default: ""
 
-permissions:
-  contents: read
+concurrency:
+  group: news-briefing-publish
+  cancel-in-progress: false
 
 jobs:
-  notify:
+  pages:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: cp data/news/*.json site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  notify:
+    needs: pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,13 +53,13 @@ jobs:
       - name: Send KakaoTalk
         env:
           KINDS: ${{ inputs.kind }}
+          EVENT: ${{ github.event_name }}
           KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
           KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
           KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
           KAKAO_REFRESH_TOKEN_FILE: ${{ runner.temp }}/kakao_refresh_token
-          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
         run: |
-          if [ -z "$KINDS" ]; then
+          if [ "$EVENT" = push ]; then
             KINDS=$(git diff --name-only HEAD~1 HEAD -- data/news | sed -n 's#data/news/\(news\|politics\)\.json#\1#p')
           fi
           for kind in $KINDS; do python -m news.notify "$kind"; done

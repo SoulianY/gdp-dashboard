@@ -140,7 +140,6 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
 
 # mypy
 .mypy_cache/
@@ -165,3 +164,6 @@ cython_debug/
 # 브리핑 작업 중간 파일 (예약 작업 세션 안에서만 쓰임)
 data/news/*.issues.json
 data/news/*.draft.json
+
+# 로컬 미리보기용 복사본
+site/*.json

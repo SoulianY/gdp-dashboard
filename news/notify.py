@@ -16,6 +16,7 @@ from news.briefing import load
 TOKEN_URL = "https://kauth.kakao.com/oauth/token"
 SEND_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
+PAGE_URL = "https://souliany.github.io/gdp-dashboard/"  # GitHub Pages 브리핑 페이지
 
 
 def _access_token() -> str:
@@ -39,9 +40,9 @@ def _access_token() -> str:
     return token["access_token"]
 
 
-def _template(label: str, briefing: dict) -> dict:
-    """핵심 요약 + '브리핑 보기' 버튼. 버튼은 대시보드(DASHBOARD_URL)로, 없으면 첫 꼭지 기사로 연결."""
-    url = os.environ.get("DASHBOARD_URL") or briefing["stories"][0]["sources"][0]["link"]
+def _template(kind: str, label: str, briefing: dict) -> dict:
+    """핵심 요약 + '브리핑 보기' 버튼(GitHub Pages 브리핑 페이지)."""
+    url = f"{PAGE_URL}#{kind}"
     text = f"{label}\n\n{briefing['overview']}"
     return {
         "object_type": "text",
@@ -51,14 +52,14 @@ def _template(label: str, briefing: dict) -> dict:
     }
 
 
-def send(label: str, briefing: dict) -> None:
+def send(kind: str, label: str, briefing: dict) -> None:
     if not (os.environ.get("KAKAO_REST_API_KEY") and os.environ.get("KAKAO_REFRESH_TOKEN")):
         print("[notify] KAKAO_REST_API_KEY / KAKAO_REFRESH_TOKEN 미설정 — 알림 생략", file=sys.stderr)
         return
     resp = requests.post(
         SEND_URL,
         headers={"Authorization": f"Bearer {_access_token()}"},
-        data={"template_object": json.dumps(_template(label, briefing), ensure_ascii=False)},
+        data={"template_object": json.dumps(_template(kind, label, briefing), ensure_ascii=False)},
         timeout=15,
     )
     resp.raise_for_status()
@@ -68,4 +69,4 @@ if __name__ == "__main__":
     kind = sys.argv[1]
     briefing = load(kind)
     at = datetime.fromisoformat(briefing["generated_at"])
-    send(f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑", briefing)
+    send(kind, f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑", briefing)
