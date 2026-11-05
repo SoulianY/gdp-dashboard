@@ -33,6 +33,12 @@ def _clean_text(html: str) -> str:
     return text[:SUMMARY_LEN] + ("…" if len(text) > SUMMARY_LEN else "")
 
 
+def _summary(html: str) -> str:
+    """피드 요약. 연합뉴스 속보처럼 '(' 한 글자만 오는 경우는 요약이 없는 것으로 본다."""
+    text = _clean_text(html)
+    return text if len(text) >= 10 else ""
+
+
 def _entry_image(entry) -> str | None:
     """피드 항목의 사진 URL. 동영상 미디어(연합뉴스의 유튜브 임베드 등)와 깨진 src는 건너뛴다."""
     candidates = [m.get("url") for m in entry.get("media_content", []) + entry.get("media_thumbnail", [])
@@ -84,7 +90,7 @@ def fetch_feed(category: str, source: str, url: str, since: datetime) -> list[di
             "source": source,
             "category": category,
             "published": published.isoformat(),
-            "summary": _clean_text(entry.get("summary", "")),
+            "summary": _summary(entry.get("summary", "")),
             "image": _entry_image(entry),
         })
     return articles
@@ -117,7 +123,7 @@ def cluster(articles: list[dict]) -> list[dict]:
             "category": Counter(a["category"] for a in members).most_common(1)[0][0],
             "outlets": len({a["source"] for a in members}),
             "latest": max(a["published"] for a in members),
-            "articles": [{k: a[k] for k in ("title", "link", "source")} for a in members],
+            "articles": [{k: a[k] for k in ("title", "link", "source", "summary")} for a in members],
         })
     clusters.sort(key=lambda c: (c["outlets"], len(c["articles"]), c["latest"]), reverse=True)
     return clusters
