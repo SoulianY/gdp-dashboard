@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>뉴스 브리핑</title>
+<style>
+  :root { --fg:#1a1a1a; --muted:#6b6b6b; --line:#e4e4e4; --accent:#d9480f; --bg:#fafafa; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+         color:var(--fg); background:var(--bg); line-height:1.6; }
+  main { max-width:760px; margin:0 auto; padding:16px; }
+  nav.tabs { display:flex; gap:20px; border-bottom:1px solid var(--line); margin-bottom:12px; }
+  nav.tabs a { padding:10px 0; color:var(--muted); text-decoration:none; font-weight:600; }
+  nav.tabs a.on { color:var(--accent); border-bottom:2px solid var(--accent); }
+  .meta { color:var(--muted); font-size:13px; }
+  .overview { background:#fff4ec; border-radius:10px; padding:14px 16px; margin:8px 0 14px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+  .chips button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:5px 12px; font-size:14px; cursor:pointer; }
+  .chips button.on { border-color:var(--accent); color:var(--accent); font-weight:600; }
+  article { background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:14px; }
+  article img { width:100%; max-height:260px; object-fit:cover; display:block; }
+  article .text { padding:14px 16px; }
+  article h2 { font-size:18px; margin:0 0 4px; line-height:1.4; }
+  article p { margin:8px 0; }
+  details summary { cursor:pointer; color:var(--muted); font-size:14px; }
+  details ul { padding-left:18px; margin:6px 0 0; font-size:14px; }
+  details a { color:var(--fg); }
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs">
+    <a href="#news" data-kind="news">🗞 뉴스 브리핑</a>
+    <a href="#politics" data-kind="politics">🏛 정치 브리핑</a>
+  </nav>
+  <div id="view"></div>
+</main>
+<script>
+const CATEGORIES = { news: ["전체", "경제", "사회", "국제", "IT·과학", "문화", "스포츠"], politics: [] };
+const view = document.getElementById("view");
+
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag);
+  Object.assign(node, attrs);
+  node.append(...children.filter(Boolean));
+  return node;
+}
+
+function story(s) {
+  const sources = el("ul", {}, ...s.sources.map(src =>
+    el("li", {}, el("a", { href: src.link, target: "_blank", rel: "noopener", textContent: src.title }), ` — ${src.source}`)));
+  const card = el("article", {},
+    s.image && el("img", { src: s.image, alt: "", loading: "lazy", onerror() { this.remove(); } }),
+    el("div", { className: "text" },
+      el("h2", { textContent: s.headline }),
+      el("div", { className: "meta", textContent: `${s.category} · ${s.outlets}개 언론사 보도` }),
+      el("p", { textContent: s.body }),
+      el("details", {}, el("summary", { textContent: `출처 기사 ${s.sources.length}건` }), sources)));
+  card.dataset.category = s.category;
+  return card;
+}
+
+async function render(kind) {
+  document.querySelectorAll("nav.tabs a").forEach(a => a.classList.toggle("on", a.dataset.kind === kind));
+  view.replaceChildren(el("p", { className: "meta", textContent: "불러오는 중…" }));
+  const res = await fetch(`${kind}.json`, { cache: "no-store" });
+  if (!res.ok) { view.replaceChildren(el("p", { textContent: "아직 브리핑이 없습니다." })); return; }
+  const b = await res.json();
+  const at = new Date(b.generated_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", dateStyle: "medium", timeStyle: "short" });
+  const list = el("div", {}, ...b.stories.map(story));
+  const chips = el("div", { className: "chips" }, ...CATEGORIES[kind].map((c, i) =>
+    el("button", { textContent: c, className: i ? "" : "on", onclick() {
+      chips.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === this));
+      list.querySelectorAll("article").forEach(a => { a.hidden = c !== "전체" && a.dataset.category !== c; });
+    } })));
+  view.replaceChildren(...[
+    el("div", { className: "meta", textContent: `${at} 브리핑` }),
+    el("div", { className: "overview", textContent: b.overview }),
+    CATEGORIES[kind].length && chips,
+    list].filter(Boolean));
+}
+
+const route = () => render(location.hash === "#politics" ? "politics" : "news");
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
