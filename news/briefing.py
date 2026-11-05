@@ -32,8 +32,8 @@ def _links(items: list[dict]) -> set[str]:
 
 
 def run(kind: str) -> None:
-    feeds = {POLITICS: POLITICS_FEEDS} if kind == "politics" else FEEDS
-    items = collect(feeds)
+    politics = {POLITICS: POLITICS_FEEDS}
+    items = collect(politics) if kind == "politics" else collect(FEEDS, exclude=politics)
     now = datetime.now(KST)
 
     if kind == "politics":

@@ -31,9 +31,18 @@ jobs:
       - name: Run briefing
         env:
           KIND: ${{ github.event.schedule == '30 23 * * *' && 'politics' || inputs.kind || 'news' }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          KAKAO_REFRESH_TOKEN_FILE: ${{ runner.temp }}/kakao_refresh_token
         run: python -m news.briefing "$KIND"
+      - name: Rotate Kakao refresh token
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -s "$RUNNER_TEMP/kakao_refresh_token" ]; then
+            gh secret set KAKAO_REFRESH_TOKEN < "$RUNNER_TEMP/kakao_refresh_token"
+          fi
       - name: Commit snapshot
         run: |
           git config user.name "github-actions[bot]"

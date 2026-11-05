@@ -6,6 +6,7 @@ import sys
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
+from functools import lru_cache
 
 import feedparser
 import requests
@@ -33,18 +34,35 @@ def _clean_text(html: str) -> str:
 
 
 def _entry_image(entry) -> str | None:
-    for key in ("media_content", "media_thumbnail"):
-        for media in entry.get(key, []):
-            if media.get("url"):
-                return media["url"]
-    for link in entry.get("links", []):
-        if link.get("rel") == "enclosure" and link.get("type", "").startswith("image"):
-            return link["href"]
+    """피드 항목의 사진 URL. 동영상 미디어(연합뉴스의 유튜브 임베드 등)와 깨진 src는 건너뛴다."""
+    candidates = [m.get("url") for m in entry.get("media_content", []) + entry.get("media_thumbnail", [])
+                  if m.get("medium", "image") == "image" and not m.get("type", "image").startswith("video")]
+    candidates += [e.get("href") for e in entry.get("enclosures", []) if e.get("type", "").startswith("image")]
     for content in [entry.get("summary", "")] + [c.get("value", "") for c in entry.get("content", [])]:
-        img = BeautifulSoup(content, "html.parser").find("img", src=True)
-        if img:
-            return img["src"]
-    return None
+        candidates += [img["src"] for img in BeautifulSoup(content, "html.parser").find_all("img", src=True)]
+    return next((url for url in candidates if url and url.startswith("http")), None)
+
+
+@lru_cache(maxsize=None)
+def _page_meta(link: str) -> dict:
+    """기사 페이지의 Open Graph·article 메타태그 (피드에 없는 날짜·사진·요약 보충용)."""
+    try:
+        soup = BeautifulSoup(_get(link).text, "html.parser")
+    except requests.RequestException:
+        return {}
+    def meta(key: str) -> str | None:
+        tag = soup.find("meta", property=key) or soup.find("meta", attrs={"name": key})
+        return tag.get("content") if tag else None
+    return {"published": meta("article:published_time"), "image": meta("og:image"),
+            "description": meta("og:description")}
+
+
+def _published(entry) -> datetime | None:
+    parsed = entry.get("published_parsed") or entry.get("updated_parsed")
+    if parsed:
+        return datetime.fromtimestamp(calendar.timegm(parsed), timezone.utc)
+    value = _page_meta(entry["link"]).get("published")  # 한겨레 RSS는 날짜가 없다
+    return datetime.fromisoformat(value) if value else None
 
 
 def fetch_feed(category: str, source: str, url: str, since: datetime) -> list[dict]:
@@ -55,11 +73,10 @@ def fetch_feed(category: str, source: str, url: str, since: datetime) -> list[di
         return []
     articles = []
     for entry in feed.entries:
-        parsed = entry.get("published_parsed") or entry.get("updated_parsed")
-        if not parsed or not entry.get("link"):
+        if not entry.get("link"):
             continue
-        published = datetime.fromtimestamp(calendar.timegm(parsed), timezone.utc)
-        if published < since:
+        published = _published(entry)
+        if not published or published < since:
             continue
         articles.append({
             "title": _clean_text(entry.get("title", "")),
@@ -107,23 +124,29 @@ def cluster(articles: list[dict]) -> list[dict]:
 
 
 def _fill_from_page(item: dict) -> None:
-    """피드에 사진·요약이 없으면 기사 페이지의 Open Graph 메타태그로 채운다."""
-    try:
-        soup = BeautifulSoup(_get(item["link"]).text, "html.parser")
-    except requests.RequestException:
-        return
-    def og(prop: str) -> str | None:
-        tag = soup.find("meta", property=f"og:{prop}")
-        return tag.get("content") if tag else None
-    item["image"] = item["image"] or og("image")
-    item["summary"] = item["summary"] or _clean_text(og("description") or "")
+    meta = _page_meta(item["link"])
+    item["image"] = item["image"] or meta.get("image")
+    item["summary"] = item["summary"] or _clean_text(meta.get("description") or "")
 
 
-def collect(feeds: dict[str, list[tuple[str, str]]]) -> list[dict]:
-    since = datetime.now(timezone.utc) - WINDOW
+def _fetch_all(pool: ThreadPoolExecutor, feeds: dict[str, list[tuple[str, str]]], since: datetime) -> list[dict]:
+    """모든 피드를 받아 링크 기준으로 중복 제거 (연합뉴스는 한 기사를 여러 카테고리에 싣는다)."""
     jobs = [(cat, src, url) for cat, pairs in feeds.items() for src, url in pairs]
+    unique: dict[str, dict] = {}
+    for batch in pool.map(lambda j: fetch_feed(*j, since), jobs):
+        for article in batch:
+            unique.setdefault(article["link"], article)
+    return list(unique.values())
+
+
+def collect(feeds: dict[str, list[tuple[str, str]]], exclude: dict[str, list[tuple[str, str]]] | None = None) -> list[dict]:
+    """exclude 피드에 실린 기사는 뺀다 (일반 브리핑에서 정치 기사 제외)."""
+    since = datetime.now(timezone.utc) - WINDOW
     with ThreadPoolExecutor(max_workers=8) as pool:
-        results = pool.map(lambda j: fetch_feed(*j, since), jobs)
-        clusters = cluster([a for batch in results for a in batch])
+        articles = _fetch_all(pool, feeds, since)
+        if exclude:
+            excluded = {a["link"] for a in _fetch_all(pool, exclude, since)}
+            articles = [a for a in articles if a["link"] not in excluded]
+        clusters = cluster(articles)
         list(pool.map(_fill_from_page, [c for c in clusters if not (c["image"] and c["summary"])]))
     return clusters
