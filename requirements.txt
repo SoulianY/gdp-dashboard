@@ -2,4 +2,3 @@ streamlit>=1.40
 feedparser
 requests
 beautifulsoup4
-anthropic

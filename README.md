@@ -1,12 +1,20 @@
 # 🗞 뉴스 브리핑
 
 국내 주요 언론사 RSS에서 최근 24시간 뉴스를 모아 같은 사건끼리 묶은 뒤,
-Claude가 여러 보도를 종합해 꼭지별 브리핑 원고를 쓰는 Streamlit 앱입니다.
+Claude Code 예약 작업 세션이 여러 보도를 읽고 종합해 꼭지별 브리핑을 쓰는 Streamlit 앱입니다.
+API 키 없이 Claude 구독으로 돌아갑니다.
 
-- **뉴스 브리핑**: 경제·사회·국제·IT·과학·문화·스포츠 (정치 제외). KST 09·12·15·18·21시.
-  직전 브리핑 이후 새 기사가 실린 이슈만 모아 브리핑하고, 새 기사가 없으면 브리핑·알림 모두 생략.
-- **정치 브리핑**: 매일 KST 08:30, 최근 24시간 정치 이슈 전체로 브리핑.
-- 카카오톡으로 핵심 요약과 '브리핑 보기' 버튼 전송.
+- **뉴스 브리핑**: 경제·사회·국제·IT·과학·문화·스포츠 (정치 제외). 3시간마다(09~21시).
+  직전 브리핑 이후 새 기사가 실린 이슈만 브리핑하고, 새 기사가 없으면 브리핑·알림 모두 생략.
+- **정치 브리핑**: 매일 아침, 최근 24시간 정치 이슈 전체로 브리핑.
+- 브리핑이 main에 푸시되면 GitHub Actions가 카카오톡으로 핵심 요약과 '브리핑 보기' 버튼 전송.
+
+## 흐름
+
+1. Claude Code 예약 작업이 정해진 시각에 새 세션을 띄움
+2. 세션이 [`news/GUIDE.md`](news/GUIDE.md)를 따라 `python -m news.briefing prepare <kind>` → 원고 작성 → `publish`
+3. 세션이 `data/news/<kind>.json`을 main에 푸시
+4. `.github/workflows/news-briefing.yml`이 카톡 발송
 
 ## 구성
 
@@ -14,18 +22,13 @@ Claude가 여러 보도를 종합해 꼭지별 브리핑 원고를 쓰는 Stream
 | --- | --- |
 | `news/sources.py` | 카테고리별 RSS 피드 목록 |
 | `news/collect.py` | 수집 · 24시간 필터 · 유사 제목 묶기 · 이슈 순 정렬 · 사진/요약 보강(og 태그) |
-| `news/brief.py` | Claude로 브리핑 원고 작성 (꼭지 제목·본문·근거 이슈) |
-| `news/briefing.py` | 실행 진입점: 새 기사 판별 → 브리핑 → 저장(`data/news/*.json`) → 알림 |
-| `news/notify.py` | 카카오톡 '나에게 보내기' 알림 |
-| `.github/workflows/news-briefing.yml` | 스케줄 실행 후 스냅샷 커밋 |
+| `news/GUIDE.md` | 예약 작업 세션이 따르는 절차와 작성 원칙 |
+| `news/briefing.py` | `prepare`: 수집·새 기사 판별 / `publish`: 원고 검증·사진·출처 붙여 저장 |
+| `news/notify.py` | 카카오톡 '나에게 보내기' 알림 (`python -m news.notify <kind>`) |
+| `.github/workflows/news-briefing.yml` | 브리핑 푸시 시 카톡 발송 |
 | `streamlit_app.py` | 화면 |
 
 ## 설정
-
-### Claude API
-
-[Claude Console](https://platform.claude.com)에서 API 키를 발급해 저장소 Secret `ANTHROPIC_API_KEY`로 등록합니다.
-브리핑 1회에 약 1.5만 토큰 입력 · 수천 토큰 출력(Claude Opus 5.5 기준 회당 약 $0.1~0.2)이 듭니다.
 
 ### 대시보드 주소
 
@@ -67,12 +70,12 @@ Streamlit Community Cloud 등에 앱을 배포했다면 저장소 **Settings →
 리프레시 토큰은 2개월마다 만료되며, 만료 1개월 전부터 매 실행 시 새 토큰을 받아 `GH_PAT`로 Secret을 자동 교체합니다.
 `GH_PAT`가 없으면 2개월마다 6~7번을 다시 해서 직접 교체해야 합니다.
 
-GitHub Actions 탭에서 `news-briefing`을 수동 실행(workflow_dispatch)하면 바로 첫 스냅샷이 생성됩니다.
-
 ## 로컬 실행
 
 ```
 pip install -r requirements.txt
-python -m news.briefing news       # 또는 politics
+python -m news.briefing prepare news     # data/news/news.issues.json 생성
+# GUIDE.md 형식으로 data/news/news.draft.json 작성
+python -m news.briefing publish news
 streamlit run streamlit_app.py
 ```

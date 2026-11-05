@@ -1,4 +1,4 @@
-"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다.
+"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics}
 
 리프레시 토큰은 유효기간 2개월이고, 만료 1개월 전부터는 갱신 요청 시 새 토큰이 함께 온다.
 새 토큰은 KAKAO_REFRESH_TOKEN_FILE 경로에 저장하고, 워크플로가 이를 저장소 Secret에 다시 써 넣는다.
@@ -7,8 +7,11 @@
 import json
 import os
 import sys
+from datetime import datetime
 
 import requests
+
+from news.briefing import load
 
 TOKEN_URL = "https://kauth.kakao.com/oauth/token"
 SEND_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
@@ -59,3 +62,10 @@ def send(label: str, briefing: dict) -> None:
         timeout=15,
     )
     resp.raise_for_status()
+
+
+if __name__ == "__main__":
+    kind = sys.argv[1]
+    briefing = load(kind)
+    at = datetime.fromisoformat(briefing["generated_at"])
+    send(f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑", briefing)
