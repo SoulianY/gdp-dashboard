@@ -3,6 +3,7 @@ package com.souliany.notilog
 import android.app.Notification
 import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
+import android.os.Process
 import android.os.UserHandle
 import android.service.notification.NotificationListenerService
 import android.service.notification.NotificationListenerService.RankingMap
@@ -30,10 +31,13 @@ class NotiListener : NotificationListenerService() {
 
     override fun onListenerConnected() {
         UploadWorker.schedule(this)
+        // 지금 알림창에 있는 앱도 앱별 스위치 목록에 바로 보이게 한다.
+        activeNotifications.filter { it.packageName != packageName }.forEach(::markSeen)
     }
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         if (sbn.packageName == packageName) return
+        markSeen(sbn)
         record(sbn)
         if (shouldHide(sbn)) cancelNotification(sbn.key)
     }
@@ -64,6 +68,11 @@ class NotiListener : NotificationListenerService() {
 
         outbox.append(record.toString())
         UploadWorker.soon(this)
+    }
+
+    private fun markSeen(sbn: StatusBarNotification) {
+        val work = if (sbn.user != Process.myUserHandle()) " (업무)" else ""
+        settings.markSeen(sbn.packageName, appLabel(sbn.packageName, sbn.user) + work, sbn.postTime)
     }
 
     private fun shouldHide(sbn: StatusBarNotification): Boolean =

@@ -30,10 +30,18 @@
             android:layout_marginTop="24dp"
             android:text="예외 앱 말고는 알림 숨기기 (기록은 계속)" />
 
-        <Button
-            android:id="@+id/exempt"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="앱별 알림 띄우기 (최근 알림 순) · 켠 앱은 숨기지 않음"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
         <EditText
             android:id="@+id/repo"
