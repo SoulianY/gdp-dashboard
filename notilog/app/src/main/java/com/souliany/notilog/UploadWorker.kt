@@ -36,14 +36,19 @@ class UploadWorker(context: Context, params: WorkerParameters) : CoroutineWorker
         val settings = Settings(applicationContext)
         if (!settings.configured) return Result.success()
 
-        for (batch in Outbox(applicationContext).seal()) {
-            val code = put(settings, batch.name.removeSuffix(".jsonl").toLong(), batch.readBytes())
-            // 422: 같은 경로가 이미 있음 = 앞선 시도가 올라갔지만 응답만 못 받은 경우
-            if (code !in 200..299 && code != 422) {
-                settings.lastResult = "${LocalDateTime.now().withNano(0)} 실패 (HTTP $code)"
-                return Result.retry()
+        // 올리는 동안 새로 온 알림까지 비울 때까지 반복한다.
+        val outbox = Outbox(applicationContext)
+        while (true) {
+            val batches = outbox.seal().ifEmpty { break }
+            for (batch in batches) {
+                val code = put(settings, batch.name.removeSuffix(".jsonl").toLong(), batch.readBytes())
+                // 422: 같은 경로가 이미 있음 = 앞선 시도가 올라갔지만 응답만 못 받은 경우
+                if (code !in 200..299 && code != 422) {
+                    settings.lastResult = "${LocalDateTime.now().withNano(0)} 실패 (HTTP $code)"
+                    return Result.retry()
+                }
+                batch.delete()
             }
-            batch.delete()
         }
         settings.lastResult = "${LocalDateTime.now().withNano(0)} 성공"
         return Result.success()
@@ -74,6 +79,19 @@ class UploadWorker(context: Context, params: WorkerParameters) : CoroutineWorker
         private val PATH = DateTimeFormatter.ofPattern("'inbox/'yyyy-MM-dd'/'HHmmss-SSS'.jsonl'")
         private val online = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
 
+        /** 알림이 오면 3분 뒤 올린다. 그 사이 온 알림은 같은 묶음으로 간다. */
+        fun soon(context: Context) {
+            WorkManager.getInstance(context).enqueueUniqueWork(
+                "upload-soon",
+                ExistingWorkPolicy.KEEP,
+                OneTimeWorkRequestBuilder<UploadWorker>()
+                    .setInitialDelay(3, TimeUnit.MINUTES)
+                    .setConstraints(online)
+                    .build(),
+            )
+        }
+
+        /** 실패한 묶음 재시도와 빠진 알림을 챙기는 안전망. */
         fun schedule(context: Context) {
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 "upload",

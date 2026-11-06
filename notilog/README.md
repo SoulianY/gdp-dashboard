@@ -4,7 +4,7 @@
 Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 분석한다.
 
 ```
-알림 → NotiListener → Outbox(pending.jsonl) → 15분마다 UploadWorker → <비공개 저장소>/inbox/<날짜>/<시각>.jsonl
+알림 → NotiListener → Outbox(pending.jsonl) → 3분 뒤 UploadWorker → <비공개 저장소>/inbox/<날짜>/<시각>.jsonl
 ```
 
 알림 내용(메시지, 인증번호, 금융 알림 등)이 그대로 담기므로 **이 공개 저장소가 아닌 별도 비공개 저장소**에 올린다.
@@ -13,9 +13,9 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 
 | 파일 | 역할 |
 | --- | --- |
-| `NotiListener.kt` | 시스템 알림 리스너. 진행 중 알림·그룹 요약·내용 없는 알림·같은 내용 재게시를 거르고 기록 |
+| `NotiListener.kt` | 시스템 알림 리스너. 진행 중 알림·미디어 재생 컨트롤·그룹 요약·내용 없는 알림·같은 내용 재게시를 거르고 기록 |
 | `Outbox.kt` | 업로드 전 로컬 보관. 업로드 성공 전까지 지우지 않음 |
-| `UploadWorker.kt` | WorkManager 15분 주기(네트워크 연결 시) GitHub Contents API 업로드 |
+| `UploadWorker.kt` | 알림이 오면 3분 뒤(그 사이 알림은 한 묶음으로) GitHub Contents API 업로드. 실패분은 15분 주기 작업이 다시 올림 |
 | `Settings.kt` | 업로드 대상 저장소·토큰 |
 | `MainActivity.kt` | 권한 상태·대기 건수·마지막 업로드 표시, 설정 입력 |
 

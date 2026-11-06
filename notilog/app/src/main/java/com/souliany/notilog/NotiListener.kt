@@ -28,6 +28,7 @@ class NotiListener : NotificationListenerService() {
         val n = sbn.notification
         if (sbn.packageName == packageName) return
         if (n.flags and (Notification.FLAG_ONGOING_EVENT or Notification.FLAG_GROUP_SUMMARY) != 0) return
+        if (n.category == Notification.CATEGORY_TRANSPORT) return  // 음악·영상 재생 컨트롤
 
         val x = n.extras
         val title = x.getCharSequence(Notification.EXTRA_TITLE)?.toString().orEmpty()
@@ -49,6 +50,7 @@ class NotiListener : NotificationListenerService() {
         n.category?.let { record.put("category", it) }
 
         outbox.append(record.toString())
+        UploadWorker.soon(this)
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification) {
