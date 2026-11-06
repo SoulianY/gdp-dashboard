@@ -46,6 +46,11 @@ class Settings(context: Context) {
         prefs.edit().putString("seen", o.toString()).apply()
     }
 
+    fun forget(pkg: String) = synchronized(this) {
+        val o = JSONObject(prefs.getString("seen", "{}")!!)
+        if (o.remove(pkg) != null) prefs.edit().putString("seen", o.toString()).apply()
+    }
+
     fun setShown(pkg: String, shown: Boolean) {
         hidden = if (shown) hidden - pkg else hidden + pkg
     }

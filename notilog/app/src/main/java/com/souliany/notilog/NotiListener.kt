@@ -68,7 +68,15 @@ class NotiListener : NotificationListenerService() {
         UploadWorker.soon(this)
     }
 
+    /**
+     * 앱별 스위치 목록에 올린다. 상시 알림(걸음 수·실행 중 표시 등 포그라운드 서비스)은 안드로이드가
+     * 다른 앱이 지우는 것을 막아 숨길 수 없으므로 목록에서 뺀다(끄기로 해 둔 앱은 다시 켤 수 있게 남김).
+     */
     private fun markSeen(sbn: StatusBarNotification) {
+        if (!sbn.isClearable) {
+            if (sbn.packageName !in settings.hidden) settings.forget(sbn.packageName)
+            return
+        }
         val work = if (sbn.user != Process.myUserHandle()) " (업무)" else ""
         settings.markSeen(sbn.packageName, appLabel(sbn.packageName, sbn.user) + work, sbn.postTime)
     }
