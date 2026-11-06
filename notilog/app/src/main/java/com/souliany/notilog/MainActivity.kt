@@ -23,10 +23,6 @@ class MainActivity : Activity() {
         val repo = findViewById<EditText>(R.id.repo).apply { setText(settings.repo) }
         val token = findViewById<EditText>(R.id.token).apply { setText(settings.token) }
 
-        findViewById<Switch>(R.id.hide).apply {
-            isChecked = settings.hideOthers
-            setOnCheckedChangeListener { _, on -> settings.hideOthers = on }
-        }
         findViewById<Button>(R.id.grant).setOnClickListener {
             startActivity(Intent(ACTION_NOTIFICATION_LISTENER_SETTINGS))
         }
@@ -44,7 +40,7 @@ class MainActivity : Activity() {
         render()
     }
 
-    /** 알림을 보낸 앱마다 '알림 띄우기' 스위치. 켠 앱은 숨기지 않는다(예외). */
+    /** 알림을 보낸 앱마다 '알림 띄우기' 스위치. 끈 앱은 기록만 하고 알림창에서 숨긴다. */
     private fun renderApps() {
         val list = findViewById<LinearLayout>(R.id.apps)
         list.removeAllViews()
@@ -53,13 +49,13 @@ class MainActivity : Activity() {
             list.addView(TextView(this).apply { text = "알림이 오면 여기에 앱이 나타납니다." })
             return
         }
-        val exempt = settings.exempt
+        val hidden = settings.hidden
         for (app in apps) {
             list.addView(Switch(this).apply {
                 text = "${app.label}  ·  ${DateUtils.getRelativeTimeSpanString(app.last)}"
-                isChecked = app.pkg in exempt
+                isChecked = app.pkg !in hidden
                 setPadding(0, 12, 0, 12)
-                setOnCheckedChangeListener { _, on -> settings.setExempt(app.pkg, on) }
+                setOnCheckedChangeListener { _, on -> settings.setShown(app.pkg, on) }
             })
         }
     }

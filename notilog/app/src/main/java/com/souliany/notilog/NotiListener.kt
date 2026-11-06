@@ -14,7 +14,7 @@ import java.time.ZoneId
 
 /**
  * 시스템이 모든 앱의 알림을 넘겨주는 서비스. 사람이 읽을 알림만 골라 Outbox에 기록하고,
- * '다른 앱 알림 숨기기'가 켜져 있으면 예외 앱이 아닌 알림을 알림창에서 지운다.
+ * 사용자가 끈 앱의 알림은 기록한 뒤 알림창에서 지운다.
  */
 class NotiListener : NotificationListenerService() {
     private lateinit var outbox: Outbox
@@ -76,10 +76,8 @@ class NotiListener : NotificationListenerService() {
     }
 
     private fun shouldHide(sbn: StatusBarNotification): Boolean =
-        settings.hideOthers &&
+        sbn.packageName in settings.hidden &&
             sbn.isClearable &&
-            sbn.packageName !in settings.exempt &&
-            sbn.packageName !in SYSTEM &&
             sbn.notification.category !in KEEP_CATEGORIES
 
     override fun onNotificationRemoved(sbn: StatusBarNotification, rankingMap: RankingMap, reason: Int) {
@@ -96,7 +94,6 @@ class NotiListener : NotificationListenerService() {
     }
 
     private companion object {
-        val SYSTEM = setOf("android", "com.android.systemui")
         val KEEP_CATEGORIES = setOf(
             Notification.CATEGORY_CALL,
             Notification.CATEGORY_ALARM,
