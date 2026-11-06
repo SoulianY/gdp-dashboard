@@ -29,6 +29,7 @@ API 키 없이 Claude 구독으로 돌아갑니다.
 | `news/notify.py` | 카카오톡 '나에게 보내기' 알림 (`python -m news.notify <kind>`) |
 | `site/index.html` | 브리핑 페이지 (배포 시 `data/news/*.json`을 함께 올려 읽음) |
 | `.github/workflows/news-briefing.yml` | 브리핑 푸시 시 페이지 배포 → 카톡 발송 |
+| `notilog/` | 폰 알림을 비공개 저장소로 모으는 개인용 Android 앱 ([README](notilog/README.md)) |
 
 ## 설정
 
