@@ -1,4 +1,7 @@
-"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics}
+"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics|mail}
+
+mail은 Gmail 브리핑 예약 작업이 workflow_dispatch로 부른다. 메일 내용은 공개 저장소에 두지 않으므로
+알림에는 날짜와 비공개 브리핑 페이지(claude.ai 아티팩트) 링크만 담는다.
 
 리프레시 토큰은 유효기간 2개월이고, 만료 1개월 전부터는 갱신 요청 시 새 토큰이 함께 온다.
 새 토큰은 KAKAO_REFRESH_TOKEN_FILE 경로에 저장하고, 워크플로가 이를 저장소 Secret에 다시 써 넣는다.
@@ -11,12 +14,13 @@ from datetime import datetime
 
 import requests
 
-from news.briefing import load
+from news.briefing import KST, load
 
 TOKEN_URL = "https://kauth.kakao.com/oauth/token"
 SEND_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
 PAGE_URL = "https://souliany.github.io/gdp-dashboard/"  # GitHub Pages 브리핑 페이지
+MAIL_URL = "https://claude.ai/artifact/Xurmt7kxsXpchkdZJN4SZj"  # Gmail 브리핑 페이지 (비공개)
 
 
 def _access_token() -> str:
@@ -52,14 +56,23 @@ def _template(kind: str, label: str, briefing: dict) -> dict:
     }
 
 
-def send(kind: str, label: str, briefing: dict) -> None:
+def _mail_template() -> dict:
+    return {
+        "object_type": "text",
+        "text": f"📬 {datetime.now(KST):%m/%d} 메일 브리핑\n\n오늘 메일 요약과 회신 초안을 확인하세요.",
+        "link": {"web_url": MAIL_URL, "mobile_web_url": MAIL_URL},
+        "button_title": "브리핑 보기",
+    }
+
+
+def send(template: dict) -> None:
     if not (os.environ.get("KAKAO_REST_API_KEY") and os.environ.get("KAKAO_REFRESH_TOKEN")):
         print("[notify] KAKAO_REST_API_KEY / KAKAO_REFRESH_TOKEN 미설정 — 알림 생략", file=sys.stderr)
         return
     resp = requests.post(
         SEND_URL,
         headers={"Authorization": f"Bearer {_access_token()}"},
-        data={"template_object": json.dumps(_template(kind, label, briefing), ensure_ascii=False)},
+        data={"template_object": json.dumps(template, ensure_ascii=False)},
         timeout=15,
     )
     resp.raise_for_status()
@@ -67,6 +80,10 @@ def send(kind: str, label: str, briefing: dict) -> None:
 
 if __name__ == "__main__":
     kind = sys.argv[1]
-    briefing = load(kind)
-    at = datetime.fromisoformat(briefing["generated_at"])
-    send(kind, f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑", briefing)
+    if kind == "mail":
+        send(_mail_template())
+    else:
+        briefing = load(kind)
+        at = datetime.fromisoformat(briefing["generated_at"])
+        label = f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑"
+        send(_template(kind, label, briefing))

@@ -8,6 +8,7 @@ API 키 없이 Claude 구독으로 돌아갑니다.
 - **뉴스 브리핑**: 경제·사회·국제·IT·과학·문화·스포츠 (정치 제외). 3시간마다(09~21시).
   직전 브리핑 이후 새 기사가 실린 이슈만 브리핑하고, 새 기사가 없으면 브리핑·알림 모두 생략.
 - **정치 브리핑**: 매일 아침, 최근 24시간 정치 이슈 전체로 브리핑.
+- **메일 브리핑**: Gmail 브리핑 예약 작업이 `workflow_dispatch`(kind=mail)로 카톡만 보냄. 메일 내용은 이 저장소에 올리지 않고, 알림은 비공개 브리핑 페이지(claude.ai) 링크만 담음.
 - 브리핑이 main에 푸시되면 GitHub Actions가 페이지를 갱신하고, 카카오톡으로 핵심 요약과 '브리핑 보기' 버튼을 보냄.
 
 ## 흐름
@@ -45,7 +46,7 @@ API 키 없이 Claude 구독으로 돌아갑니다.
 3. **카카오 로그인** 활성화, Redirect URI에 `https://localhost` 등록
 4. **동의항목**에서 *카카오톡 메시지 전송(talk_message)* 을 선택 동의로 설정
 5. **플랫폼 → Web 사이트 도메인**에 기사 링크 도메인 등록 (등록 안 된 도메인 링크는 메시지에서 열리지 않음)
-   `https://souliany.github.io`(브리핑 페이지), `https://www.yna.co.kr`, `https://www.hani.co.kr`, `https://www.khan.co.kr`, `https://news.sbs.co.kr`
+   `https://souliany.github.io`(브리핑 페이지), `https://claude.ai`(메일 브리핑 페이지), `https://www.yna.co.kr`, `https://www.hani.co.kr`, `https://www.khan.co.kr`, `https://news.sbs.co.kr`
 6. 브라우저로 아래 주소 접속 → 로그인·동의 → 이동된 `https://localhost/?code=…` 주소의 `code` 값 복사
    ```
    https://kauth.kakao.com/oauth/authorize?client_id=<REST_API_키>&redirect_uri=https://localhost&response_type=code&scope=talk_message
