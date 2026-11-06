@@ -1,7 +1,9 @@
 package com.souliany.notilog
 
 import android.app.Notification
+import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
+import android.os.UserHandle
 import android.service.notification.NotificationListenerService
 import android.service.notification.NotificationListenerService.RankingMap
 import android.service.notification.StatusBarNotification
@@ -52,7 +54,7 @@ class NotiListener : NotificationListenerService() {
 
         val record = JSONObject()
             .put("time", Instant.ofEpochMilli(sbn.postTime).atZone(ZoneId.systemDefault()).toOffsetDateTime().toString())
-            .put("app", appLabel(sbn.packageName))
+            .put("app", appLabel(sbn.packageName, sbn.user))
             .put("package", sbn.packageName)
             .put("title", title)
             .put("text", text)
@@ -76,8 +78,10 @@ class NotiListener : NotificationListenerService() {
         if (reason != REASON_LISTENER_CANCEL) lastSeen.remove(sbn.key)
     }
 
-    private fun appLabel(pkg: String): String = try {
-        packageManager.getApplicationLabel(packageManager.getApplicationInfo(pkg, 0)).toString()
+    /** 업무 프로필 앱(회사 Teams 등)도 이름을 읽도록 알림을 보낸 사용자 프로필 기준으로 찾는다. */
+    private fun appLabel(pkg: String, user: UserHandle): String = try {
+        val info = getSystemService(LauncherApps::class.java).getApplicationInfo(pkg, 0, user)
+        packageManager.getApplicationLabel(info).toString()
     } catch (e: PackageManager.NameNotFoundException) {
         pkg
     }

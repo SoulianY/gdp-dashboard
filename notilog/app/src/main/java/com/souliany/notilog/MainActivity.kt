@@ -3,7 +3,9 @@ package com.souliany.notilog
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.LauncherApps
 import android.os.Bundle
+import android.os.Process
 import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
 import android.widget.Button
 import android.widget.EditText
@@ -45,11 +47,13 @@ class MainActivity : Activity() {
         render()
     }
 
-    /** 런처에 보이는 앱 중 알림을 그대로 띄울 앱을 고른다. */
+    /** 런처에 보이는 앱(업무 프로필 포함) 중 알림을 그대로 띄울 앱을 고른다. */
     private fun pickExempt() {
-        val launcher = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
-        val apps = packageManager.queryIntentActivities(launcher, 0)
-            .map { it.activityInfo.packageName to it.loadLabel(packageManager).toString() }
+        val launcher = getSystemService(LauncherApps::class.java)
+        val me = Process.myUserHandle()
+        val apps = launcher.profiles
+            .flatMap { user -> launcher.getActivityList(null, user).map { it to (user != me) } }
+            .map { (a, work) -> a.applicationInfo.packageName to a.label.toString() + if (work) " (업무)" else "" }
             .filter { it.first != packageName }
             .distinctBy { it.first }
             .sortedWith(compareBy({ it.first !in settings.exempt }, { it.second }))
