@@ -48,9 +48,7 @@ class NotiListener : NotificationListenerService() {
         if (n.category == Notification.CATEGORY_TRANSPORT) return  // 음악·영상 재생 컨트롤
 
         val x = n.extras
-        val title = x.getCharSequence(Notification.EXTRA_TITLE)?.toString().orEmpty()
-        val text = (x.getCharSequence(Notification.EXTRA_BIG_TEXT)
-            ?: x.getCharSequence(Notification.EXTRA_TEXT))?.toString().orEmpty()
+        val (title, text) = titleText(sbn)
         if (title.isBlank() && text.isBlank()) return
 
         val hash = (title + "\u0000" + text).hashCode()
@@ -75,10 +73,22 @@ class NotiListener : NotificationListenerService() {
         settings.markSeen(sbn.packageName, appLabel(sbn.packageName, sbn.user) + work, sbn.postTime)
     }
 
-    private fun shouldHide(sbn: StatusBarNotification): Boolean =
-        sbn.packageName in settings.hidden &&
-            sbn.isClearable &&
-            sbn.notification.category !in KEEP_CATEGORIES
+    private fun titleText(sbn: StatusBarNotification): Pair<String, String> {
+        val x = sbn.notification.extras
+        val title = x.getCharSequence(Notification.EXTRA_TITLE)?.toString().orEmpty()
+        val text = (x.getCharSequence(Notification.EXTRA_BIG_TEXT)
+            ?: x.getCharSequence(Notification.EXTRA_TEXT))?.toString().orEmpty()
+        return title to text
+    }
+
+    /** 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있으면 숨긴다. 통화·알람·재생 등은 건드리지 않는다. */
+    private fun shouldHide(sbn: StatusBarNotification): Boolean {
+        if (!sbn.isClearable || sbn.notification.category in KEEP_CATEGORIES) return false
+        if (sbn.packageName in settings.hidden) return true
+        if (sbn.user != Process.myUserHandle()) return false  // 업무 프로필은 단어 필터 제외
+        val (title, text) = titleText(sbn)
+        return settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }
+    }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification, rankingMap: RankingMap, reason: Int) {
         // 내가 숨긴 알림은 기억해 둬야 같은 내용 재게시를 다시 기록하지 않는다.

@@ -24,6 +24,13 @@ class Settings(context: Context) {
         get() = prefs.getStringSet("hidden", emptySet())!!
         set(v) = prefs.edit().putStringSet("hidden", v).apply()
 
+    /** 제목·내용에 들어 있으면 알림을 숨길 단어(쉼표로 구분). 업무 프로필 앱에는 적용하지 않는다. */
+    var blockWords: String
+        get() = prefs.getString("blockWords", "(광고)").orEmpty()
+        set(v) = prefs.edit().putString("blockWords", v).apply()
+
+    fun blockWordList(): List<String> = blockWords.split(',').map { it.trim() }.filter { it.isNotEmpty() }
+
     /** 알림을 보낸 적 있는 앱: 패키지 -> (이름, 마지막 알림 시각). 앱별 스위치 목록에 쓴다. */
     fun seen(): List<SeenApp> {
         val o = JSONObject(prefs.getString("seen", "{}")!!)

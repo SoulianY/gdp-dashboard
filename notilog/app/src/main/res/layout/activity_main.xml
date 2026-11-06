@@ -36,6 +36,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="숨길 단어 (쉼표로 구분) · 제목·내용에 있으면 숨김, 업무 프로필 앱은 제외"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(광고), 쿠폰, 이벤트"
+            android:inputType="textMultiLine" />
+
         <EditText
             android:id="@+id/repo"
             android:layout_width="match_parent"
