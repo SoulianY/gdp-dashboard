@@ -18,5 +18,15 @@ class Settings(context: Context) {
         get() = prefs.getString("lastResult", "").orEmpty()
         set(v) = prefs.edit().putString("lastResult", v).apply()
 
+    /** 예외 앱이 아닌 알림을 기록 후 알림창에서 지운다. */
+    var hideOthers: Boolean
+        get() = prefs.getBoolean("hideOthers", false)
+        set(v) = prefs.edit().putBoolean("hideOthers", v).apply()
+
+    /** 알림을 그대로 띄울 앱(패키지 이름). */
+    var exempt: Set<String>
+        get() = prefs.getStringSet("exempt", emptySet())!!
+        set(v) = prefs.edit().putStringSet("exempt", v).apply()
+
     val configured get() = repo.contains('/') && token.isNotEmpty()
 }
