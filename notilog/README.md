@@ -58,12 +58,13 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 
 ## 빌드
 
-JDK 17+와 Android SDK(platform 37)가 필요하다.
+JDK 17+와 Android SDK(platform 37)가 필요하다. 폰에 설치된 앱과 같은 키로 서명해야 지우지 않고 덮어 설치된다.
+키 경로는 `-Palarmlog.keystore=<경로>`로 준다(기본값: 이 저장소 옆 push-inbox 클론의 `signing/alarmlog.keystore`).
 
 ```
 cd notilog
 echo "sdk.dir=$ANDROID_HOME" > local.properties
-./gradlew assembleDebug     # app/build/outputs/apk/debug/app-debug.apk
+./gradlew dist     # dist/AlarmLog_<버전>.apk
 ```
 
-디버그 키로 서명되므로 다른 PC에서 빌드한 APK로는 덮어 설치가 안 된다 (지우고 다시 설치).
+버전은 `app/build.gradle.kts`의 `versionCode`(1씩 올림)와 `versionName`.

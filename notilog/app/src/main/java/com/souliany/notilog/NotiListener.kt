@@ -4,7 +4,6 @@ import android.app.Notification
 import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.Bundle
 import android.os.Process
 import android.os.UserHandle
 import android.service.notification.NotificationListenerService
@@ -72,8 +71,6 @@ class NotiListener : NotificationListenerService() {
         if (x.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) record.put("group", true)
         n.channelId?.let { record.put("channel", it) }
         n.category?.let { record.put("category", it) }
-        // 카톡이 오픈채팅·방 이름을 어디에 넣는지 찾기 위한 진단 기록 (규칙을 정하면 지운다)
-        if (sbn.packageName == KAKAO) record.put("debug", kakaoDebug(sbn))
 
         outbox.append(record.toString())
         UploadWorker.soon(this)
@@ -111,26 +108,6 @@ class NotiListener : NotificationListenerService() {
         val (title, text) = titleText(sbn)
         if (settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }) return true
         return roomThrottled(sbn, title + "\n" + text)
-    }
-
-    private fun kakaoDebug(sbn: StatusBarNotification): JSONObject {
-        val n = sbn.notification
-        fun str(v: Any?): String = when (v) {
-            is Bundle -> v.keySet().joinToString(", ", "{", "}") { "$it=${str(v.get(it))}" }
-            is Array<*> -> v.joinToString(" | ", "[", "]") { str(it) }
-            else -> v.toString()
-        }.take(300)
-        val extras = JSONObject()
-        n.extras.keySet().forEach { extras.put(it, str(n.extras.get(it))) }
-        return JSONObject()
-            .put("extras", extras)
-            .put("key", sbn.key)
-            .put("tag", sbn.tag ?: "")
-            .put("id", sbn.id)
-            .put("group", n.group ?: "")
-            .put("sortKey", n.sortKey ?: "")
-            .put("shortcutId", n.shortcutId ?: "")
-            .put("locusId", n.locusId?.id ?: "")
     }
 
     /**
