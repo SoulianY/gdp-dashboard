@@ -3,6 +3,7 @@ package com.souliany.notilog
 import android.app.Notification
 import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Process
 import android.os.UserHandle
@@ -67,8 +68,7 @@ class NotiListener : NotificationListenerService() {
         // 카톡은 방 이름을 숨김 대화 제목·요약 칸에 넣기도 한다.
         (x.getCharSequence(Notification.EXTRA_SUB_TEXT) ?: x.getCharSequence(Notification.EXTRA_SUMMARY_TEXT))
             ?.let { record.put("sub", it.toString()) }
-        (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE))
-            ?.let { record.put("conversation", it.toString()) }
+        roomName(sbn)?.let { record.put("conversation", it) }
         if (x.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) record.put("group", true)
         n.channelId?.let { record.put("channel", it) }
         n.category?.let { record.put("category", it) }
@@ -133,6 +133,20 @@ class NotiListener : NotificationListenerService() {
             .put("locusId", n.locusId?.id ?: "")
     }
 
+    /**
+     * 대화방 이름. 카톡은 방 이름을 알림 extras에 넣지 않고 대화 바로가기(shortcut)의 이름으로만 준다.
+     * 알림 리스너는 Ranking에서 그 바로가기 정보를 받을 수 있다(Android 12+).
+     */
+    private fun roomName(sbn: StatusBarNotification): String? {
+        val x = sbn.notification.extras
+        (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE))
+            ?.let { return it.toString() }
+        if (Build.VERSION.SDK_INT < 31) return null
+        val ranking = Ranking()
+        if (!currentRanking.getRanking(sbn.key, ranking)) return null
+        return ranking.conversationShortcutInfo?.shortLabel?.toString()
+    }
+
     /** 카톡 단톡방(오픈채팅 포함)의 식별값: 대화 바로가기 ID, 없으면 알림 key. */
     private fun roomId(sbn: StatusBarNotification): String? {
         if (sbn.packageName != KAKAO || !sbn.notification.extras.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) return null
@@ -142,11 +156,8 @@ class NotiListener : NotificationListenerService() {
     /** 단톡방을 앱의 '1분 제한' 목록에 올린다. 방 이름을 못 찾으면 최근 메시지로 알아보게 한다. */
     private fun markRoom(sbn: StatusBarNotification) {
         val id = roomId(sbn) ?: return
-        val x = sbn.notification.extras
-        val name = (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE)
-            ?: x.getCharSequence(Notification.EXTRA_SUMMARY_TEXT) ?: x.getCharSequence(Notification.EXTRA_SUB_TEXT))?.toString()
         val (title, text) = titleText(sbn)
-        settings.markRoom(id, name ?: "최근: $title: ${text.take(20)}", sbn.postTime)
+        settings.markRoom(id, roomName(sbn) ?: "최근: $title: ${text.take(20)}", sbn.postTime)
     }
 
     // 1분 제한 방별로 마지막으로 알림을 띄운 시각
