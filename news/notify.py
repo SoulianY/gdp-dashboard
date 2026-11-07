@@ -1,4 +1,5 @@
-"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics|mail|noti}
+"""브리핑 알림: 카카오톡 '나에게 보내기'로 보내고, 폰 알림 로그 앱이 읽을 data/notify.json에도 남긴다.
+python -m news.notify {news|politics|mail|noti}
 
 mail·noti는 Gmail·폰 알림 브리핑 예약 작업이 workflow_dispatch로 부른다. 메일·알림 내용은 공개 저장소에
 두지 않으므로 카톡에는 날짜·건수(noti는 NOTI_NOTE)와 비공개 브리핑 페이지(claude.ai 아티팩트) 링크만 담는다.
@@ -11,6 +12,7 @@ import json
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
 import requests
 
@@ -22,6 +24,7 @@ TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
 PAGE_URL = "https://souliany.github.io/gdp-dashboard/"  # GitHub Pages 브리핑 페이지
 MAIL_URL = "https://claude.ai/artifact/Xurmt7kxsXpchkdZJN4SZj"  # Gmail 브리핑 페이지 (비공개)
 NOTI_URL = "https://claude.ai/artifact/TaHcUefnnadtwpgARE4fqj"  # 폰 알림 브리핑 페이지 (비공개)
+NOTIFY_FILE = Path("data/notify.json")  # 알림 로그 앱이 읽는 최근 알림 (공개: 제목·요약·링크만)
 
 
 def _access_token() -> str:
@@ -45,34 +48,34 @@ def _access_token() -> str:
     return token["access_token"]
 
 
-def _template(kind: str, label: str, briefing: dict) -> dict:
-    """핵심 요약 + '브리핑 보기' 버튼(GitHub Pages 브리핑 페이지)."""
-    url = f"{PAGE_URL}#{kind}"
-    text = f"{label}\n\n{briefing['overview']}"
+def message(kind: str) -> dict:
+    """브리핑 종류별 알림: 제목, 본문(한 줄 요약·건수), 열 페이지."""
+    now = datetime.now(KST)
+    if kind == "mail":
+        return {"title": f"📬 {now:%m/%d} 메일 브리핑", "body": "오늘 메일 요약과 회신 초안을 확인하세요.", "url": MAIL_URL}
+    if kind == "noti":
+        return {"title": "🔔 알림 브리핑", "body": os.environ.get("NOTI_NOTE") or "새 브리핑이 있습니다.", "url": NOTI_URL}
+    briefing = load(kind)
+    at = datetime.fromisoformat(briefing["generated_at"])
+    title = f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑"
+    return {"title": title, "body": briefing["overview"], "url": f"{PAGE_URL}#{kind}"}
+
+
+def kakao_template(m: dict) -> dict:
+    text = f"{m['title']}\n\n{m['body']}"
     return {
         "object_type": "text",
         "text": text if len(text) <= TEXT_MAX else text[:TEXT_MAX - 1] + "…",
-        "link": {"web_url": url, "mobile_web_url": url},
+        "link": {"web_url": m["url"], "mobile_web_url": m["url"]},
         "button_title": "브리핑 보기",
     }
 
 
-def _mail_template() -> dict:
-    return {
-        "object_type": "text",
-        "text": f"📬 {datetime.now(KST):%m/%d} 메일 브리핑\n\n오늘 메일 요약과 회신 초안을 확인하세요.",
-        "link": {"web_url": MAIL_URL, "mobile_web_url": MAIL_URL},
-        "button_title": "브리핑 보기",
-    }
-
-
-def _noti_template(note: str) -> dict:
-    return {
-        "object_type": "text",
-        "text": f"🔔 알림 브리핑\n\n{note}"[:TEXT_MAX],
-        "link": {"web_url": NOTI_URL, "mobile_web_url": NOTI_URL},
-        "button_title": "브리핑 보기",
-    }
+def record(kind: str, m: dict) -> None:
+    """폰의 알림 로그 앱이 15분마다 읽어 알림으로 띄우는 최근 알림 목록(최신 20개)."""
+    items = json.loads(NOTIFY_FILE.read_text(encoding="utf-8")) if NOTIFY_FILE.exists() else []
+    items.append({"id": datetime.now(KST).isoformat(timespec="microseconds"), "kind": kind, **m})
+    NOTIFY_FILE.write_text(json.dumps(items[-20:], ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def send(template: dict) -> None:
@@ -90,12 +93,6 @@ def send(template: dict) -> None:
 
 if __name__ == "__main__":
     kind = sys.argv[1]
-    if kind == "mail":
-        send(_mail_template())
-    elif kind == "noti":
-        send(_noti_template(os.environ.get("NOTI_NOTE") or "새 브리핑이 있습니다."))
-    else:
-        briefing = load(kind)
-        at = datetime.fromisoformat(briefing["generated_at"])
-        label = f"🏛 {at:%m/%d} 정치 브리핑" if kind == "politics" else f"🗞 {at:%m/%d %H:%M} 뉴스 브리핑"
-        send(_template(kind, label, briefing))
+    m = message(kind)
+    record(kind, m)  # 카톡이 실패해도 앱 알림은 가게 먼저 남긴다
+    send(kakao_template(m))

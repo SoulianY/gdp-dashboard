@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!-- 알림을 보낸 앱의 이름을 읽기 위해 (Android 11+ 패키지 가시성) -->
     <queries>
