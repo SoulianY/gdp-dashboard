@@ -8,12 +8,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import coil3.load
 import com.google.android.material.R as M
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
@@ -101,7 +103,7 @@ class BriefingActivity : AppCompatActivity() {
         }
     }
 
-    /** 한 줄: 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 */
+    /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 */
     private fun row(item: Briefing.Item): View {
         val isTime = TIME_ONLY.matches(item.sub)
         val line = LinearLayout(this).apply {
@@ -110,9 +112,10 @@ class BriefingActivity : AppCompatActivity() {
             addView(text(item.text, M.attr.textAppearanceBodyMedium), LinearLayout.LayoutParams(0, -2, 1f))
             if (isTime) addView(text(item.sub, M.attr.textAppearanceBodySmall, muted = true).pad(left = 10))
         }
-        if (isTime && item.link.isEmpty()) return line
+        if (isTime && item.link.isEmpty() && item.image.isEmpty()) return line
         return LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
+            if (item.image.isNotEmpty()) addView(photo(item.image), LinearLayout.LayoutParams(-1, px(180)).apply { topMargin = px(10) })
             addView(line)
             if (!isTime && item.sub.isNotEmpty()) addView(text(item.sub, M.attr.textAppearanceBodySmall, muted = true).pad(top = 2))
             if (item.link.isNotEmpty()) addView(MaterialButton(context, null, M.attr.materialButtonOutlinedStyle).apply {
@@ -120,6 +123,14 @@ class BriefingActivity : AppCompatActivity() {
                 setOnClickListener { open(item.link) }
             })
         }
+    }
+
+    /** 기사 사진. 못 받아 오면 자리를 비운다(웹 페이지와 같음). */
+    private fun photo(url: String) = ImageView(this).apply {
+        scaleType = ImageView.ScaleType.CENTER_CROP
+        clipToOutline = true
+        background = GradientDrawable().apply { cornerRadius = px(8).toFloat(); color(Color.parseColor("#E6E9EE")) }
+        load(url) { listener(onError = { _, _ -> visibility = View.GONE }) }
     }
 
     private fun badge(app: String, color: Pair<Int, Int>?) = TextView(this).apply {
