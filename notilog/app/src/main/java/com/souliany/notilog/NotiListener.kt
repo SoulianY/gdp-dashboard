@@ -20,7 +20,8 @@ class NotiListener : NotificationListenerService() {
     private lateinit var outbox: Outbox
     private lateinit var settings: Settings
 
-    // 같은 알림이 내용 그대로 다시 게시되는 경우(갱신·재알림)를 거른다.
+    // 같은 알림이 내용·발생 시각 그대로 다시 게시되는 경우(갱신·재알림)를 거른다.
+    // 발생 시각(when)까지 보는 이유: 삼성 월렛처럼 같은 알림 자리에 같은 금액·가게의 새 결제를 덮어 띄우는 앱이 있다.
     private val lastSeen = HashMap<String, Int>()
 
     override fun onCreate() {
@@ -52,7 +53,7 @@ class NotiListener : NotificationListenerService() {
         val (title, text) = titleText(sbn)
         if (title.isBlank() && text.isBlank()) return
 
-        val hash = (title + "\u0000" + text).hashCode()
+        val hash = (title + "\u0000" + text + "\u0000" + sbn.notification.`when`).hashCode()
         if (lastSeen.put(sbn.key, hash) == hash) return
 
         val record = JSONObject()
