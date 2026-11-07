@@ -3,6 +3,7 @@ package com.souliany.notilog
 import android.app.Notification
 import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Process
 import android.os.UserHandle
 import android.service.notification.NotificationListenerService
@@ -20,7 +21,8 @@ class NotiListener : NotificationListenerService() {
     private lateinit var outbox: Outbox
     private lateinit var settings: Settings
 
-    // 같은 알림이 내용 그대로 다시 게시되는 경우(갱신·재알림)를 거른다.
+    // 같은 알림이 내용·발생 시각 그대로 다시 게시되는 경우(갱신·재알림)를 거른다.
+    // 발생 시각(when)까지 보는 이유: 삼성 월렛처럼 같은 알림 자리에 같은 금액·가게의 새 결제를 덮어 띄우는 앱이 있다.
     private val lastSeen = HashMap<String, Int>()
 
     override fun onCreate() {
@@ -39,6 +41,7 @@ class NotiListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         if (sbn.packageName == packageName) return
         markSeen(sbn)
+        markRoom(sbn)
         record(sbn)
         if (shouldHide(sbn)) cancelNotification(sbn.key)
     }
@@ -52,7 +55,7 @@ class NotiListener : NotificationListenerService() {
         val (title, text) = titleText(sbn)
         if (title.isBlank() && text.isBlank()) return
 
-        val hash = (title + "\u0000" + text).hashCode()
+        val hash = (title + "\u0000" + text + "\u0000" + sbn.notification.`when`).hashCode()
         if (lastSeen.put(sbn.key, hash) == hash) return
 
         val record = JSONObject()
@@ -61,8 +64,12 @@ class NotiListener : NotificationListenerService() {
             .put("package", sbn.packageName)
             .put("title", title)
             .put("text", text)
-        x.getCharSequence(Notification.EXTRA_SUB_TEXT)?.let { record.put("sub", it.toString()) }
-        x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE)?.let { record.put("conversation", it.toString()) }
+        // 카톡은 방 이름을 숨김 대화 제목·요약 칸에 넣기도 한다.
+        (x.getCharSequence(Notification.EXTRA_SUB_TEXT) ?: x.getCharSequence(Notification.EXTRA_SUMMARY_TEXT))
+            ?.let { record.put("sub", it.toString()) }
+        roomName(sbn)?.let { record.put("conversation", it) }
+        if (x.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) record.put("group", true)
+        n.channelId?.let { record.put("channel", it) }
         n.category?.let { record.put("category", it) }
 
         outbox.append(record.toString())
@@ -90,13 +97,60 @@ class NotiListener : NotificationListenerService() {
         return title to text
     }
 
-    /** 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있으면 숨긴다. 통화·알람·재생 등은 건드리지 않는다. */
+    /**
+     * 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있거나, 1분 제한을 건 카톡 방이 1분 안에 이미 떴으면 숨긴다.
+     * 통화·알람·재생 등은 건드리지 않는다.
+     */
     private fun shouldHide(sbn: StatusBarNotification): Boolean {
         if (!sbn.isClearable || sbn.notification.category in KEEP_CATEGORIES) return false
         if (sbn.packageName in settings.hidden) return true
         if (sbn.user != Process.myUserHandle()) return false  // 업무 프로필은 단어 필터 제외
         val (title, text) = titleText(sbn)
-        return settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }
+        if (settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }) return true
+        return roomThrottled(sbn, title + "\n" + text)
+    }
+
+    /**
+     * 대화방 이름. 카톡은 방 이름을 알림 extras에 넣지 않고 대화 바로가기(shortcut)의 이름으로만 준다.
+     * 알림 리스너는 Ranking에서 그 바로가기 정보를 받을 수 있다(Android 12+).
+     */
+    private fun roomName(sbn: StatusBarNotification): String? {
+        val x = sbn.notification.extras
+        (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE))
+            ?.let { return it.toString() }
+        if (Build.VERSION.SDK_INT < 31) return null
+        val ranking = Ranking()
+        if (!currentRanking.getRanking(sbn.key, ranking)) return null
+        return ranking.conversationShortcutInfo?.shortLabel?.toString()
+    }
+
+    /** 카톡 단톡방(오픈채팅 포함)의 식별값: 대화 바로가기 ID, 없으면 알림 key. */
+    private fun roomId(sbn: StatusBarNotification): String? {
+        if (sbn.packageName != KAKAO || !sbn.notification.extras.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) return null
+        return sbn.notification.shortcutId?.takeIf { it.isNotEmpty() } ?: sbn.key
+    }
+
+    /** 단톡방을 앱의 '1분 제한' 목록에 올린다. 방 이름을 못 찾으면 최근 메시지로 알아보게 한다. */
+    private fun markRoom(sbn: StatusBarNotification) {
+        val id = roomId(sbn) ?: return
+        val (title, text) = titleText(sbn)
+        settings.markRoom(id, roomName(sbn) ?: "최근: $title: ${text.take(20)}", sbn.postTime)
+    }
+
+    // 1분 제한 방별로 마지막으로 알림을 띄운 시각
+    private val roomShown = HashMap<String, Long>()
+
+    /** 1분 제한을 건 카톡 방은 1분에 한 번만 띄운다. 내 이름이 언급되면 항상 띄운다. */
+    private fun roomThrottled(sbn: StatusBarNotification, content: String): Boolean {
+        val id = roomId(sbn)?.takeIf { it in settings.throttledRooms } ?: return false
+        if (settings.myNameList().any { content.contains(it, ignoreCase = true) }) {
+            roomShown[id] = sbn.postTime
+            return false
+        }
+        val last = roomShown[id]
+        if (last != null && sbn.postTime - last < 60_000) return true
+        roomShown[id] = sbn.postTime
+        return false
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification, rankingMap: RankingMap, reason: Int) {
@@ -113,6 +167,8 @@ class NotiListener : NotificationListenerService() {
     }
 
     private companion object {
+        const val KAKAO = "com.kakao.talk"
+        const val HIDDEN_CONVERSATION_TITLE = "android.hiddenConversationTitle"
         val KEEP_CATEGORIES = setOf(
             Notification.CATEGORY_CALL,
             Notification.CATEGORY_ALARM,

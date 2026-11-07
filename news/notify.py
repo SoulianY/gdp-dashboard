@@ -1,4 +1,4 @@
-"""브리핑 알림: 카카오톡 '나에게 보내기'로 보내고, 폰 알림 로그 앱이 읽을 data/notify.json에도 남긴다.
+"""브리핑 알림: 카카오톡 '나에게 보내기'로 보내고, 뉴스·정치는 data/briefings/에 회차별 파일로도 남긴다.
 python -m news.notify {news|politics|mail|noti}
 
 mail·noti는 Gmail·폰 알림 브리핑 예약 작업이 workflow_dispatch로 부른다. 메일·알림 내용은 공개 저장소에
@@ -24,7 +24,7 @@ TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
 PAGE_URL = "https://souliany.github.io/gdp-dashboard/"  # GitHub Pages 브리핑 페이지
 MAIL_URL = "https://claude.ai/artifact/Xurmt7kxsXpchkdZJN4SZj"  # Gmail 브리핑 페이지 (비공개)
 NOTI_URL = "https://claude.ai/artifact/TaHcUefnnadtwpgARE4fqj"  # 폰 알림 브리핑 페이지 (비공개)
-NOTIFY_FILE = Path("data/notify.json")  # 알림 로그 앱이 읽는 최근 알림 (공개: 제목·요약·링크만)
+BRIEFINGS_DIR = Path("data/briefings")  # 뉴스·정치 브리핑 회차별 파일 (알림 로그 앱이 읽음)
 
 
 def _access_token() -> str:
@@ -71,11 +71,23 @@ def kakao_template(m: dict) -> dict:
     }
 
 
-def record(kind: str, m: dict) -> None:
-    """폰의 알림 로그 앱이 15분마다 읽어 알림으로 띄우는 최근 알림 목록(최신 20개)."""
-    items = json.loads(NOTIFY_FILE.read_text(encoding="utf-8")) if NOTIFY_FILE.exists() else []
-    items.append({"id": datetime.now(KST).isoformat(timespec="microseconds"), "kind": kind, **m})
-    NOTIFY_FILE.write_text(json.dumps(items[-20:], ensure_ascii=False, indent=1), encoding="utf-8")
+def write_briefing(kind: str, briefing: dict, m: dict) -> None:
+    """뉴스·정치 브리핑을 회차마다 한 파일로 남긴다(폰의 알림 로그 앱이 브리핑 목록으로 보여 줌).
+    형식은 push-inbox의 알림·메일 브리핑 파일과 같다. 메일·알림 브리핑은 내용이 비공개라 그쪽 저장소에 남긴다."""
+    at = datetime.fromisoformat(briefing["generated_at"]).astimezone(KST)
+    by_cat: dict[str, list] = {}
+    for st in briefing["stories"]:
+        link = st["sources"][0]["link"] if st.get("sources") else ""
+        by_cat.setdefault(st.get("category") or "주요", []).append(
+            {"text": st["headline"], "sub": st["body"], **({"link": link} if link else {})})
+    path = BRIEFINGS_DIR / f"{at:%Y-%m-%d}" / f"{at:%H%M%S}-{kind}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({
+        "id": f"{at:%Y-%m-%d}/{at:%H%M%S}-{kind}", "kind": kind, "title": m["title"], "created": at.isoformat(),
+        "summary": briefing["overview"], "url": m["url"],
+        "sections": [{"title": "요약", "items": [{"text": briefing["overview"]}]}]
+                    + [{"title": cat, "items": items} for cat, items in by_cat.items()],
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def send(template: dict) -> None:
@@ -94,5 +106,6 @@ def send(template: dict) -> None:
 if __name__ == "__main__":
     kind = sys.argv[1]
     m = message(kind)
-    record(kind, m)  # 카톡이 실패해도 앱 알림은 가게 먼저 남긴다
+    if kind in ("news", "politics"):
+        write_briefing(kind, load(kind), m)  # 카톡이 실패해도 앱에는 가게 먼저 남긴다
     send(kakao_template(m))
