@@ -1,5 +1,10 @@
 # 📥 알림 로그 (Android)
 
+하단 탭 두 개:
+- **브리핑**: 모든 브리핑(알림·마감·뉴스·정치·메일)을 회차별로 모아 보여 준다. 종류별 영역, 전체·종류 필터 칩과 NEW 개수,
+  안 읽은 브리핑의 NEW 표시. 누르면 앱 안에서 내용을 보고, 링크(원문·캘린더 등록)를 연다. 새 브리핑은 폰 알림으로도 온다.
+- **설정**: 알림 수집 권한, 앱별 알림 띄우기, 숨길 단어, 카톡 단톡방 1분 제한, 업로드 저장소.
+
 폰에 오는 모든 앱 알림을 모아 **비공개 GitHub 저장소**에 올리는 개인용 앱.
 Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 분석한다.
 
@@ -17,8 +22,10 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 | `Outbox.kt` | 업로드 전 로컬 보관. 업로드 성공 전까지 지우지 않음 |
 | `UploadWorker.kt` | 알림이 오면 3분 뒤(그 사이 알림은 한 묶음으로) GitHub Contents API 업로드. 실패분은 15분 주기 작업이 다시 올림 |
 | `Settings.kt` | 업로드 대상 저장소·토큰, 알림 보낸 앱·카톡 방 목록, 숨길 앱, 숨길 단어, 1분 제한 방, 내 이름 |
-| `BriefingWorker.kt` | 15분마다 gdp-dashboard `data/notify.json`을 읽어 새 브리핑(뉴스·정치·메일·알림)을 폰 알림으로 띄움. 누르면 브리핑 페이지 |
-| `MainActivity.kt` | 권한 상태·대기 건수·마지막 업로드 표시, 앱별 알림 띄우기 스위치, 설정 입력 |
+| `BriefingWorker.kt` | 15분마다 push-inbox `briefings/`(알림·마감·메일)와 gdp-dashboard `data/briefings/`(뉴스·정치)의 오늘·어제 폴더에서 새 파일을 받아 오고 폰 알림 |
+| `Briefing.kt`, `BriefingStore.kt` | 브리핑 파일 형식, 받아 온 파일(최근 7일)과 읽음 표시 |
+| `BriefingActivity.kt` | 브리핑 한 건 보기 |
+| `MainActivity.kt` | 하단 탭: 브리핑 목록(필터·NEW) / 설정(권한 상태·앱별 알림 띄우기·단톡방 1분 제한·업로드) |
 
 ## 알림 숨기기
 
@@ -68,3 +75,7 @@ echo "sdk.dir=$ANDROID_HOME" > local.properties
 ```
 
 버전은 `app/build.gradle.kts`의 `versionCode`(1씩 올림)와 `versionName`.
+
+화면 확인(에뮬레이터 없이): `./gradlew testDebugUnitTest` → `app/build/shots/*.png` (Robolectric 캡처, 시험용 가짜 데이터).
+Robolectric이 안드로이드 jar를 직접 받지 못하면 jar를 받아 둔 폴더를 `-Probolectric.deps=<폴더>`로 준다.
+

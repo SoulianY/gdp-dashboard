@@ -15,7 +15,7 @@
     <application
         android:icon="@android:drawable/sym_action_chat"
         android:label="알림 로그"
-        android:theme="@android:style/Theme.DeviceDefault.DayNight">
+        android:theme="@style/Theme.AlarmLog">
 
         <activity
             android:name=".MainActivity"
@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".BriefingActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
 
         <service
             android:name=".NotiListener"

@@ -1,0 +1,52 @@
+package com.souliany.notilog
+
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.view.View
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.ApplicationProvider
+import androidx.work.testing.WorkManagerTestInitHelper
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
+import java.io.File
+
+// 화면 확인용 캡처: build/shots 폴더의 PNG (에뮬레이터 없이 화면 배치를 보기 위함)
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [36], qualifiers = "ko-w400dp-h860dp-xhdpi")
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+class ScreenshotTest {
+    private val ctx: Context = ApplicationProvider.getApplicationContext()
+
+    @Before
+    fun seed() {
+        WorkManagerTestInitHelper.initializeTestWorkManager(ctx)
+        val store = BriefingStore(ctx)
+        val saved = listOf("noti", "daily", "news", "politics").map {
+            store.save(javaClass.getResource("/samples/$it.json")!!.readText())
+        }
+        store.initialized = true
+        store.markRead(listOf(saved[3].id))
+    }
+
+    @Test
+    fun screens() {
+        ActivityScenario.launch(MainActivity::class.java).onActivity { shot(it.window.decorView, "1-briefings") }
+        val id = BriefingStore(ctx).all().first { it.kind == "noti" }.id
+        ActivityScenario.launch<BriefingActivity>(
+            Intent(ctx, BriefingActivity::class.java).putExtra(BriefingActivity.EXTRA_ID, id),
+        ).onActivity { shot(it.window.decorView, "2-detail") }
+    }
+
+    private fun shot(v: View, name: String) {
+        val bmp = Bitmap.createBitmap(v.width, v.height, Bitmap.Config.ARGB_8888)
+        v.draw(Canvas(bmp))
+        File("build/shots").mkdirs()
+        File("build/shots/$name.png").outputStream().use { bmp.compress(Bitmap.CompressFormat.PNG, 100, it) }
+    }
+}

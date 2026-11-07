@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/refresh" android:icon="@android:drawable/ic_popup_sync" android:title="새로고침" app:showAsAction="ifRoom" />
+    <item android:id="@+id/read_all" android:title="모두 읽음으로" app:showAsAction="never" />
+</menu>
