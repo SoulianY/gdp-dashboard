@@ -16,7 +16,8 @@ data class Briefing(
     val url: String,
     val sections: List<Section>,
 ) {
-    data class Section(val title: String, val items: List<Item>)
+    /** app: 배지로 보여 줄 앱 이름, chat: 메시지(채팅방) 영역, fold: 접어서 보여 줌(제외 목록) */
+    data class Section(val title: String, val app: String, val chat: Boolean, val fold: Boolean, val items: List<Item>)
     data class Item(val text: String, val sub: String, val link: String)
 
     companion object {
@@ -31,7 +32,8 @@ data class Briefing(
             summary = o.optString("summary"),
             url = o.optString("url"),
             sections = o.optJSONArray("sections").objects().map { s ->
-                Section(s.getString("title"), s.optJSONArray("items").objects().map {
+                Section(s.getString("title"), s.optString("app"), s.optString("group") == "chat", s.optBoolean("fold"),
+                    s.optJSONArray("items").objects().map {
                     Item(it.getString("text"), it.optString("sub"), it.optString("link"))
                 })
             },
