@@ -17,6 +17,7 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 | `Outbox.kt` | 업로드 전 로컬 보관. 업로드 성공 전까지 지우지 않음 |
 | `UploadWorker.kt` | 알림이 오면 3분 뒤(그 사이 알림은 한 묶음으로) GitHub Contents API 업로드. 실패분은 15분 주기 작업이 다시 올림 |
 | `Settings.kt` | 업로드 대상 저장소·토큰, 알림 보낸 앱 목록, 숨길 앱, 숨길 단어 |
+| `BriefingWorker.kt` | 15분마다 gdp-dashboard `data/notify.json`을 읽어 새 브리핑(뉴스·정치·메일·알림)을 폰 알림으로 띄움. 누르면 브리핑 페이지 |
 | `MainActivity.kt` | 권한 상태·대기 건수·마지막 업로드 표시, 앱별 알림 띄우기 스위치, 설정 입력 |
 
 ## 알림 숨기기

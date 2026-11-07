@@ -31,6 +31,7 @@ class NotiListener : NotificationListenerService() {
 
     override fun onListenerConnected() {
         UploadWorker.schedule(this)
+        BriefingWorker.schedule(this)
         // 지금 알림창에 있는 앱도 앱별 스위치 목록에 바로 보이게 한다.
         activeNotifications.filter { it.packageName != packageName }.forEach(::markSeen)
     }

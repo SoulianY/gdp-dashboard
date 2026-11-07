@@ -44,11 +44,11 @@ jobs:
     needs: pages
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write  # data/notify.json 커밋
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -68,6 +68,13 @@ jobs:
             KINDS=$(git diff --name-only HEAD~1 HEAD -- data/news | sed -n 's#data/news/\(news\|politics\)\.json#\1#p')
           fi
           for kind in $KINDS; do python -m news.notify "$kind"; done
+      - name: Commit data/notify.json (알림 로그 앱이 읽음)
+        run: |
+          [ -n "$(git status --porcelain data/notify.json)" ] || exit 0
+          git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
+          git add data/notify.json && git commit -q -m "notify: $(date -u +%FT%TZ)"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
       - name: Rotate Kakao refresh token
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}

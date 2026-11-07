@@ -1,7 +1,10 @@
 package com.souliany.notilog
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
 import android.text.format.DateUtils
@@ -19,6 +22,11 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         settings = Settings(this)
+        BriefingWorker.schedule(this)
+        // 브리핑 알림을 띄우려면 알림 권한이 필요하다(Android 13+).
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
+        }
 
         val repo = findViewById<EditText>(R.id.repo).apply { setText(settings.repo) }
         val token = findViewById<EditText>(R.id.token).apply { setText(settings.token) }
