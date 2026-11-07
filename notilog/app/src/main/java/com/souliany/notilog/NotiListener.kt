@@ -41,6 +41,7 @@ class NotiListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         if (sbn.packageName == packageName) return
         markSeen(sbn)
+        markRoom(sbn)
         record(sbn)
         if (shouldHide(sbn)) cancelNotification(sbn.key)
     }
@@ -100,7 +101,7 @@ class NotiListener : NotificationListenerService() {
     }
 
     /**
-     * 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있거나, 카톡 오픈채팅이 1분 안에 이미 떴으면 숨긴다.
+     * 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있거나, 1분 제한을 건 카톡 방이 1분 안에 이미 떴으면 숨긴다.
      * 통화·알람·재생 등은 건드리지 않는다.
      */
     private fun shouldHide(sbn: StatusBarNotification): Boolean {
@@ -109,7 +110,7 @@ class NotiListener : NotificationListenerService() {
         if (sbn.user != Process.myUserHandle()) return false  // 업무 프로필은 단어 필터 제외
         val (title, text) = titleText(sbn)
         if (settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }) return true
-        return openChatThrottled(sbn, title + "\n" + text)
+        return roomThrottled(sbn, title + "\n" + text)
     }
 
     private fun kakaoDebug(sbn: StatusBarNotification): JSONObject {
@@ -132,19 +133,35 @@ class NotiListener : NotificationListenerService() {
             .put("locusId", n.locusId?.id ?: "")
     }
 
-    // 오픈채팅 방(알림 key)별로 마지막으로 알림을 띄운 시각
-    private val openChatShown = HashMap<String, Long>()
+    /** 카톡 단톡방(오픈채팅 포함)의 식별값: 대화 바로가기 ID, 없으면 알림 key. */
+    private fun roomId(sbn: StatusBarNotification): String? {
+        if (sbn.packageName != KAKAO || !sbn.notification.extras.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) return null
+        return sbn.notification.shortcutId?.takeIf { it.isNotEmpty() } ?: sbn.key
+    }
 
-    /** 카톡 오픈채팅은 방마다 1분에 한 번만 띄운다. 내 이름이 언급되면 항상 띄운다. */
-    private fun openChatThrottled(sbn: StatusBarNotification, content: String): Boolean {
-        if (sbn.packageName != KAKAO || sbn.notification.channelId?.contains("open", ignoreCase = true) != true) return false
+    /** 단톡방을 앱의 '1분 제한' 목록에 올린다. 방 이름을 못 찾으면 최근 메시지로 알아보게 한다. */
+    private fun markRoom(sbn: StatusBarNotification) {
+        val id = roomId(sbn) ?: return
+        val x = sbn.notification.extras
+        val name = (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE)
+            ?: x.getCharSequence(Notification.EXTRA_SUMMARY_TEXT) ?: x.getCharSequence(Notification.EXTRA_SUB_TEXT))?.toString()
+        val (title, text) = titleText(sbn)
+        settings.markRoom(id, name ?: "최근: $title: ${text.take(20)}", sbn.postTime)
+    }
+
+    // 1분 제한 방별로 마지막으로 알림을 띄운 시각
+    private val roomShown = HashMap<String, Long>()
+
+    /** 1분 제한을 건 카톡 방은 1분에 한 번만 띄운다. 내 이름이 언급되면 항상 띄운다. */
+    private fun roomThrottled(sbn: StatusBarNotification, content: String): Boolean {
+        val id = roomId(sbn)?.takeIf { it in settings.throttledRooms } ?: return false
         if (settings.myNameList().any { content.contains(it, ignoreCase = true) }) {
-            openChatShown[sbn.key] = sbn.postTime
+            roomShown[id] = sbn.postTime
             return false
         }
-        val last = openChatShown[sbn.key]
+        val last = roomShown[id]
         if (last != null && sbn.postTime - last < 60_000) return true
-        openChatShown[sbn.key] = sbn.postTime
+        roomShown[id] = sbn.postTime
         return false
     }
 

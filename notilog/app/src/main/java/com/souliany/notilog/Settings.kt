@@ -62,6 +62,30 @@ class Settings(context: Context) {
         hidden = if (shown) hidden - pkg else hidden + pkg
     }
 
+    /** 알림을 보낸 카톡 단톡방: 방 ID -> (이름 또는 최근 메시지, 마지막 알림 시각). */
+    fun rooms(): List<SeenApp> {
+        val o = JSONObject(prefs.getString("rooms", "{}")!!)
+        return o.keys().asSequence()
+            .map { o.getJSONObject(it).let { r -> SeenApp(it, r.getString("label"), r.getLong("last")) } }
+            .sortedByDescending { it.last }
+            .toList()
+    }
+
+    fun markRoom(id: String, label: String, time: Long) = synchronized(this) {
+        val o = JSONObject(prefs.getString("rooms", "{}")!!)
+        o.put(id, JSONObject().put("label", label).put("last", time))
+        prefs.edit().putString("rooms", o.toString()).apply()
+    }
+
+    /** 1분에 한 번만 알림을 띄울 카톡 방 ID. */
+    var throttledRooms: Set<String>
+        get() = prefs.getStringSet("throttledRooms", emptySet())!!
+        set(v) = prefs.edit().putStringSet("throttledRooms", v).apply()
+
+    fun setThrottled(id: String, on: Boolean) {
+        throttledRooms = if (on) throttledRooms + id else throttledRooms - id
+    }
+
     val configured get() = repo.contains('/') && token.isNotEmpty()
 }
 

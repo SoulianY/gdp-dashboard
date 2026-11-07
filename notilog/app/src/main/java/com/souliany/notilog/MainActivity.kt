@@ -76,8 +76,29 @@ class MainActivity : Activity() {
         }
     }
 
+    /** 카톡 단톡방마다 '1분 제한' 스위치. 켠 방은 1분에 한 번만 알림이 뜬다(내 이름 언급은 예외). */
+    private fun renderRooms() {
+        val list = findViewById<LinearLayout>(R.id.rooms)
+        list.removeAllViews()
+        val rooms = settings.rooms()
+        if (rooms.isEmpty()) {
+            list.addView(TextView(this).apply { text = "카톡 단톡방 알림이 오면 여기에 방이 나타납니다." })
+            return
+        }
+        val throttled = settings.throttledRooms
+        for (room in rooms) {
+            list.addView(Switch(this).apply {
+                text = "${room.label}  ·  ${DateUtils.getRelativeTimeSpanString(room.last)}"
+                isChecked = room.pkg in throttled
+                setPadding(0, 12, 0, 12)
+                setOnCheckedChangeListener { _, on -> settings.setThrottled(room.pkg, on) }
+            })
+        }
+    }
+
     private fun render() {
         renderApps()
+        renderRooms()
         val granted = packageName in NotificationManagerCompat.getEnabledListenerPackages(this)
         findViewById<TextView>(R.id.status).text = buildString {
             appendLine("알림 접근 권한: ${if (granted) "허용됨" else "필요함"}")
