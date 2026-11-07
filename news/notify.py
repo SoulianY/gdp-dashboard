@@ -1,7 +1,7 @@
-"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics|mail}
+"""카카오톡 '나에게 보내기'로 브리핑 알림을 보낸다: python -m news.notify {news|politics|mail|noti}
 
-mail은 Gmail 브리핑 예약 작업이 workflow_dispatch로 부른다. 메일 내용은 공개 저장소에 두지 않으므로
-알림에는 날짜와 비공개 브리핑 페이지(claude.ai 아티팩트) 링크만 담는다.
+mail·noti는 Gmail·폰 알림 브리핑 예약 작업이 workflow_dispatch로 부른다. 메일·알림 내용은 공개 저장소에
+두지 않으므로 카톡에는 날짜·건수(noti는 NOTI_NOTE)와 비공개 브리핑 페이지(claude.ai 아티팩트) 링크만 담는다.
 
 리프레시 토큰은 유효기간 2개월이고, 만료 1개월 전부터는 갱신 요청 시 새 토큰이 함께 온다.
 새 토큰은 KAKAO_REFRESH_TOKEN_FILE 경로에 저장하고, 워크플로가 이를 저장소 Secret에 다시 써 넣는다.
@@ -21,6 +21,7 @@ SEND_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 TEXT_MAX = 200  # 텍스트 템플릿 글자 수 제한
 PAGE_URL = "https://souliany.github.io/gdp-dashboard/"  # GitHub Pages 브리핑 페이지
 MAIL_URL = "https://claude.ai/artifact/Xurmt7kxsXpchkdZJN4SZj"  # Gmail 브리핑 페이지 (비공개)
+NOTI_URL = "https://claude.ai/artifact/TaHcUefnnadtwpgARE4fqj"  # 폰 알림 브리핑 페이지 (비공개)
 
 
 def _access_token() -> str:
@@ -65,6 +66,15 @@ def _mail_template() -> dict:
     }
 
 
+def _noti_template(note: str) -> dict:
+    return {
+        "object_type": "text",
+        "text": f"🔔 알림 브리핑\n\n{note}"[:TEXT_MAX],
+        "link": {"web_url": NOTI_URL, "mobile_web_url": NOTI_URL},
+        "button_title": "브리핑 보기",
+    }
+
+
 def send(template: dict) -> None:
     if not (os.environ.get("KAKAO_REST_API_KEY") and os.environ.get("KAKAO_REFRESH_TOKEN")):
         print("[notify] KAKAO_REST_API_KEY / KAKAO_REFRESH_TOKEN 미설정 — 알림 생략", file=sys.stderr)
@@ -82,6 +92,8 @@ if __name__ == "__main__":
     kind = sys.argv[1]
     if kind == "mail":
         send(_mail_template())
+    elif kind == "noti":
+        send(_noti_template(os.environ.get("NOTI_NOTE") or "새 브리핑이 있습니다."))
     else:
         briefing = load(kind)
         at = datetime.fromisoformat(briefing["generated_at"])

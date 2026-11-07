@@ -11,7 +11,11 @@ on:
       kind:
         description: 카톡을 보낼 브리핑 (비우면 페이지만 갱신)
         type: choice
-        options: ["", news, politics, mail]
+        options: ["", news, politics, mail, noti]
+        default: ""
+      note:
+        description: "noti: 카톡 본문 (건수만, 알림 내용은 넣지 않음)"
+        type: string
         default: ""
 
 concurrency:
@@ -53,6 +57,7 @@ jobs:
       - name: Send KakaoTalk
         env:
           KINDS: ${{ inputs.kind }}
+          NOTI_NOTE: ${{ inputs.note }}
           EVENT: ${{ github.event_name }}
           KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
           KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}

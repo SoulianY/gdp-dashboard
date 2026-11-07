@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/grant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="알림 접근 권한 설정 열기" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="앱별 알림 띄우기 (최근 알림 순) · 끈 앱은 기록만 하고 알림창에서 숨김"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="숨길 단어 (쉼표로 구분) · 제목·내용에 있으면 숨김, 업무 프로필 앱은 제외"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(광고), 쿠폰, 이벤트"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/repo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="비공개 저장소 (owner/name)"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GitHub 토큰 (Fine-grained PAT)"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="저장하고 지금 올리기" />
+    </LinearLayout>
+</ScrollView>
