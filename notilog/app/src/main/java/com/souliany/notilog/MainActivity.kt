@@ -31,6 +31,7 @@ class MainActivity : Activity() {
         val repo = findViewById<EditText>(R.id.repo).apply { setText(settings.repo) }
         val token = findViewById<EditText>(R.id.token).apply { setText(settings.token) }
         findViewById<EditText>(R.id.words).setText(settings.blockWords)
+        findViewById<EditText>(R.id.names).setText(settings.myNames)
 
         findViewById<Button>(R.id.grant).setOnClickListener {
             startActivity(Intent(ACTION_NOTIFICATION_LISTENER_SETTINGS))
@@ -47,6 +48,7 @@ class MainActivity : Activity() {
     override fun onPause() {
         super.onPause()
         settings.blockWords = findViewById<EditText>(R.id.words).text.toString()
+        settings.myNames = findViewById<EditText>(R.id.names).text.toString()
     }
 
     override fun onResume() {

@@ -62,8 +62,13 @@ class NotiListener : NotificationListenerService() {
             .put("package", sbn.packageName)
             .put("title", title)
             .put("text", text)
-        x.getCharSequence(Notification.EXTRA_SUB_TEXT)?.let { record.put("sub", it.toString()) }
-        x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE)?.let { record.put("conversation", it.toString()) }
+        // 카톡은 방 이름을 숨김 대화 제목·요약 칸에 넣기도 한다.
+        (x.getCharSequence(Notification.EXTRA_SUB_TEXT) ?: x.getCharSequence(Notification.EXTRA_SUMMARY_TEXT))
+            ?.let { record.put("sub", it.toString()) }
+        (x.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE) ?: x.getCharSequence(HIDDEN_CONVERSATION_TITLE))
+            ?.let { record.put("conversation", it.toString()) }
+        if (x.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) record.put("group", true)
+        n.channelId?.let { record.put("channel", it) }
         n.category?.let { record.put("category", it) }
 
         outbox.append(record.toString())
@@ -91,13 +96,33 @@ class NotiListener : NotificationListenerService() {
         return title to text
     }
 
-    /** 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있으면 숨긴다. 통화·알람·재생 등은 건드리지 않는다. */
+    /**
+     * 끈 앱이거나, 개인 프로필 알림에 숨길 단어가 있거나, 카톡 오픈채팅이 1분 안에 이미 떴으면 숨긴다.
+     * 통화·알람·재생 등은 건드리지 않는다.
+     */
     private fun shouldHide(sbn: StatusBarNotification): Boolean {
         if (!sbn.isClearable || sbn.notification.category in KEEP_CATEGORIES) return false
         if (sbn.packageName in settings.hidden) return true
         if (sbn.user != Process.myUserHandle()) return false  // 업무 프로필은 단어 필터 제외
         val (title, text) = titleText(sbn)
-        return settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }
+        if (settings.blockWordList().any { title.contains(it, ignoreCase = true) || text.contains(it, ignoreCase = true) }) return true
+        return openChatThrottled(sbn, title + "\n" + text)
+    }
+
+    // 오픈채팅 방(알림 key)별로 마지막으로 알림을 띄운 시각
+    private val openChatShown = HashMap<String, Long>()
+
+    /** 카톡 오픈채팅은 방마다 1분에 한 번만 띄운다. 내 이름이 언급되면 항상 띄운다. */
+    private fun openChatThrottled(sbn: StatusBarNotification, content: String): Boolean {
+        if (sbn.packageName != KAKAO || sbn.notification.channelId?.contains("open", ignoreCase = true) != true) return false
+        if (settings.myNameList().any { content.contains(it, ignoreCase = true) }) {
+            openChatShown[sbn.key] = sbn.postTime
+            return false
+        }
+        val last = openChatShown[sbn.key]
+        if (last != null && sbn.postTime - last < 60_000) return true
+        openChatShown[sbn.key] = sbn.postTime
+        return false
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification, rankingMap: RankingMap, reason: Int) {
@@ -114,6 +139,8 @@ class NotiListener : NotificationListenerService() {
     }
 
     private companion object {
+        const val KAKAO = "com.kakao.talk"
+        const val HIDDEN_CONVERSATION_TITLE = "android.hiddenConversationTitle"
         val KEEP_CATEGORIES = setOf(
             Notification.CATEGORY_CALL,
             Notification.CATEGORY_ALARM,

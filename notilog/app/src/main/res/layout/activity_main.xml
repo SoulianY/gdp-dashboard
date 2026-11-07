@@ -50,6 +50,20 @@
             android:hint="(광고), 쿠폰, 이벤트"
             android:inputType="textMultiLine" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="카톡 오픈채팅은 방마다 1분에 한 번만 알림 · 아래 이름이 나오면 항상 알림 (쉼표로 구분)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="양원철, 원철, 양군"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/repo"
             android:layout_width="match_parent"

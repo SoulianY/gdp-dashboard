@@ -31,6 +31,13 @@ class Settings(context: Context) {
 
     fun blockWordList(): List<String> = blockWords.split(',').map { it.trim() }.filter { it.isNotEmpty() }
 
+    /** 카톡 오픈채팅에서 이 이름이 언급되면 1분 제한 없이 알림을 띄운다(쉼표로 구분). */
+    var myNames: String
+        get() = prefs.getString("myNames", "양원철, 원철, 양군").orEmpty()
+        set(v) = prefs.edit().putString("myNames", v).apply()
+
+    fun myNameList(): List<String> = myNames.split(',').map { it.trim() }.filter { it.isNotEmpty() }
+
     /** 알림을 보낸 적 있는 앱: 패키지 -> (이름, 마지막 알림 시각). 앱별 스위치 목록에 쓴다. */
     fun seen(): List<SeenApp> {
         val o = JSONObject(prefs.getString("seen", "{}")!!)
