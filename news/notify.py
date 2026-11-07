@@ -85,7 +85,7 @@ def write_briefing(kind: str, briefing: dict, m: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({
         "id": f"{at:%Y-%m-%d}/{at:%H%M%S}-{kind}", "kind": kind, "title": m["title"], "created": at.isoformat(),
-        "summary": briefing["overview"], "url": m["url"],
+        "summary": briefing["overview"],
         "sections": [{"title": "요약", "items": [{"text": briefing["overview"]}]}]
                     + [{"title": cat, "items": items} for cat, items in by_cat.items()],
     }, ensure_ascii=False, indent=1), encoding="utf-8")

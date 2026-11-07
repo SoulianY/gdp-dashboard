@@ -13,7 +13,6 @@ data class Briefing(
     val title: String,
     val created: String,
     val summary: String,
-    val url: String,
     val sections: List<Section>,
 ) {
     /** app: 배지로 보여 줄 앱 이름, chat: 메시지(채팅방) 영역, fold: 접어서 보여 줌(제외 목록) */
@@ -31,7 +30,6 @@ data class Briefing(
             title = o.getString("title"),
             created = o.getString("created"),
             summary = o.optString("summary"),
-            url = o.optString("url"),
             sections = o.optJSONArray("sections").objects().map { s ->
                 Section(s.getString("title"), s.optString("app"), s.optString("group") == "chat", s.optBoolean("fold"),
                     s.optJSONArray("items").objects().map {

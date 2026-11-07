@@ -59,12 +59,6 @@ class BriefingActivity : AppCompatActivity() {
             body.addView(groupHeader(if (b.kind == "daily") "📌 오늘 정리" else if (chats.isEmpty()) "📌 내용" else "📌 알림·요약"))
             rest.forEach { body.addView(card(it)) }
         }
-        if (b.url.isNotEmpty()) {
-            body.addView(MaterialButton(this, null, M.attr.materialButtonOutlinedStyle).apply {
-                text = "웹 페이지로 보기"
-                setOnClickListener { open(b.url) }
-            }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = px(20) })
-        }
         findViewById<ScrollView>(R.id.scroll).apply {
             addView(body)
             // 하단 내비게이션 바에 마지막 버튼이 가리지 않게
