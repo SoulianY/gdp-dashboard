@@ -116,7 +116,7 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
     companion object {
         private const val PUBLIC_REPO = "SoulianY/gdp-dashboard"
         private const val CHANNEL = "briefing"
-        private const val KEEP_DAYS = 7L
+        const val KEEP_DAYS = 30L
         private val KST = ZoneId.of("Asia/Seoul")
         private val online = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
 

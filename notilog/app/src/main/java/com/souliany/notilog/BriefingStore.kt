@@ -6,7 +6,7 @@ import java.io.File
 import java.time.LocalDate
 import java.time.OffsetDateTime
 
-/** 받아 온 브리핑 파일(최근 7일)과 읽음 표시. 앱의 브리핑 목록은 여기서 읽는다. */
+/** 받아 온 브리핑 파일(최근 30일, 지난 것은 지운다)과 읽음 표시. 앱의 브리핑 목록은 여기서 읽는다. */
 class BriefingStore(context: Context) {
     private val dir = File(context.filesDir, "briefings").apply { mkdirs() }
     private val prefs = context.getSharedPreferences("briefing", Context.MODE_PRIVATE)

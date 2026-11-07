@@ -23,9 +23,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.materialswitch.MaterialSwitch
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.time.Instant
 import java.time.LocalDate
 import java.time.OffsetDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 /** 하단 탭: 브리핑(목록) · 설정(알림 수집·숨기기·업로드). */
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var store: BriefingStore
     private lateinit var nav: BottomNavigationView
     private var filter = ALL
+    private var day: LocalDate? = null  // 날짜 선택기로 고른 날 (없으면 최근 전체)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +86,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.pick_date -> {
+            pickDate()
+            true
+        }
         R.id.refresh -> {
             WorkManager.getInstance(this).getWorkInfoByIdLiveData(BriefingWorker.refresh(this)).observe(this) {
                 if (it?.state?.isFinished == true) renderBriefings()
@@ -94,14 +104,46 @@ class MainActivity : AppCompatActivity() {
         else -> super.onOptionsItemSelected(item)
     }
 
+    /** 최근 30일 중 하루를 골라 그날 브리핑만 본다. */
+    private fun pickDate() {
+        val today = LocalDate.now()
+        val utcMillis = { d: LocalDate -> d.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli() }
+        MaterialDatePicker.Builder.datePicker()
+            .setTitleText("브리핑 날짜")
+            .setSelection(utcMillis(day ?: today))
+            .setCalendarConstraints(
+                CalendarConstraints.Builder()
+                    .setStart(utcMillis(today.minusDays(BriefingWorker.KEEP_DAYS)))
+                    .setEnd(utcMillis(today))
+                    .setValidator(DateValidatorPointBackward.now())
+                    .build(),
+            )
+            .build()
+            .apply {
+                addOnPositiveButtonClickListener {
+                    day = Instant.ofEpochMilli(it).atZone(ZoneOffset.UTC).toLocalDate()
+                    renderBriefings()
+                }
+            }
+            .show(supportFragmentManager, "date")
+    }
+
     private fun renderBriefings() {
-        val all = store.all()
+        val all = store.all().filter { day == null || localDate(it.created) == day }
         val newOf = { kind: String? -> all.count { (kind == null || it.kind == kind) && store.isNew(it.id) } }
 
         // 필터 칩: 전체 + 종류별, NEW 개수 표시
         val chips = findViewById<ChipGroup>(R.id.filters)
         chips.setOnCheckedStateChangeListener(null)
         chips.removeAllViews()
+        day?.let { d ->
+            chips.addView(Chip(this, null, M.attr.chipStyle).apply {
+                text = d.format(DateTimeFormatter.ofPattern("M월 d일 (E)"))
+                isCloseIconVisible = true
+                setOnCloseIconClickListener { day = null; renderBriefings() }
+                setOnClickListener { pickDate() }
+            })
+        }
         for ((key, label) in listOf(ALL to "전체") + Briefing.KINDS.toList()) {
             val n = newOf(key.takeIf { it != ALL })
             chips.addView(Chip(this, null, M.attr.chipStyle).apply {
@@ -113,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             })
         }
         chips.setOnCheckedStateChangeListener { group, ids ->
-            filter = group.findViewById<Chip>(ids.first()).tag as String
+            filter = group.findViewById<Chip>(ids.first()).tag as? String ?: return@setOnCheckedStateChangeListener
             renderBriefings()
         }
 
@@ -124,20 +166,21 @@ class MainActivity : AppCompatActivity() {
         val list = findViewById<LinearLayout>(R.id.briefing_list)
         list.removeAllViews()
         if (all.isEmpty()) {
-            list.addView(note("브리핑을 받아 오는 중입니다. 오른쪽 위 새로고침을 눌러 보세요."))
+            list.addView(note(if (day != null) "이 날짜의 브리핑이 없습니다." else "브리핑을 받아 오는 중입니다. 오른쪽 위 새로고침을 눌러 보세요."))
             return
         }
         if (filter == ALL) {
-            // 종류별 영역: 최근 3건씩, 영역 제목을 누르면 그 종류만 보기
+            // 종류별 영역. 날짜를 고르지 않았으면 최근 3건씩, 영역 제목의 '모두 보기'로 그 종류만 보기
+            val limit = if (day == null) PREVIEW else Int.MAX_VALUE
             for ((kind, label) in Briefing.KINDS) {
                 val items = all.filter { it.kind == kind }
                 if (items.isEmpty()) continue
-                list.addView(header(label, newOf(kind), items.size > PREVIEW) { select(kind) })
-                items.take(PREVIEW).forEach { list.addView(card(it)) }
+                list.addView(header(label, newOf(kind), items.size > limit) { select(kind) })
+                items.take(limit).forEach { list.addView(card(it)) }
             }
         } else {
             val items = all.filter { it.kind == filter }
-            if (items.isEmpty()) list.addView(note("최근 7일 동안 받은 브리핑이 없습니다."))
+            if (items.isEmpty()) list.addView(note(if (day != null) "이 날짜의 브리핑이 없습니다." else "최근 30일 동안 받은 브리핑이 없습니다."))
             items.forEach { list.addView(card(it)) }
         }
     }
@@ -172,6 +215,8 @@ class MainActivity : AppCompatActivity() {
         }
         layoutParams = LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(8) }
     }
+
+    private fun localDate(iso: String) = OffsetDateTime.parse(iso).atZoneSameInstant(ZoneId.systemDefault()).toLocalDate()
 
     /** 오늘이면 "13:28", 아니면 "11/6 22:57" */
     private fun shortTime(iso: String): String {
