@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 바탕은 차가운 안개색, 내용은 흰 면. 색은 브리핑 종류를 구분할 때만 쓴다. -->
+    <color name="fog">#EDF0F3</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#18202B</color>
+    <color name="muted">#5D6978</color>
+    <color name="rule">#D3D9E0</color>
+    <color name="primary">#1F3B63</color>
+    <color name="primary_container">#DCE4F0</color>
+
+    <color name="kind_noti">#2F5BD6</color>
+    <color name="kind_daily">#6A4BC4</color>
+    <color name="kind_news">#0E7C6B</color>
+    <color name="kind_politics">#B3262E</color>
+    <color name="kind_mail">#A86A0C</color>
+</resources>

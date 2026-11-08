@@ -8,6 +8,7 @@ import android.view.View
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.work.testing.WorkManagerTestInitHelper
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -37,7 +38,10 @@ class ScreenshotTest {
 
     @Test
     fun screens() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { shot(it.window.decorView, "1-briefings") }
+        ActivityScenario.launch(MainActivity::class.java).onActivity {
+            shot(it.window.decorView, "1-briefings")
+            it.findViewById<BottomNavigationView>(R.id.nav).selectedItemId = R.id.tab_settings
+        }.onActivity { shot(it.window.decorView, "4-settings") }
         detail("noti", "2-detail").onActivity {
             // 제외 목록(접힌 섹션)은 제목 줄을 누르면 펼쳐진다
             val root = it.window.decorView
@@ -47,6 +51,13 @@ class ScreenshotTest {
             assertTrue(root.viewsWithText("앱 열기").let { b -> b.size == 2 && b.all(View::isShown) }) // 알림을 보낸 앱으로 이동
         }
         detail("news", "3-news")
+    }
+
+    @Test
+    @Config(qualifiers = "+night")
+    fun night() {
+        ActivityScenario.launch(MainActivity::class.java).onActivity { shot(it.window.decorView, "5-night-briefings") }
+        detail("noti", "6-night-detail")
     }
 
     private fun detail(kind: String, name: String): ActivityScenario<BriefingActivity> {

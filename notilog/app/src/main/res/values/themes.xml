@@ -1,4 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.AlarmLog" parent="Theme.Material3.DayNight.NoActionBar" />
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AlarmLog" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/fog</item>
+        <item name="colorSurface">@color/fog</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerLow">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOnSurfaceVariant">@color/muted</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorOutline">@color/rule</item>
+        <item name="colorOutlineVariant">@color/rule</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/surface</item>
+        <item name="colorSecondaryContainer">@color/primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/ink</item>
+        <item name="android:statusBarColor">@color/fog</item>
+        <item name="android:windowLightStatusBar">@bool/light_bars</item>
+
+        <item name="android:fontFamily">@font/plex_kr</item>
+        <item name="fontFamily">@font/plex_kr</item>
+        <item name="textAppearanceHeadlineSmall">@style/Text.Headline</item>
+        <item name="textAppearanceTitleLarge">@style/Text.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/Text.Title</item>
+        <item name="textAppearanceTitleSmall">@style/Text.Title</item>
+        <item name="textAppearanceBodyLarge">@style/Text.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/Text.Body</item>
+        <item name="textAppearanceBodySmall">@style/Text.Small</item>
+        <item name="textAppearanceLabelLarge">@style/Text.Label</item>
+        <item name="textAppearanceLabelMedium">@style/Text.LabelMedium</item>
+    </style>
+
+    <!-- 글자 크기 단계: 12 · 13 · 15 · 17 · 20 · 24 sp. 굵기는 보통(400)과 반굵게(600) 둘만 -->
+    <style name="Text" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/plex_kr</item>
+        <item name="android:fontFamily">@font/plex_kr</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:letterSpacing">0</item>
+        <!-- 한국어를 어절 단위로 줄바꿈 (Android 13+, 그 아래 버전은 무시) -->
+        <item name="android:lineBreakWordStyle" tools:targetApi="33">phrase</item>
+    </style>
+    <style name="Text.Headline">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+    </style>
+    <style name="Text.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.Title">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.BodyLarge">
+        <item name="android:textSize">17sp</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="Text.Body">
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="Text.Small">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="Text.Label">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 뉴스·정치 기사 제목 -->
+    <style name="Text.Article">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <!-- 상세 머리의 큰 시각 (목록의 시각 열과 같은 모양) -->
+    <style name="Text.Clock.Large">
+        <item name="android:textSize">34sp</item>
+    </style>
+    <!-- 목록 왼쪽 시각 열: 화면의 유일한 강조. 고정폭 숫자 -->
+    <style name="Text.Clock">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFeatureSettings">tnum</item>
+    </style>
 </resources>

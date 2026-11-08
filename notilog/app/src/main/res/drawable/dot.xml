@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 안 읽은 브리핑 표시. 색은 코드에서 종류 색으로 칠한다 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/ink" />
+    <size android:width="8dp" android:height="8dp" />
+</shape>

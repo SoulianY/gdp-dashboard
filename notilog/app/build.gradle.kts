@@ -10,8 +10,8 @@ android {
         applicationId = "com.souliany.notilog"
         minSdk = 29
         targetSdk = 37
-        versionCode = 22
-        versionName = "1.7"
+        versionCode = 23
+        versionName = "1.8"
     }
 
     signingConfigs {
