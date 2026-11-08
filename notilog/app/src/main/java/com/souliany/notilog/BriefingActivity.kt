@@ -78,14 +78,23 @@ class BriefingActivity : AppCompatActivity() {
         }
         val head = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         if (s.app.isNotEmpty()) head.addView(badge(s.app, color))
-        head.addView(text(s.title, M.attr.textAppearanceTitleSmall), LinearLayout.LayoutParams(0, -2, 1f))
-        if (s.chat) head.addView(text("${s.items.size}개", M.attr.textAppearanceBodySmall, muted = true))
+        // 제목 줄은 선택 불가: 선택 가능한 글자는 탭을 가로채 접힌 섹션이 펼쳐지지 않는다.
+        head.addView(text(s.title, M.attr.textAppearanceTitleSmall, selectable = false), LinearLayout.LayoutParams(0, -2, 1f))
+        if (s.chat) head.addView(text("${s.items.size}개", M.attr.textAppearanceBodySmall, muted = true, selectable = false))
         inner.addView(head)
 
         val list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; visibility = if (s.fold) View.GONE else View.VISIBLE }
         for (item in s.items) list.addView(row(item))
         inner.addView(list)
-        if (s.fold) head.setOnClickListener { list.visibility = if (list.visibility == View.GONE) View.VISIBLE else View.GONE }
+        if (s.fold) {
+            val toggle = text(FOLDED, M.attr.textAppearanceLabelLarge, selectable = false).apply { setTextColor(themeColor(android.R.attr.colorPrimary)) }
+            head.addView(toggle)
+            head.setOnClickListener {
+                val open = list.visibility == View.GONE
+                list.visibility = if (open) View.VISIBLE else View.GONE
+                toggle.text = if (open) UNFOLDED else FOLDED
+            }
+        }
 
         return MaterialCardView(this, null, M.attr.materialCardViewOutlinedStyle).apply {
             addView(inner)
@@ -97,16 +106,17 @@ class BriefingActivity : AppCompatActivity() {
         }
     }
 
-    /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 */
+    /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 / 앱 열기 버튼 */
     private fun row(item: Briefing.Item): View {
         val isTime = TIME_ONLY.matches(item.sub)
+        val launch = item.pkg.takeIf { it.isNotEmpty() }?.let(packageManager::getLaunchIntentForPackage)
         val line = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             setPadding(0, px(8), 0, 0)
             addView(text(item.text, M.attr.textAppearanceBodyMedium), LinearLayout.LayoutParams(0, -2, 1f))
             if (isTime) addView(text(item.sub, M.attr.textAppearanceBodySmall, muted = true).pad(left = 10))
         }
-        if (isTime && item.link.isEmpty() && item.image.isEmpty()) return line
+        if (isTime && item.link.isEmpty() && item.image.isEmpty() && launch == null) return line
         return LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             if (item.image.isNotEmpty()) addView(photo(item.image), LinearLayout.LayoutParams(-1, px(180)).apply { topMargin = px(10) })
@@ -115,6 +125,10 @@ class BriefingActivity : AppCompatActivity() {
             if (item.link.isNotEmpty()) addView(MaterialButton(context, null, M.attr.materialButtonOutlinedStyle).apply {
                 text = if ("calendar.google.com" in item.link) "캘린더에 등록" else "원문 보기"
                 setOnClickListener { open(item.link) }
+            })
+            if (launch != null) addView(MaterialButton(context, null, M.attr.materialButtonOutlinedStyle).apply {
+                text = "앱 열기"
+                setOnClickListener { startActivity(launch) }
             })
         }
     }
@@ -144,11 +158,11 @@ class BriefingActivity : AppCompatActivity() {
 
     private fun groupHeader(s: String) = text(s, M.attr.textAppearanceLabelLarge, muted = true).pad(top = 20, bottom = 8)
 
-    private fun text(s: String, appearance: Int, muted: Boolean = false) = TextView(this).apply {
+    private fun text(s: String, appearance: Int, muted: Boolean = false, selectable: Boolean = true) = TextView(this).apply {
         text = s
         setTextAppearance(themeAttr(appearance))
         if (muted) setTextColor(themeColor(M.attr.colorOnSurfaceVariant))
-        setTextIsSelectable(true)
+        setTextIsSelectable(selectable)
     }
 
     private fun <T : View> T.pad(left: Int = 0, top: Int = 0, bottom: Int = 0) = apply { setPadding(px(left), px(top), 0, px(bottom)) }
@@ -178,6 +192,8 @@ class BriefingActivity : AppCompatActivity() {
         const val EXTRA_ID = "id"
         private val TIME = DateTimeFormatter.ofPattern("M월 d일 (E) HH:mm")
         private val TIME_ONLY = Regex("""\d{1,2}:\d{2}""")
+        private const val FOLDED = "펼치기 ▾"
+        private const val UNFOLDED = "접기 ▴"
 
         /** 앱별 색 (배경, 글자). 웹 페이지와 같다. */
         private val APP_COLORS = mapOf(

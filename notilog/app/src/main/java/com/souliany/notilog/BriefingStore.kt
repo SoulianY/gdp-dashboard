@@ -1,13 +1,14 @@
 package com.souliany.notilog
 
 import android.content.Context
+import androidx.core.app.NotificationManagerCompat
 import org.json.JSONObject
 import java.io.File
 import java.time.LocalDate
 import java.time.OffsetDateTime
 
 /** 받아 온 브리핑 파일(최근 30일, 지난 것은 지운다)과 읽음 표시. 앱의 브리핑 목록은 여기서 읽는다. */
-class BriefingStore(context: Context) {
+class BriefingStore(private val context: Context) {
     private val dir = File(context.filesDir, "briefings").apply { mkdirs() }
     private val prefs = context.getSharedPreferences("briefing", Context.MODE_PRIVATE)
 
@@ -37,7 +38,12 @@ class BriefingStore(context: Context) {
 
     fun isNew(id: String) = id !in read
 
-    fun markRead(ids: Collection<String>) = prefs.edit().putStringSet("read", read + ids).apply()
+    /** 읽음 표시. 읽은 브리핑의 폰 알림도 지운다(다른 앱처럼 앱에서 읽으면 알림이 사라짐). */
+    fun markRead(ids: Collection<String>) {
+        prefs.edit().putStringSet("read", read + ids).apply()
+        val nm = NotificationManagerCompat.from(context)
+        ids.forEach { nm.cancel(BriefingWorker.notificationId(it)) }
+    }
 
     fun prune(keepDays: Long) {
         val cutoff = LocalDate.now().minusDays(keepDays).toString()
