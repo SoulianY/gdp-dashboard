@@ -17,8 +17,8 @@ data class Briefing(
 ) {
     /** app: 배지로 보여 줄 앱 이름, chat: 메시지(채팅방) 영역, fold: 접어서 보여 줌(제외 목록) */
     data class Section(val title: String, val app: String, val chat: Boolean, val fold: Boolean, val items: List<Item>)
-    /** image: 사진 URL(뉴스·정치) */
-    data class Item(val text: String, val sub: String, val link: String, val image: String)
+    /** image: 사진 URL(뉴스·정치), pkg: 알림을 보낸 앱(누르면 그 앱을 연다) */
+    data class Item(val text: String, val sub: String, val link: String, val image: String, val pkg: String)
 
     companion object {
         /** 종류별 이름. 순서가 목록의 영역·필터 순서다. */
@@ -33,7 +33,7 @@ data class Briefing(
             sections = o.optJSONArray("sections").objects().map { s ->
                 Section(s.getString("title"), s.optString("app"), s.optString("group") == "chat", s.optBoolean("fold"),
                     s.optJSONArray("items").objects().map {
-                    Item(it.getString("text"), it.optString("sub"), it.optString("link"), it.optString("image"))
+                    Item(it.getString("text"), it.optString("sub"), it.optString("link"), it.optString("image"), it.optString("package"))
                 })
             },
         )

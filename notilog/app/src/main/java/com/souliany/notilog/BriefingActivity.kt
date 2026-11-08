@@ -106,16 +106,17 @@ class BriefingActivity : AppCompatActivity() {
         }
     }
 
-    /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 */
+    /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크 버튼 / 앱 열기 버튼 */
     private fun row(item: Briefing.Item): View {
         val isTime = TIME_ONLY.matches(item.sub)
+        val launch = item.pkg.takeIf { it.isNotEmpty() }?.let(packageManager::getLaunchIntentForPackage)
         val line = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             setPadding(0, px(8), 0, 0)
             addView(text(item.text, M.attr.textAppearanceBodyMedium), LinearLayout.LayoutParams(0, -2, 1f))
             if (isTime) addView(text(item.sub, M.attr.textAppearanceBodySmall, muted = true).pad(left = 10))
         }
-        if (isTime && item.link.isEmpty() && item.image.isEmpty()) return line
+        if (isTime && item.link.isEmpty() && item.image.isEmpty() && launch == null) return line
         return LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             if (item.image.isNotEmpty()) addView(photo(item.image), LinearLayout.LayoutParams(-1, px(180)).apply { topMargin = px(10) })
@@ -124,6 +125,10 @@ class BriefingActivity : AppCompatActivity() {
             if (item.link.isNotEmpty()) addView(MaterialButton(context, null, M.attr.materialButtonOutlinedStyle).apply {
                 text = if ("calendar.google.com" in item.link) "캘린더에 등록" else "원문 보기"
                 setOnClickListener { open(item.link) }
+            })
+            if (launch != null) addView(MaterialButton(context, null, M.attr.materialButtonOutlinedStyle).apply {
+                text = "앱 열기"
+                setOnClickListener { startActivity(launch) }
             })
         }
     }

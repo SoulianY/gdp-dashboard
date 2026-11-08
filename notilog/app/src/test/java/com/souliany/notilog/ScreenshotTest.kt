@@ -44,6 +44,7 @@ class ScreenshotTest {
             assertTrue(root.viewsWithText("쿠폰 도착").isEmpty()) // 숨은 뷰는 찾히지 않는다
             (root.viewsWithText("펼치기").single().parent as View).performClick()
             assertTrue(root.viewsWithText("쿠폰 도착").single().isShown)
+            assertTrue(root.viewsWithText("앱 열기").let { b -> b.size == 2 && b.all(View::isShown) }) // 알림을 보낸 앱으로 이동
         }
         detail("news", "3-news")
     }

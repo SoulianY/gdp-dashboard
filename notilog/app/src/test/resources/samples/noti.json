@@ -92,12 +92,14 @@
    "fold": true,
    "items": [
     {
-     "text": "쿠폰 도착",
-     "sub": "쇼핑 · 12:00"
+     "text": "쿠폰 도착\n오늘만 50% 할인",
+     "sub": "쇼핑 · 12:00",
+     "package": "com.souliany.notilog"
     },
     {
-     "text": "놓친 알림",
-     "sub": "LinkedIn · 12:01"
+     "text": "놓친 알림\n새 알림 3개",
+     "sub": "LinkedIn · 12:01",
+     "package": "com.souliany.notilog"
     }
    ]
   }
