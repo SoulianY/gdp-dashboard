@@ -94,7 +94,7 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
     private fun show(b: Briefing) {
         val ctx = applicationContext
         val open = PendingIntent.getActivity(
-            ctx, b.id.hashCode(),
+            ctx, notificationId(b.id),
             Intent(ctx, BriefingActivity::class.java).putExtra(BriefingActivity.EXTRA_ID, b.id),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
@@ -107,7 +107,7 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
             .setAutoCancel(true)
             .build()
         try {
-            NotificationManagerCompat.from(ctx).notify(b.id.hashCode(), n)
+            NotificationManagerCompat.from(ctx).notify(notificationId(b.id), n)
         } catch (e: SecurityException) {
             // 알림 권한이 꺼져 있으면 띄우지 않는다(목록에는 NEW로 남는다).
         }
@@ -118,6 +118,8 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
         private const val CHANNEL = "briefing"
         const val KEEP_DAYS = 30L
         private val KST = ZoneId.of("Asia/Seoul")
+        fun notificationId(briefingId: String) = briefingId.hashCode()
+
         private val online = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
 
         fun schedule(context: Context) {
