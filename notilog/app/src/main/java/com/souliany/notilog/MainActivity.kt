@@ -251,6 +251,7 @@ class MainActivity : AppCompatActivity() {
     private fun renderSettings() {
         val granted = packageName in NotificationManagerCompat.getEnabledListenerPackages(this)
         findViewById<TextView>(R.id.status).text = buildString {
+            appendLine("앱 버전: ${packageManager.getPackageInfo(packageName, 0).versionName}")
             appendLine("알림 접근 권한: ${if (granted) "허용됨" else "필요함"}")
             appendLine("업로드 설정: ${if (settings.configured) settings.repo else "필요함"}")
             appendLine("올리기 대기: ${Outbox(this@MainActivity).count()}건")

@@ -10,8 +10,8 @@ android {
         applicationId = "com.souliany.notilog"
         minSdk = 29
         targetSdk = 37
-        versionCode = 18
-        versionName = "1.3"
+        versionCode = 20
+        versionName = "1.5"
     }
 
     signingConfigs {
@@ -42,6 +42,8 @@ dependencies {
     implementation("androidx.work:work-runtime:2.12.0")
     implementation("androidx.appcompat:appcompat:1.8.0")
     implementation("com.google.android.material:material:1.14.0")
+    implementation("io.coil-kt.coil3:coil:3.6.3")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.6.3")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.17")

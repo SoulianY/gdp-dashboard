@@ -79,12 +79,13 @@ def write_briefing(kind: str, briefing: dict, m: dict) -> None:
     for st in briefing["stories"]:
         link = st["sources"][0]["link"] if st.get("sources") else ""
         by_cat.setdefault(st.get("category") or "주요", []).append(
-            {"text": st["headline"], "sub": st["body"], **({"link": link} if link else {})})
+            {"text": st["headline"], "sub": st["body"], **({"link": link} if link else {}),
+             **({"image": st["image"]} if st.get("image") else {})})
     path = BRIEFINGS_DIR / f"{at:%Y-%m-%d}" / f"{at:%H%M%S}-{kind}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({
         "id": f"{at:%Y-%m-%d}/{at:%H%M%S}-{kind}", "kind": kind, "title": m["title"], "created": at.isoformat(),
-        "summary": briefing["overview"], "url": m["url"],
+        "summary": briefing["overview"],
         "sections": [{"title": "요약", "items": [{"text": briefing["overview"]}]}]
                     + [{"title": cat, "items": items} for cat, items in by_cat.items()],
     }, ensure_ascii=False, indent=1), encoding="utf-8")

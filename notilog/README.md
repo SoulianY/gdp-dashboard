@@ -24,7 +24,7 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 | `Settings.kt` | 업로드 대상 저장소·토큰, 알림 보낸 앱·카톡 방 목록, 숨길 앱, 숨길 단어, 1분 제한 방, 내 이름 |
 | `BriefingWorker.kt` | 15분마다 push-inbox `briefings/`(알림·마감·메일)와 gdp-dashboard `data/briefings/`(뉴스·정치)의 오늘·어제 폴더에서 새 파일을 받아 오고 폰 알림 |
 | `Briefing.kt`, `BriefingStore.kt` | 브리핑 파일 형식, 받아 온 파일(최근 30일)과 읽음 표시 |
-| `BriefingActivity.kt` | 브리핑 한 건 보기 |
+| `BriefingActivity.kt` | 브리핑 한 건 보기 (뉴스·정치는 기사 사진을 Coil로 불러옴) |
 | `MainActivity.kt` | 하단 탭: 브리핑 목록(필터·NEW) / 설정(권한 상태·앱별 알림 띄우기·단톡방 1분 제한·업로드) |
 
 ## 알림 숨기기

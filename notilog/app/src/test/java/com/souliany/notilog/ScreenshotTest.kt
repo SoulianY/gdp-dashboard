@@ -37,10 +37,15 @@ class ScreenshotTest {
     @Test
     fun screens() {
         ActivityScenario.launch(MainActivity::class.java).onActivity { shot(it.window.decorView, "1-briefings") }
-        val id = BriefingStore(ctx).all().first { it.kind == "noti" }.id
+        detail("noti", "2-detail")
+        detail("news", "3-news")
+    }
+
+    private fun detail(kind: String, name: String) {
+        val id = BriefingStore(ctx).all().first { it.kind == kind }.id
         ActivityScenario.launch<BriefingActivity>(
             Intent(ctx, BriefingActivity::class.java).putExtra(BriefingActivity.EXTRA_ID, id),
-        ).onActivity { shot(it.window.decorView, "2-detail") }
+        ).onActivity { shot(it.window.decorView, name) }
     }
 
     private fun shot(v: View, name: String) {
