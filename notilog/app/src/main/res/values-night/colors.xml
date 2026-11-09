@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fog">#11151A</color>
+    <color name="surface">#1A1F26</color>
+    <color name="ink">#E4E9EF</color>
+    <color name="muted">#94A0AE</color>
+    <color name="rule">#2A313B</color>
+    <color name="primary">#A9C1E8</color>
+    <color name="primary_container">#28374D</color>
+
+    <color name="kind_noti">#86A6FF</color>
+    <color name="kind_daily">#B39CF5</color>
+    <color name="kind_news">#5CC7B2</color>
+    <color name="kind_politics">#FF8A8F</color>
+    <color name="kind_community">#E48AD8</color>
+    <color name="kind_mail">#E8B060</color>
+</resources>

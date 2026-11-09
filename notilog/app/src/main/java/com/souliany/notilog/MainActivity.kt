@@ -6,7 +6,9 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
+import android.text.SpannableStringBuilder
 import android.text.format.DateUtils
+import android.text.style.TextAppearanceSpan
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -149,7 +151,7 @@ class MainActivity : AppCompatActivity() {
             chips.addView(Chip(this, null, M.attr.chipStyle).apply {
                 id = View.generateViewId()
                 tag = key
-                text = if (n > 0) "$label  NEW $n" else label
+                text = if (n > 0) "$label $n" else label
                 isCheckable = true
                 isChecked = key == filter
             })
@@ -175,14 +177,27 @@ class MainActivity : AppCompatActivity() {
             for ((kind, label) in Briefing.KINDS) {
                 val items = all.filter { it.kind == kind }
                 if (items.isEmpty()) continue
-                list.addView(header(label, newOf(kind), items.size > limit) { select(kind) })
-                items.take(limit).forEach { list.addView(card(it)) }
+                list.addView(header(kind, label, newOf(kind), items.size > limit) { select(kind) })
+                list.addView(sheet(items.take(limit)))
             }
         } else {
             val items = all.filter { it.kind == filter }
             if (items.isEmpty()) list.addView(note(if (day != null) "이 날짜의 브리핑이 없습니다." else "최근 30일 동안 받은 브리핑이 없습니다."))
-            items.forEach { list.addView(card(it)) }
+            else list.addView(sheet(items).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = dp(8) })
         }
+    }
+
+    /** 브리핑 여러 줄을 흰 면 하나에 담는다. 줄 사이는 시각 열 뒤부터 가는 선. */
+    private fun sheet(items: List<Briefing>) = LinearLayout(this).apply {
+        orientation = LinearLayout.VERTICAL
+        setBackgroundResource(R.drawable.sheet)
+        clipToOutline = true
+        items.forEachIndexed { i, b ->
+            if (i > 0) addView(View(context).apply { setBackgroundColor(getColor(R.color.rule)) },
+                LinearLayout.LayoutParams(-1, 1).apply { marginStart = dp(90) })  // 16 + 시각 열 64 + 10
+            addView(row(b))
+        }
+        layoutParams = LinearLayout.LayoutParams(-1, -2)
     }
 
     private fun select(kind: String) {
@@ -190,43 +205,59 @@ class MainActivity : AppCompatActivity() {
         renderBriefings()
     }
 
-    private fun header(label: String, newCount: Int, more: Boolean, onMore: () -> Unit) =
+    /** 영역 제목: 종류 이름(종류 색) + 새 글 수, 오른쪽에 '모두 보기' */
+    private fun header(kind: String, label: String, newCount: Int, more: Boolean, onMore: () -> Unit) =
         LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
-            setPadding(0, dp(16), 0, dp(8))
+            gravity = android.view.Gravity.BOTTOM
+            setPadding(dp(4), dp(24), dp(4), dp(8))
             addView(TextView(context).apply {
-                text = if (newCount > 0) "$label  ·  NEW $newCount" else label
-                setTextAppearance(attr(M.attr.textAppearanceTitleMedium))
+                text = label
+                setTextAppearance(R.style.Text_Title)
+                setTextColor(Palette.kind(context, kind))
+            })
+            addView(TextView(context).apply {
+                text = if (newCount > 0) "  새 글 $newCount" else ""
+                setTextAppearance(R.style.Text_Small)
             }, LinearLayout.LayoutParams(0, -2, 1f))
             if (more) addView(TextView(context).apply {
-                text = "모두 보기 ›"
-                setTextAppearance(attr(M.attr.textAppearanceLabelLarge))
+                text = "모두 보기"
+                setTextAppearance(R.style.Text_Small)
                 setOnClickListener { onMore() }
             })
         }
 
-    private fun card(b: Briefing): View = LayoutInflater.from(this).inflate(R.layout.briefing_item, findViewById(R.id.briefing_list), false).apply {
-        findViewById<View>(R.id.new_badge).visibility = if (store.isNew(b.id)) View.VISIBLE else View.GONE
-        findViewById<TextView>(R.id.title).text = b.title
-        findViewById<TextView>(R.id.time).text = shortTime(b.created)
-        findViewById<TextView>(R.id.summary).text = b.summary
+    private fun row(b: Briefing): View = LayoutInflater.from(this).inflate(R.layout.briefing_item, findViewById(R.id.briefing_list), false).apply {
+        val color = Palette.kind(context, b.kind)
+        val unread = store.isNew(b.id)
+        val t = OffsetDateTime.parse(b.created).atZoneSameInstant(ZoneId.systemDefault())
+        findViewById<TextView>(R.id.time).text = t.format(DateTimeFormatter.ofPattern("HH:mm"))
+        findViewById<TextView>(R.id.date).text = when (val d = t.toLocalDate()) {
+            LocalDate.now() -> "오늘"
+            LocalDate.now().minusDays(1) -> "어제"
+            else -> d.format(DateTimeFormatter.ofPattern("M/d (E)"))
+        }
+        findViewById<View>(R.id.rule).setBackgroundColor(color)
+        findViewById<View>(R.id.dot).apply {
+            visibility = if (unread) View.VISIBLE else View.INVISIBLE
+            background.setTint(color)
+        }
+        findViewById<TextView>(R.id.summary).apply {
+            text = b.summary.ifEmpty { b.title }
+            if (!unread) setTextColor(getColor(R.color.muted))
+        }
         setOnClickListener {
             startActivity(Intent(this@MainActivity, BriefingActivity::class.java).putExtra(BriefingActivity.EXTRA_ID, b.id))
         }
-        layoutParams = LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(8) }
     }
 
     private fun localDate(iso: String) = OffsetDateTime.parse(iso).atZoneSameInstant(ZoneId.systemDefault()).toLocalDate()
 
-    /** 오늘이면 "13:28", 아니면 "11/6 22:57" */
-    private fun shortTime(iso: String): String {
-        val t = OffsetDateTime.parse(iso).atZoneSameInstant(ZoneId.systemDefault())
-        return t.format(DateTimeFormatter.ofPattern(if (t.toLocalDate() == LocalDate.now()) "HH:mm" else "M/d HH:mm"))
-    }
-
     private fun note(s: String) = TextView(this).apply {
         text = s
-        setPadding(0, dp(24), 0, 0)
+        setTextAppearance(R.style.Text_Body)
+        setTextColor(getColor(R.color.muted))
+        setPadding(dp(4), dp(24), dp(4), 0)
     }
 
     // ---- 설정 탭 ----
@@ -276,10 +307,11 @@ class MainActivity : AppCompatActivity() {
     ) {
         val list = findViewById<LinearLayout>(listId)
         list.removeAllViews()
-        if (rows.isEmpty()) list.addView(TextView(this).apply { text = empty })
+        if (rows.isEmpty()) list.addView(TextView(this).apply { text = empty; setTextAppearance(R.style.Text_Small) })
         for (row in rows) {
             list.addView(MaterialSwitch(this).apply {
-                text = "${row.label}  ·  ${DateUtils.getRelativeTimeSpanString(row.last)}"
+                text = SpannableStringBuilder(row.label).append("\n")
+                    .append(DateUtils.getRelativeTimeSpanString(row.last), TextAppearanceSpan(context, R.style.Text_Small), 0)
                 isChecked = checked(row)
                 setOnCheckedChangeListener { _, on -> onChange(row, on) }
             })
@@ -287,12 +319,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
-
-    private fun attr(a: Int): Int {
-        val v = android.util.TypedValue()
-        theme.resolveAttribute(a, v, true)
-        return v.resourceId
-    }
 
     private companion object {
         const val ALL = "all"
