@@ -1,7 +1,7 @@
 # 📥 알림 로그 (Android)
 
 하단 탭 두 개:
-- **브리핑**: 모든 브리핑(알림·마감·뉴스·정치·메일)을 회차별로 모아 보여 준다. 종류별 영역, 전체·종류 필터 칩과 NEW 개수,
+- **브리핑**: 모든 브리핑(알림·마감·뉴스·정치·커뮤니티·메일)을 회차별로 모아 보여 준다. 종류별 영역, 전체·종류 필터 칩과 NEW 개수,
   안 읽은 브리핑의 NEW 표시. 누르면 앱 안에서 내용을 보고, 링크(원문·캘린더 등록)를 연다. 새 브리핑은 폰 알림으로도 온다.
 - **설정**: 알림 수집 권한, 앱별 알림 띄우기, 숨길 단어, 카톡 단톡방 1분 제한, 업로드 저장소.
 
@@ -22,7 +22,7 @@ Claude Code 세션(예약 작업 포함)이 그 저장소를 읽어 알림을 �
 | `Outbox.kt` | 업로드 전 로컬 보관. 업로드 성공 전까지 지우지 않음 |
 | `UploadWorker.kt` | 알림이 오면 3분 뒤(그 사이 알림은 한 묶음으로) GitHub Contents API 업로드. 실패분은 15분 주기 작업이 다시 올림 |
 | `Settings.kt` | 업로드 대상 저장소·토큰, 알림 보낸 앱·카톡 방 목록, 숨길 앱, 숨길 단어, 1분 제한 방, 내 이름 |
-| `BriefingWorker.kt` | 15분마다 push-inbox `briefings/`(알림·마감·메일)와 gdp-dashboard `data/briefings/`(뉴스·정치)의 오늘·어제 폴더에서 새 파일을 받아 오고 폰 알림 |
+| `BriefingWorker.kt` | 15분마다 push-inbox `briefings/`(알림·마감·메일)와 gdp-dashboard `data/briefings/`(뉴스·정치·커뮤니티)의 오늘·어제 폴더에서 새 파일을 받아 오고 폰 알림 |
 | `Briefing.kt`, `BriefingStore.kt` | 브리핑 파일 형식, 받아 온 파일(최근 30일)과 읽음 표시 |
 | `BriefingActivity.kt` | 브리핑 한 건 보기 (뉴스·정치는 기사 사진을 Coil로 불러옴) |
 | `Palette.kt`, `res/values*/colors.xml`, `res/font/` | 화면 색(브리핑 종류 색·메시지 앱 배지 색, 다크 모드)과 글꼴 IBM Plex Sans KR(SIL OFL, `fonts-OFL-IBM-Plex.txt`) |

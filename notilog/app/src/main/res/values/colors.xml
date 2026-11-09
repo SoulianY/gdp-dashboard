@@ -13,5 +13,6 @@
     <color name="kind_daily">#6A4BC4</color>
     <color name="kind_news">#0E7C6B</color>
     <color name="kind_politics">#B3262E</color>
+    <color name="kind_community">#9A3B8F</color>
     <color name="kind_mail">#A86A0C</color>
 </resources>

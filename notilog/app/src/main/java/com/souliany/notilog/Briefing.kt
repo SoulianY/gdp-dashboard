@@ -4,7 +4,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * 브리핑 한 건. 알림·마감·메일(push-inbox/briefings)과 뉴스·정치(gdp-dashboard/data/briefings)가 같은 형식이다.
+ * 브리핑 한 건. 알림·마감·메일(push-inbox/briefings)과 뉴스·정치·커뮤니티(gdp-dashboard/data/briefings)가 같은 형식이다.
  * id는 "<날짜>/<시각>-<종류>".
  */
 data class Briefing(
@@ -17,12 +17,12 @@ data class Briefing(
 ) {
     /** app: 배지로 보여 줄 앱 이름, chat: 메시지(채팅방) 영역, fold: 접어서 보여 줌(제외 목록) */
     data class Section(val title: String, val app: String, val chat: Boolean, val fold: Boolean, val items: List<Item>)
-    /** image: 사진 URL(뉴스·정치), pkg: 알림을 보낸 앱(누르면 그 앱을 연다) */
+    /** image: 사진 URL(뉴스·정치·커뮤니티), pkg: 알림을 보낸 앱(누르면 그 앱을 연다) */
     data class Item(val text: String, val sub: String, val link: String, val image: String, val pkg: String)
 
     companion object {
         /** 종류별 이름. 순서가 목록의 영역·필터 순서다. */
-        val KINDS = linkedMapOf("noti" to "알림", "daily" to "마감", "news" to "뉴스", "politics" to "정치", "mail" to "메일")
+        val KINDS = linkedMapOf("noti" to "알림", "daily" to "마감", "news" to "뉴스", "politics" to "정치", "community" to "커뮤니티", "mail" to "메일")
 
         fun parse(o: JSONObject) = Briefing(
             id = o.getString("id"),

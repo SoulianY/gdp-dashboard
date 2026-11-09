@@ -7,7 +7,7 @@ import android.graphics.Color
 object Palette {
     private val KIND = mapOf(
         "noti" to R.color.kind_noti, "daily" to R.color.kind_daily, "news" to R.color.kind_news,
-        "politics" to R.color.kind_politics, "mail" to R.color.kind_mail,
+        "politics" to R.color.kind_politics, "community" to R.color.kind_community, "mail" to R.color.kind_mail,
     )
 
     fun kind(context: Context, kind: String): Int = context.getColor(KIND[kind] ?: R.color.muted)

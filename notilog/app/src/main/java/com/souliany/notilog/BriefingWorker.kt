@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 15분마다 두 저장소의 브리핑 파일 폴더(오늘·어제)를 보고 새 파일을 받아 온다.
  *  - 비공개 push-inbox/briefings: 알림·마감·메일 (설정의 저장소·토큰)
- *  - 공개 gdp-dashboard/data/briefings: 뉴스·정치
+ *  - 공개 gdp-dashboard/data/briefings: 뉴스·정치·커뮤니티
  * 새 브리핑은 폰 알림으로 띄우고, 누르면 앱의 브리핑 화면이 열린다.
  */
 class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {

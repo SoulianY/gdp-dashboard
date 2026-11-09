@@ -29,7 +29,7 @@ class ScreenshotTest {
     fun seed() {
         WorkManagerTestInitHelper.initializeTestWorkManager(ctx)
         val store = BriefingStore(ctx)
-        val saved = listOf("noti", "daily", "news", "politics").map {
+        val saved = listOf("noti", "daily", "news", "politics", "community").map {
             store.save(javaClass.getResource("/samples/$it.json")!!.readText())
         }
         store.initialized = true
@@ -51,6 +51,7 @@ class ScreenshotTest {
             assertTrue(root.viewsWithText("앱 열기").let { b -> b.size == 2 && b.all(View::isShown) }) // 알림을 보낸 앱으로 이동
         }
         detail("news", "3-news")
+        detail("community", "7-community")
     }
 
     @Test

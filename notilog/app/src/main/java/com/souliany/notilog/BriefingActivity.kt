@@ -58,7 +58,7 @@ class BriefingActivity : AppCompatActivity() {
         if (both) body.addView(groupHeader("메시지"))
         chats.forEach { body.addView(section(it, article = false)) }
         body.addView(groupHeader(if (both) "알림·요약" else ""))
-        rest.forEach { body.addView(section(it, article = b.kind in ARTICLES)) }
+        rest.forEach { body.addView(section(it, article = b.kind in ARTICLES && !it.fold)) }
         findViewById<ScrollView>(R.id.scroll).apply {
             addView(body)
             // 하단 내비게이션 바에 마지막 버튼이 가리지 않게
@@ -109,7 +109,7 @@ class BriefingActivity : AppCompatActivity() {
     }
 
     /** 한 줄: (사진) + 본문 + (시각이면 오른쪽, 아니면 아래 회색 글씨) + 링크·앱 열기.
-     *  article(뉴스·정치)이면 본문이 기사 제목, 아래가 기사 내용이라 둘 다 크게. */
+     *  article(뉴스·정치·커뮤니티)이면 본문이 기사 제목, 아래가 기사 내용이라 둘 다 크게. */
     private fun row(item: Briefing.Item, article: Boolean): View {
         val isTime = TIME_ONLY.matches(item.sub)
         val launch = item.pkg.takeIf { it.isNotEmpty() }?.let(packageManager::getLaunchIntentForPackage)
@@ -186,7 +186,7 @@ class BriefingActivity : AppCompatActivity() {
         private val CLOCK = DateTimeFormatter.ofPattern("HH:mm")
         private val DATE = DateTimeFormatter.ofPattern("M월 d일 EEEE")
         private val TIME_ONLY = Regex("""\d{1,2}:\d{2}""")
-        private val ARTICLES = setOf("news", "politics")
+        private val ARTICLES = setOf("news", "politics", "community")
         private const val FOLDED = "펼치기 ▾"
         private const val UNFOLDED = "접기 ▴"
     }

@@ -1,0 +1,137 @@
+{
+ "id": "2026-11-10/064800-community",
+ "kind": "community",
+ "title": "💬 11/10 아침 커뮤니티 브리핑",
+ "created": "2026-11-10T06:48:00+09:00",
+ "summary": "첫 이슈, 둘째",
+ "sections": [
+  {
+   "title": "주요 이슈",
+   "items": [
+    {
+     "text": "첫 이슈",
+     "sub": "요약입니다.\n디시 댓글 10 · 추천 3, 클리앙 댓글 20 · 추천 6",
+     "link": "https://ex.com/dc/1",
+     "image": "https://ex.com/a.jpg"
+    },
+    {
+     "text": "둘째",
+     "sub": "클리앙 댓글 10 · 추천 3",
+     "link": "https://ex.com/clien/1"
+    }
+   ]
+  },
+  {
+   "title": "디시 실시간 베스트",
+   "fold": true,
+   "items": [
+    {
+     "text": "디시 실시간 베스트 글 1",
+     "sub": "댓글 10 · 추천 3",
+     "link": "https://ex.com/dc/1"
+    },
+    {
+     "text": "디시 실시간 베스트 글 2",
+     "sub": "댓글 20 · 추천 6",
+     "link": "https://ex.com/dc/2"
+    },
+    {
+     "text": "디시 실시간 베스트 글 3",
+     "sub": "댓글 30 · 추천 9",
+     "link": "https://ex.com/dc/3"
+    },
+    {
+     "text": "디시 실시간 베스트 글 4",
+     "sub": "댓글 40 · 추천 12",
+     "link": "https://ex.com/dc/4"
+    },
+    {
+     "text": "디시 실시간 베스트 글 5",
+     "sub": "댓글 50 · 추천 15",
+     "link": "https://ex.com/dc/5"
+    },
+    {
+     "text": "디시 실시간 베스트 글 6",
+     "sub": "댓글 60 · 추천 18",
+     "link": "https://ex.com/dc/6"
+    },
+    {
+     "text": "디시 실시간 베스트 글 7",
+     "sub": "댓글 70 · 추천 21",
+     "link": "https://ex.com/dc/7"
+    },
+    {
+     "text": "디시 실시간 베스트 글 8",
+     "sub": "댓글 80 · 추천 24",
+     "link": "https://ex.com/dc/8"
+    },
+    {
+     "text": "디시 실시간 베스트 글 9",
+     "sub": "댓글 90 · 추천 27",
+     "link": "https://ex.com/dc/9"
+    },
+    {
+     "text": "디시 실시간 베스트 글 10",
+     "sub": "댓글 100 · 추천 30",
+     "link": "https://ex.com/dc/10"
+    }
+   ]
+  },
+  {
+   "title": "클리앙 모두의공원",
+   "fold": true,
+   "items": [
+    {
+     "text": "클리앙 모두의공원 글 1",
+     "sub": "댓글 10 · 추천 3",
+     "link": "https://ex.com/clien/1"
+    },
+    {
+     "text": "클리앙 모두의공원 글 2",
+     "sub": "댓글 20 · 추천 6",
+     "link": "https://ex.com/clien/2"
+    },
+    {
+     "text": "클리앙 모두의공원 글 3",
+     "sub": "댓글 30 · 추천 9",
+     "link": "https://ex.com/clien/3"
+    },
+    {
+     "text": "클리앙 모두의공원 글 4",
+     "sub": "댓글 40 · 추천 12",
+     "link": "https://ex.com/clien/4"
+    },
+    {
+     "text": "클리앙 모두의공원 글 5",
+     "sub": "댓글 50 · 추천 15",
+     "link": "https://ex.com/clien/5"
+    },
+    {
+     "text": "클리앙 모두의공원 글 6",
+     "sub": "댓글 60 · 추천 18",
+     "link": "https://ex.com/clien/6"
+    },
+    {
+     "text": "클리앙 모두의공원 글 7",
+     "sub": "댓글 70 · 추천 21",
+     "link": "https://ex.com/clien/7"
+    },
+    {
+     "text": "클리앙 모두의공원 글 8",
+     "sub": "댓글 80 · 추천 24",
+     "link": "https://ex.com/clien/8"
+    },
+    {
+     "text": "클리앙 모두의공원 글 9",
+     "sub": "댓글 90 · 추천 27",
+     "link": "https://ex.com/clien/9"
+    },
+    {
+     "text": "클리앙 모두의공원 글 10",
+     "sub": "댓글 100 · 추천 30",
+     "link": "https://ex.com/clien/10"
+    }
+   ]
+  }
+ ]
+}

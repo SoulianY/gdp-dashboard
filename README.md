@@ -10,7 +10,8 @@ API 키 없이 Claude 구독으로 돌아갑니다.
 - **정치 브리핑**: 매일 아침, 최근 24시간 정치 이슈 전체로 브리핑.
 - **메일 브리핑**: Gmail 브리핑 예약 작업이 `workflow_dispatch`(kind=mail)로 카톡만 보냄. 메일 내용은 이 저장소에 올리지 않고, 알림은 비공개 브리핑 페이지(claude.ai) 링크만 담음.
 - **알림 브리핑**: 폰 알림 브리핑 예약 작업(비공개 저장소 push-inbox)이 `workflow_dispatch`(kind=noti)로 카톡을 보냄. 확인 필요·중요 알림이 새로 생긴 회차와 밤 마감 브리핑에만, 건수와 비공개 페이지 링크만 담음.
-- 뉴스·정치 브리핑은 `data/briefings/<날짜>/<시각>-<종류>.json`에 회차마다 한 파일로도 남아, 폰의 [알림 로그 앱](notilog/README.md)이 브리핑 목록으로 보여 줍니다(메일·알림 브리핑 파일은 비공개 저장소 push-inbox에).
+- **커뮤니티 브리핑**: 하루 두 번(06:48, 15:48) 국내 커뮤니티 인기글을 이슈로 묶어 비공개 브리핑 페이지(claude.ai)에 올림. 절차는 [`community/GUIDE.md`](community/GUIDE.md).
+- 뉴스·정치·커뮤니티 브리핑은 `data/briefings/<날짜>/<시각>-<종류>.json`에 회차마다 한 파일로도 남아, 폰의 [알림 로그 앱](notilog/README.md)이 브리핑 목록으로 보여 줍니다(메일·알림 브리핑 파일은 비공개 저장소 push-inbox에).
 - 브리핑이 main에 푸시되면 GitHub Actions가 페이지를 갱신하고, 카카오톡으로 핵심 요약과 '브리핑 보기' 버튼을 보냄.
 
 ## 흐름
@@ -29,6 +30,7 @@ API 키 없이 Claude 구독으로 돌아갑니다.
 | `news/GUIDE.md` | 예약 작업 세션이 따르는 절차와 작성 원칙 |
 | `news/briefing.py` | `prepare`: 수집·새 기사 판별 / `publish`: 원고 검증·사진·출처 붙여 저장 |
 | `news/notify.py` | 카카오톡 '나에게 보내기' 알림 + 뉴스·정치 브리핑 파일 `data/briefings/` 기록 (`python -m news.notify <kind>`) |
+| `community/brief.py`, `community/GUIDE.md` | 커뮤니티 브리핑: 수집·사진·페이지 렌더링·앱 브리핑 파일, 예약 작업 절차 |
 | `site/index.html` | 브리핑 페이지 (배포 시 `data/news/*.json`을 함께 올려 읽음) |
 | `.github/workflows/news-briefing.yml` | 브리핑 푸시 시 페이지 배포 → 카톡 발송 |
 | `notilog/` | 폰 알림을 비공개 저장소로 모으는 개인용 Android 앱 ([README](notilog/README.md)) |
