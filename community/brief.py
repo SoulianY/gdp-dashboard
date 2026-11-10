@@ -1,7 +1,7 @@
 """국내 커뮤니티 브리핑(아침·오후). 절차는 GUIDE.md.
 
-python3 community/brief.py collect OUT        # 지난 브리핑 이후 인기글 목록 -> OUT/posts.json
-python3 community/brief.py enrich OUT         # briefing.json에 묶인 글만 요약문·사진 -> OUT/posts.json, OUT/img/*.jpg
+python3 community/brief.py collect OUT        # 지난 브리핑 이후 인기글 목록, 마라톤 갤러리 글 목록 -> OUT/posts.json
+python3 community/brief.py enrich OUT         # briefing.json에 묶인 글만 요약문·사진, 고른 마라톤 글은 본문 -> OUT/posts.json, OUT/img/*.jpg
 python3 community/brief.py render OUT         # OUT/posts.json + OUT/briefing.json -> OUT/index.html (브리핑 페이지)
 python3 community/brief.py app OUT BRIEFINGS  # 같은 내용 -> BRIEFINGS/<날짜>/<시각>-community.json (알림 로그 앱)
 """
@@ -24,6 +24,7 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/130 Safari/537.36")
 MAX_PER_SOURCE = 100
 BOARD_TOP = 10
+MARATHON = "https://gall.dcinside.com/mgallery/board/lists/?id=maraton"  # 디시 마라톤 갤러리: 접수 일정 글을 찾는다
 KST = ZoneInfo("Asia/Seoul")
 SLOTS = ((6, 48), (15, 48))  # 예약 실행 시각(KST). 바꾸면 예약 작업의 일정도 같이 바꾼다.
 NSFW = re.compile(r"ㅇㅎ|ㅎㅂ|후방|19금|ㅗㅜㅑ|야스")
@@ -38,8 +39,9 @@ def num(text):
     return int(m.group().replace(",", "")) if m else 0
 
 
-def soup(url):
-    r = session.get(url, timeout=20)
+def soup(url, fresh=False):
+    # fresh: 쿠키 없이 요청(디시 마이너 갤러리는 세션 쿠키가 쌓이면 500을 낸다)
+    r = (requests.get(url, headers=session.headers, timeout=20) if fresh else session.get(url, timeout=20))
     r.raise_for_status()
     if r.encoding and r.encoding.lower() == "iso-8859-1":
         r.encoding = r.apparent_encoding
@@ -52,13 +54,13 @@ def by_reaction(items):
     return sorted(items, key=lambda p: -(p[2] + p[3]))
 
 
-def list_dcbest(since):
-    # 실베는 등재 순으로 쌓이므로 기간을 벗어날 때까지 페이지를 넘긴다
+def list_dc(board, since, pages, fresh=False):
+    # 디시 게시판 목록은 시간순으로 쌓이므로 기간을 벗어날 때까지 페이지를 넘긴다. 말머리가 있으면 제목 앞에 붙인다.
     out = []
-    for page in range(1, 13):
-        base = f"https://gall.dcinside.com/board/lists/?id=dcbest&page={page}"
+    for page in range(1, pages + 1):
+        base = f"{board}&page={page}"
         oldest = None
-        for tr in soup(base).select("tr.ub-content"):
+        for tr in soup(base, fresh).select("tr.ub-content"):
             if not tr.select_one("td.gall_num").get_text(strip=True).isdigit():
                 continue
             posted = datetime.strptime(tr.select_one("td.gall_date")["title"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=KST)
@@ -67,13 +69,20 @@ def list_dcbest(since):
                 continue
             a = tr.select_one("td.gall_tit a")
             title = " ".join(a.get_text(" ", strip=True).split())
+            head = tr.select_one("td.gall_subject p.subject_inner") or tr.select_one("td.gall_subject")
+            if head and head.get_text(strip=True):
+                title = f"[{head.get_text(strip=True)}] {title}"
             out.append((title, urljoin(base, a["href"]).replace(f"&page={page}", ""),
                         num(tr.select_one(".reply_num").get_text() if tr.select_one(".reply_num") else ""),
                         num(tr.select_one("td.gall_recommend").get_text())))
         if oldest is None or oldest < since:
             break
         time.sleep(0.4)
-    return by_reaction(out)
+    return out
+
+
+def list_dcbest(since):
+    return by_reaction(list_dc("https://gall.dcinside.com/board/lists/?id=dcbest", since, 12))
 
 
 def list_time(text, now):
@@ -249,6 +258,30 @@ def post_detail(url):
     return desc[:220], urljoin(url, img) if img else ""  # "//host/..." 같은 주소도 절대 주소로
 
 
+def post_body(url):
+    # 마라톤 접수 글: 본문 텍스트, 본문 속 바깥 링크(접수 페이지 후보), 본문 사진(대회 포스터) 주소
+    for _ in range(2):  # 본문이 가끔 비어 온다
+        body = soup(url, fresh=True).select_one(".write_div")
+        if body:
+            break
+        time.sleep(1)
+    else:
+        return "", [], []
+    links = list(dict.fromkeys(a["href"] for a in body.find_all("a", href=True)
+                               if a["href"].startswith("http") and "dcinside.com" not in a["href"]))
+    imgs = [urljoin(url, i["src"]) for i in body.find_all("img", src=True)]
+    return " ".join(body.get_text(" ", strip=True).split())[:2000], links[:5], imgs[:4]
+
+
+def save_poster(img_url, path):
+    # 포스터 글씨를 읽을 수 있게 크게 저장한다(브리핑 페이지에는 올리지 않음)
+    r = requests.get(img_url, headers=session.headers, timeout=20)
+    r.raise_for_status()
+    im = Image.open(io.BytesIO(r.content)).convert("RGB")
+    im.thumbnail((1400, 2400))
+    im.save(path, "JPEG", quality=82)
+
+
 def save_image(img_url, path):
     r = session.get(img_url, timeout=20)
     r.raise_for_status()
@@ -285,8 +318,20 @@ def collect(out):
                    "comments": comments, "score": score, "desc": "", "image": "", "image_src": ""}
                   for i, (title, purl, comments, score) in enumerate(items, 1)]
         print(f"{name}: {len(items)}건", file=sys.stderr)
+    # 마라톤 갤러리는 인기글이 아니라 기간 안의 모든 글(접수 안내는 반응이 작아도 놓치지 않게). 커뮤니티별 목록에는 넣지 않는다.
+    marathon = []
+    try:
+        marathon = [{"id": f"marathon-{i}", "title": title, "url": purl, "comments": comments, "score": score,
+                     "body": "", "links": [], "posters": []}
+                    for i, (title, purl, comments, score) in enumerate(list_dc(MARATHON, since, 10, fresh=True), 1)]
+        status.append({"source": "marathon", "name": "디시 마라톤 갤러리", "url": MARATHON, "ok": True,
+                       "note": f"{len(marathon)}건"})
+    except Exception as e:
+        status.append({"source": "marathon", "name": "디시 마라톤 갤러리", "url": MARATHON, "ok": False,
+                       "note": str(e)[:120]})
+    print(f"디시 마라톤 갤러리: {len(marathon)}건", file=sys.stderr)
     data = {"since": since.isoformat(timespec="minutes"), "collected_at": now.isoformat(timespec="minutes"),
-            "sources": status, "posts": posts}
+            "sources": status, "posts": posts, "marathon": marathon}
     (out / "posts.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
@@ -307,6 +352,24 @@ def enrich(out):
                 p["image_src"] = img_url
         except Exception as e:
             print(f"  {p['id']} 상세/사진 실패: {e}", file=sys.stderr)
+        time.sleep(0.4)
+    # 마라톤 접수 글: 본문과 포스터(OUT/race/*.jpg, 4단계에서 읽고 접수 정보를 뽑는다)
+    races = {r["post"] for r in brief.get("races", [])}
+    (out / "race").mkdir(exist_ok=True)
+    for p in data["marathon"]:
+        if p["id"] not in races:
+            continue
+        try:
+            p["body"], p["links"], imgs = post_body(p["url"])
+            for n, img_url in enumerate(imgs, 1):
+                path = out / "race" / f"{p['id']}-{n}.jpg"
+                try:
+                    save_poster(img_url, path)
+                    p["posters"].append(str(path))
+                except Exception as e:
+                    print(f"  {p['id']} 포스터 {n} 실패: {e}", file=sys.stderr)
+        except Exception as e:
+            print(f"  {p['id']} 본문 실패: {e}", file=sys.stderr)
         time.sleep(0.4)
     (out / "posts.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
@@ -360,6 +423,11 @@ a{color:var(--accent)} a:focus-visible{outline:2px solid var(--accent);outline-o
 footer{font-size:15px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px}
 footer ul{margin:6px 0 0;padding-left:18px}
 .fail{color:var(--muted)}
+.races{display:grid;gap:10px}
+.race{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:10px;padding:14px 18px;display:grid;gap:6px}
+.race h3{font:700 20px/1.4 var(--body);margin:0}
+.race dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:16px}
+.race dt{color:var(--muted);font-weight:600} .race dd{margin:0}
 @media (max-width:560px){
   .issue{grid-template-columns:1fr} .issue img{max-height:200px}
   .boards{grid-template-columns:1fr} header h1{font-size:30px}
@@ -382,17 +450,21 @@ def stat(p):
     return " · ".join(parts)
 
 
+RACE_FIELDS = (("signup", "접수"), ("date", "대회"), ("courses", "종목"))
+
+
 def load(out):
-    """posts.json, briefing.json -> (전체 글, 이슈 [(그룹, 그 그룹의 글들)])"""
+    """posts.json, briefing.json -> (전체 글, 이슈 [(그룹, 그 그룹의 글들)], 마라톤 접수 [(대회, 원문 글)])"""
     data = json.loads((out / "posts.json").read_text(encoding="utf-8"))
     brief = json.loads((out / "briefing.json").read_text(encoding="utf-8"))
-    by_id = {p["id"]: p for p in data["posts"]}
+    by_id = {p["id"]: p for p in data["posts"] + data["marathon"]}
     issues = [(g, ps) for g in brief["groups"] if (ps := [by_id[i] for i in g["posts"] if i in by_id])]
-    return data, issues
+    races = [(r, by_id[r["post"]]) for r in brief.get("races", []) if r["post"] in by_id]
+    return data, issues, races
 
 
 def render(out):
-    data, groups = load(out)
+    data, groups, races = load(out)
     t = datetime.fromisoformat(data["collected_at"])
     f = datetime.fromisoformat(data["since"])
     date = f"{t.year}년 {t.month}월 {t.day}일 ({WEEKDAY[t.weekday()]}) {'아침' if t.hour < 12 else '오후'}"
@@ -409,6 +481,15 @@ def render(out):
             + (f'<img src="{e(img)}" alt="" loading="lazy">' if img else "")
             + f'<div class="txt"><h3>{e(g["headline"])}</h3><p>{e(g["summary"])}</p>'
             f'<div class="links">{links}</div></div></article>')
+
+    race_cards = []
+    for r, p in races:
+        rows = "".join(f"<dt>{label}</dt><dd>{e(r[k])}</dd>" for k, label in RACE_FIELDS if r.get(k))
+        link = (f'<a href="{e(r["link"])}" target="_blank" rel="noopener">접수 페이지</a>' if r.get("link") else "")
+        race_cards.append(f'<article class="race"><h3>{e(r["name"])}</h3><dl>{rows}</dl><div class="links">{link}'
+                          f'<a href="{e(p["url"])}" target="_blank" rel="noopener">갤러리 원문</a></div></article>')
+    race_section = (f'<section><h2>마라톤 접수 일정</h2><div class="races">{"".join(race_cards)}</div></section>'
+                    if race_cards else "")
 
     boards = []
     for s in data["sources"]:
@@ -435,6 +516,7 @@ def render(out):
 <style>{CSS}</style></head><body><main>
 <header><h1>{date} 커뮤니티 브리핑</h1>
 <div class="meta">지난 브리핑 이후({f.month}/{f.day} {f:%H:%M} ~ {t.month}/{t.day} {t:%H:%M}) 인기글 {len(data["posts"])}건에서 이슈 {len(issues)}개를 추렸습니다</div></header>
+{race_section}
 <section><h2>주요 이슈</h2><div class="issues">{"".join(issues)}</div></section>
 <section><h2>커뮤니티별 인기글</h2><div class="boards">{"".join(boards)}</div></section>
 <footer>수집 현황<ul>{status}</ul></footer>
@@ -445,8 +527,10 @@ def render(out):
 def app(out, briefings):
     """알림 로그 앱의 브리핑 파일. 형식은 news/notify.py의 뉴스 브리핑 파일과 같다.
     이슈마다 한 줄(제목, 요약, 반응 큰 글 원문, 사진 원본 주소), 커뮤니티별 인기글은 접어 둔다."""
-    data, groups = load(out)
+    data, groups, races = load(out)
     t = datetime.fromisoformat(data["collected_at"])
+    race_items = [{"text": r["name"], "sub": "\n".join(f"{label} {r[k]}" for k, label in RACE_FIELDS if r.get(k)),
+                   "link": r.get("link") or p["url"]} for r, p in races]
     issues = []
     for g, ps in groups:
         src = next((p["image_src"] for p in ps if p.get("image_src")), "")
@@ -465,7 +549,8 @@ def app(out, briefings):
         "id": f"{t:%Y-%m-%d}/{t:%H%M%S}-community", "kind": "community",
         "title": f"💬 {t:%m/%d} {'아침' if t.hour < 12 else '오후'} 커뮤니티 브리핑", "created": t.isoformat(),
         "summary": ", ".join(g["headline"] for g, _ in groups[:3]),
-        "sections": [{"title": "주요 이슈", "items": issues}, *boards],
+        "sections": [*([{"title": "마라톤 접수 일정", "items": race_items}] if race_items else []),
+                     {"title": "주요 이슈", "items": issues}, *boards],
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     print(path)
 
