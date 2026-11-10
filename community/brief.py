@@ -242,6 +242,11 @@ SOURCES = [
 
 # --- 게시글: 요약문과 대표 사진 ---
 
+def img_src(tag):
+    # 디시 본문은 셋째 사진부터 지연 로딩: src는 로딩 gif, 실제 주소는 data-original
+    return tag.get("data-original") or tag["src"]
+
+
 def post_detail(url):
     s = soup(url)
 
@@ -254,7 +259,7 @@ def post_detail(url):
     if not img or BAD_IMG.search(img):
         body = s.select_one("#contentArea") or s.select_one(".write_div") or s.select_one(".view_content")
         tag = body.find("img", src=True) if body else None
-        img = tag["src"] if tag else ""
+        img = img_src(tag) if tag else ""
     return desc[:220], urljoin(url, img) if img else ""  # "//host/..." 같은 주소도 절대 주소로
 
 
@@ -269,7 +274,7 @@ def post_body(url):
         return "", [], []
     links = list(dict.fromkeys(a["href"] for a in body.find_all("a", href=True)
                                if a["href"].startswith("http") and "dcinside.com" not in a["href"]))
-    imgs = [urljoin(url, i["src"]) for i in body.find_all("img", src=True)]
+    imgs = [urljoin(url, img_src(i)) for i in body.find_all("img", src=True)]
     return " ".join(body.get_text(" ", strip=True).split())[:2000], links[:5], imgs[:4]
 
 
