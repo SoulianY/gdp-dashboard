@@ -468,6 +468,14 @@ def load(out):
     return data, issues, races
 
 
+def no_race_note(data):
+    """접수 일정이 없을 때 그 영역에 남길 한 줄: 확인했는데 없는지, 갤러리를 못 읽었는지 구분한다."""
+    st = next((s for s in data["sources"] if s["source"] == "marathon"), None)
+    if st and not st["ok"]:
+        return f"마라톤 갤러리를 읽지 못했습니다 ({st['note']})"
+    return f"새 접수 일정 없음 (마라톤 갤러리 글 {len(data['marathon'])}건 확인)"
+
+
 def render(out):
     data, groups, races = load(out)
     t = datetime.fromisoformat(data["collected_at"])
@@ -493,8 +501,8 @@ def render(out):
         link = (f'<a href="{e(r["link"])}" target="_blank" rel="noopener">접수 페이지</a>' if r.get("link") else "")
         race_cards.append(f'<article class="race"><h3>{e(r["name"])}</h3><dl>{rows}</dl><div class="links">{link}'
                           f'<a href="{e(p["url"])}" target="_blank" rel="noopener">갤러리 원문</a></div></article>')
-    race_section = (f'<section><h2>마라톤 접수 일정</h2><div class="races">{"".join(race_cards)}</div></section>'
-                    if race_cards else "")
+    race_section = (f'<section><h2>마라톤 접수 일정</h2><div class="races">'
+                    f'{"".join(race_cards) or f"<p class=meta>{e(no_race_note(data))}</p>"}</div></section>')
 
     boards = []
     for s in data["sources"]:
@@ -535,7 +543,7 @@ def app(out, briefings):
     data, groups, races = load(out)
     t = datetime.fromisoformat(data["collected_at"])
     race_items = [{"text": r["name"], "sub": "\n".join(f"{label} {r[k]}" for k, label in RACE_FIELDS if r.get(k)),
-                   "link": r.get("link") or p["url"]} for r, p in races]
+                   "link": r.get("link") or p["url"]} for r, p in races] or [{"text": no_race_note(data)}]
     issues = []
     for g, ps in groups:
         src = next((p["image_src"] for p in ps if p.get("image_src")), "")
@@ -554,7 +562,7 @@ def app(out, briefings):
         "id": f"{t:%Y-%m-%d}/{t:%H%M%S}-community", "kind": "community",
         "title": f"💬 {t:%m/%d} {'아침' if t.hour < 12 else '오후'} 커뮤니티 브리핑", "created": t.isoformat(),
         "summary": ", ".join(g["headline"] for g, _ in groups[:3]),
-        "sections": [*([{"title": "마라톤 접수 일정", "items": race_items}] if race_items else []),
+        "sections": [{"title": "마라톤 접수 일정", "items": race_items},
                      {"title": "주요 이슈", "items": issues}, *boards],
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     print(path)
