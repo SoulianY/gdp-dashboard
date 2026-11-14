@@ -1,54 +1,122 @@
 {
- "generated_at": "2026-11-14T07:22:24.452269+09:00",
- "overview": "젠슨 황 사임 여파로 엔비디아 주가가 또 떨어졌고, 미 행정부에서도 책임 공방이 벌어지고 있다. 이란이 바레인의 미군 레이더를 공격했다고 주장했다. 축구대표팀은 사우디에 2-3으로 졌다.",
+ "generated_at": "2026-11-14T11:22:30.441100+09:00",
+ "overview": "미 연방항공청이 관제통신 장애로 전국 항공기 이륙을 4시간 20분간 멈췄고 인천발 미국행 일부 편도 결항됐다가 정상화 수순에 들어갔다. 엔비디아는 젠슨 황 스캔들 여파로 2% 더 내렸다. 미시시피강 유람선 충돌 사고에선 승객 전원이 생존했다.",
  "stories": [
   {
    "category": "국제",
-   "headline": "젠슨 황 사임 후폭풍…엔비디아 후계 구도 흔들리고 미 행정부 내 책임 공방",
-   "body": "엔비디아 이사회가 젠슨 황의 후임을 찾으면서, 자사 출신인 러네이 하스 Arm CEO와 접촉한 것으로 전해졌다. 황 전 CEO는 중국 간첩 의혹을 받는 여성과의 혼외관계가 드러나 12일 사임했다. 임시 CEO가 된 콜레트 크레스 전 CFO는 과거 황 전 CEO에게서 '겁먹은 사슴'이라는 혹평을 들었던 인물로 알려졌다. 스캔들이 대중 수출통제 지연 논란으로 번지자 베선트 재무장관은 메가스피드 제재 권한이 상무부에 있다며 러트닉 상무장관을 공개적으로 겨냥했다. 트럼프 대통령의 뜻을 따랐다고 밝힌 러트닉 장관은 경질론에 몰렸다. 13일 뉴욕증시도 스캔들 여파로 혼조 마감했다. 다우지수만 0.1% 올랐고 엔비디아는 2% 하락해 약세가 이어졌다.",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/11/14/PRU20261114039001009_P2.jpg",
-   "outlets": 3,
+   "headline": "미 전역 항공기 이륙 4시간여 '올스톱'…인천발 미국행도 영향",
+   "body": "미국 연방항공청(FAA)이 13일(현지시간) 오후 4시께(미 동부시간) '이례적인 상황과 안전상의 이유'를 들어 미 전역 공항에 항공기 이륙 중단을 지시했다. 교통장관은 원인으로 관제센터 통신 문제를 꼽았고, 승객이 내리고 화물을 빼는 등 혼란이 빚어졌다. 로이터에 따르면 FAA는 4시간 20분 만에 중단 조치를 해제했다. 여파로 대한항공 인천∼애틀랜타 노선 등 대한항공·아시아나항공의 일부 미국행 항공편이 결항됐으나, 14일 오전 인천 출발 미국행 결항이 취소되며 정상화 수순에 들어갔다. 장애의 구체적 원인과 재발 방지책이 다음 관심사다.",
+   "image": "https://img.yna.co.kr/photo/etc/epa/2026/11/14/PEP20261114093101009_P2.jpg",
+   "outlets": 4,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "\"엔비디아, 차기 수장 후보로 英 반도체기업 Arm CEO 접촉\"",
-     "link": "https://www.yna.co.kr/view/AKR20261114004700091"
+     "title": "美전역 항공기 운항중단 '올스톱' 사태…\"관제통신시스템 장애\"(종합2보)",
+     "link": "https://www.yna.co.kr/view/AKR20261114010352071"
     },
     {
      "source": "SBS",
-     "title": "\"엔비디아, 차기 수장 후보로 영국 반도체기업 Arm CEO 접촉\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845581&plink=RSSLINK&cooper=RSSREADER"
+     "title": "미 전역 항공기 운항중단 '올스톱' …\"관제통신시스템 장애\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845762&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "연합뉴스",
-     "title": "\"엔비디아 임시 CEO, 과거 젠슨황에게 '겁먹은 사슴' 혹평 들어\"",
-     "link": "https://www.yna.co.kr/view/AKR20261113175400009"
+     "title": "美연방항공청, 美 전역 공항에 이례적 운항 중단 지시",
+     "link": "https://www.yna.co.kr/view/AKR20261114010300071"
+    },
+    {
+     "source": "SBS",
+     "title": "미 연방항공청, 미 전역 공항에 이례적 운항 중단 지시",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845654&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "美전역 항공기 이륙 중단…교통장관 \"관제센터 통신문제\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114010351071"
     },
     {
      "source": "경향신문",
-     "title": "“엔비디아 임시 CEO, 젠슨 황으로부터 ‘겁먹은 사슴 같다’ 혹평 듣던 인물”",
-     "link": "https://www.khan.co.kr/article/202611132143001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news"
+     "title": "미 전역 항공기 이륙 ‘전면 중단’…“관제센터 통신 장애”",
+     "link": "https://www.khan.co.kr/article/202611140841001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world"
+    },
+    {
+     "source": "한겨레",
+     "title": "미국 “모든 항공편 이륙 중단” 명령…승객 내리고 화물 빼고 ‘불안감’",
+     "link": "https://www.hani.co.kr/arti/international/international_general/1287311.html"
     },
     {
      "source": "연합뉴스",
-     "title": "베선트 \"메가스피드 제재 권한은 상무부\"…러트닉 공개 저격",
-     "link": "https://www.yna.co.kr/view/AKR20261114002900072"
+     "title": "美당국, 항공기 운항중단 조치 해제…4시간20분만",
+     "link": "https://www.yna.co.kr/view/AKR20261114026800009"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "미국 전역 이륙 중단에 인천 출발 일부 항공편 결항",
+     "link": "https://www.yna.co.kr/view/AKR20261114026300003"
+    },
+    {
+     "source": "경향신문",
+     "title": "인천 출발 미국행 일부 항공편 결항…미 전역 항공기 이륙 중단 여파",
+     "link": "https://www.khan.co.kr/article/202611141117001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 오늘 오전 인천 출발 미국행 항공편 결항 취소…정상화 수순",
+     "link": "https://www.yna.co.kr/view/AKR20261114028400003"
     },
     {
      "source": "SBS",
-     "title": "베선트 \"메가스피드 제재 권한은 상무부\"…러트닉 공개 저격",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845573&plink=RSSLINK&cooper=RSSREADER"
+     "title": "[속보] 오늘 오전 인천 출발 미국행 항공편 결항 취소…정상화 수순",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845842&plink=RSSLINK&cooper=RSSREADER"
+    }
+   ]
+  },
+  {
+   "category": "국제",
+   "headline": "미시시피강 유람선·화물선 충돌로 전복…승객 전원 생존",
+   "body": "13일(현지시간) 미국 루이지애나주 뉴올리언스 미시시피강에서 화물선 애틀랜틱 아스팔트호가 유람선 아메리칸 헤리티지호와 충돌해 유람선이 전복됐다. 초기 보도는 승객 129명 구조 작업을 전했으나 이후 '180명 전원 생존'으로 정리됐다. 보도 시점에 따라 탑승 인원이 129명과 180명으로 엇갈린다. 사망·실종자는 없으며 사고 원인은 아직 확인되지 않았다.",
+   "image": "https://img.yna.co.kr/photo/ap/2026/11/14/PAP20261114091101009_P2.jpg",
+   "outlets": 4,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "美 미시시피강서 유람선-화물선 충돌…승객 129명 구조 진행",
+     "link": "https://www.yna.co.kr/view/AKR20261114012600075"
     },
     {
      "source": "연합뉴스",
-     "title": "트럼프 뜻 따랐다는 러트닉…젠슨 황 비호 의혹에 '경질론' 위기",
-     "link": "https://www.yna.co.kr/view/AKR20261114001200071"
+     "title": "美미시시피강서 유람선-화물선 충돌…\"180명 전원 생존\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114012651075"
     },
     {
-     "source": "연합뉴스",
-     "title": "트럼프 뜻 따랐다는 러트닉…젠슨 황 비호 의혹에 '경질론' 위기(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261114001251071"
+     "source": "경향신문",
+     "title": "미국 미시시피강서 유람선-화물선 충돌…원인은 아직 확인 안돼",
+     "link": "https://www.khan.co.kr/article/202611140924001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world"
     },
+    {
+     "source": "SBS",
+     "title": "미시시피강서 유람선-화물선 충돌…\"180명 전원 생존\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845756&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "한겨레",
+     "title": "미국 미시시피강서 선박 충돌…승객 129명 태운 여객선 옆으로 누웠다",
+     "link": "https://www.hani.co.kr/arti/international/america/1287306.html"
+    },
+    {
+     "source": "SBS",
+     "title": "[자막뉴스] \"180명 탄 유람선이 뒤집혔다\"…전원 생존 '미시시피의 기적'",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845783&plink=RSSLINK&cooper=RSSREADER"
+    }
+   ]
+  },
+  {
+   "category": "경제",
+   "headline": "젠슨 황 스캔들 여파 지속…엔비디아 2% 추가 하락, 후임·스파이 의혹 번져",
+   "body": "13일(현지시간) 뉴욕증시는 젠슨 황 엔비디아 전 CEO 스캔들 여파로 기술주가 약세를 보이며 혼조 마감했고, 다우지수만 0.1%(50.46포인트) 올랐다. 엔비디아는 2% 내려 하락세를 이어갔다. 대만 매체는 황 전 CEO의 불륜 상대로 지목된 앨리스 황이 중국 정보기관 반도체팀 소속이라고 보도했지만 미국 측은 아직 결론을 내리지 못했다는 입장이다. 밀반출 의혹 연루 보도가 나온 슈퍼마이크로는 '메가스피드는 고객이 아니다'라고 해명했고, 엔비디아는 Arm CEO 접촉설에 '아직 누구와도 공식 연락하지 않았다'고 부인했다. 로이터는 엔비디아 칩에 의존하는 중국 AI 프로젝트 규모가 4조6천억 이상이라고 전해, 대중 수출 규제 향방에도 관심이 쏠린다.",
+   "image": "https://img.yna.co.kr/photo/reuters/2026/11/14/PRU20261114028601009_P2.jpg",
+   "outlets": 4,
+   "sources": [
     {
      "source": "연합뉴스",
      "title": "뉴욕증시 혼조 마감…엔비디아 하락세 계속, 2%↓",
@@ -58,323 +126,281 @@
      "source": "연합뉴스",
      "title": "뉴욕증시, 다우지수만 0.1% 상승…엔비디아 2%↓, 하락 지속(종합)",
      "link": "https://www.yna.co.kr/view/AKR20261114009551072"
-    }
-   ]
-  },
-  {
-   "category": "스포츠",
-   "headline": "불화설 딛고 나선 축구대표팀, 사우디에 2-3 패배",
-   "body": "모레노호가 카타르 도하에서 열린 중동 원정 2연전 첫 경기에서 사우디아라비아에 2-3으로 졌다. 사우디전에서 3골을 내준 것은 42년 만이다. 불화설을 털어내고 의기투합한 손흥민과 '96라인'이 선발로 나섰지만 결과는 패배였다. 경향신문은 선수들이 이틀 전 입장문에서 약속한 축구를 보여주지 못했다고 평가했다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/14/PYH2026111400290001300_P2.jpg",
-   "outlets": 3,
-   "sources": [
-    {
-     "source": "연합뉴스",
-     "title": "모레노호, 반목 뒤로하고 나선 사우디전서 42년 만의 3실점 패배",
-     "link": "https://www.yna.co.kr/view/AKR20261114002000007"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "모레노호, 반목 뒤로하고 나선 사우디전서 42년 만의 3실점 패배(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261114002051007"
     },
     {
      "source": "경향신문",
-     "title": "입장문에서 약속한 축구는 없었다…모레노호, 사우디에 42년 만의 3실점 패배",
-     "link": "https://www.khan.co.kr/article/202611140155001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "불화설 떨쳐낸 손흥민과 '96라인', 사우디 격파 '선발 출격'",
-     "link": "https://www.yna.co.kr/view/AKR20261113178500007"
+     "title": "뉴욕증시 혼조 마감…엔비디아 2%↓‘하락세’ 지속",
+     "link": "https://www.khan.co.kr/article/202611140752001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news"
     },
     {
      "source": "SBS",
-     "title": "손흥민과 '96라인'…사우디와 평가전 선발 출전",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845499&plink=RSSLINK&cooper=RSSREADER"
+     "title": "뉴욕증시 혼조 마감…엔비디아 하락세 계속, 2%↓",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845766&plink=RSSLINK&cooper=RSSREADER"
     },
-    {
-     "source": "SBS",
-     "title": "'손흥민 ·96라인 선발 출격' 모레노호, 사우디에 3대 2 패배",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845551&plink=RSSLINK&cooper=RSSREADER"
-    }
-   ]
-  },
-  {
-   "category": "사회",
-   "headline": "이혜훈 전 의원, 반포 아파트 부정청약 의혹으로 송치",
-   "body": "서울경찰청 금융범죄수사대는 13일 이혜훈 전 국민의힘 의원을 사기와 업무방해 혐의로 공소청에 불구속 송치했다. 경찰은 문제가 된 반포 원펜타스 아파트에 대해 몰수도 신청했다. 이 전 의원은 올해 초 기획예산처 장관 후보자로 지명됐다가 철회됐다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261113/202240847.jpg",
-   "outlets": 3,
-   "sources": [
     {
      "source": "경향신문",
-     "title": "경찰, ‘아파트 부정청약 의혹’ 이혜훈 송치…반포 원펜타스 몰수 신청",
-     "link": "https://www.khan.co.kr/article/202611131353001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news"
-    },
-    {
-     "source": "SBS",
-     "title": "이혜훈 부정 청약 의혹 송치…원펜타스 몰수 신청",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845381&plink=RSSLINK&cooper=RSSREADER"
+     "title": "“앨리스 황은 중국 정보기관 반도체팀 일원”이라는 대만 매체···“아직 결론 못 내렸다”는 미국",
+     "link": "https://www.khan.co.kr/article/202611132218001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world"
     },
     {
      "source": "한겨레",
-     "title": "‘반포 아파트 부정청약’ 의혹 이혜훈 전 의원 공소청 송치",
-     "link": "https://www.hani.co.kr/arti/society/society_general/1287204.html"
+     "title": "대만 매체 “앨리스 황은 중국 정보기관 반도체팀 소속”",
+     "link": "https://www.hani.co.kr/arti/international/international_general/1287312.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "슈퍼마이크로, 앨리스황 연루 의혹에 \"메가스피드는 고객 아냐\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114019400091"
+    },
+    {
+     "source": "SBS",
+     "title": "슈퍼마이크로, 앨리스황 연루 의혹에 \"메가스피드는 고객 아냐\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845757&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "엔비디아, Arm CEO 접촉설에 \"아직 누구와도 공식 연락 안해\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114004751091"
+    },
+    {
+     "source": "SBS",
+     "title": "엔비디아, Arm CEO 접촉설에 \"아직 누구와도 공식 연락 안해\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845765&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "로이터 \"'엔비디아칩 의존' 中 AI프로젝트 규모 4조6천억 이상\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114026400089"
+    },
+    {
+     "source": "한겨레",
+     "title": "흔들리는 ‘AI 중앙은행’…젠슨 황 스캔들, 기존 CEO 리스크와 결이 다르다",
+     "link": "https://www.hani.co.kr/arti/economy/finance/1287310.html"
     }
    ]
   },
   {
    "category": "사회",
-   "headline": "토요일 전국 비…제주 최대 50~60㎜",
-   "body": "14일 토요일은 전국이 흐리고 대부분 지역에 비가 내린다. 서울·인천은 5~10㎜, 대전·세종·충남과 대구·경북, 부산·울산·경남은 5~30㎜, 강원은 5~10㎜가 예상된다. 제주 강수량은 언론사마다 최대 50㎜(SBS·경향신문)와 60㎜(연합뉴스)로 달리 전했다. 남해상과 제주도 해상에는 돌풍과 천둥·번개가 치는 곳이 있겠다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261114/202240888.jpg",
+   "headline": "배우 고경표, 면허취소 수준 음주운전으로 청소차 추돌",
+   "body": "배우 고경표 씨가 14일 새벽 3시 반쯤 서울 마포구 동교동에서 술을 마신 채 운전하다 청소차를 들이받는 사고를 냈다. 혈중알코올농도는 면허취소 수준이었고 경찰이 조사 중이다. 고씨는 소속사를 통해 사고 사실을 인정하고 '깊이 반성한다'고 사과했다.",
+   "image": "https://img.yna.co.kr/photo/cms/2022/08/16/81/PCM20220816000081005_P2.jpg",
    "outlets": 3,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "[날씨] 토요일 전국 흐리고 밤까지 비…제주 최대 60㎜·남부 최대 40㎜",
-     "link": "https://www.yna.co.kr/view/AKR20261113162300004"
+     "title": "배우 고경표 음주운전 중 청소차 들이받아…면허취소 수준",
+     "link": "https://www.yna.co.kr/view/AKR20261114025000004"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "배우 고경표 음주운전 중 청소차 들이받아…\"깊이 반성\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114025051004"
     },
     {
      "source": "SBS",
-     "title": "[날씨] 전국 흐리고 밤까지 비…제주·남부 5㎜~최대 50㎜",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845590&plink=RSSLINK&cooper=RSSREADER"
+     "title": "배우 고경표, 만취 음주운전 사고…청소차 들이받았다",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845799&plink=RSSLINK&cooper=RSSREADER"
     },
     {
-     "source": "경향신문",
-     "title": "전국 흐리고 밤까지 비…제주 최대 50㎜",
-     "link": "https://www.khan.co.kr/article/202611140711001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "전국 흐리고 대부분 비…제주 이틀간 최대 50㎜",
-     "link": "https://www.yna.co.kr/view/AKR20261114006600034"
+     "source": "한겨레",
+     "title": "배우 고경표, 면허취소 수준 음주운전…청소차 들이받고 “깊이 반성”",
+     "link": "https://www.hani.co.kr/arti/society/society_general/1287314.html"
     },
     {
      "source": "SBS",
-     "title": "오늘 전국 대부분 흐리고 비…수도권 5~10mm·제주 최대 50mm",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845635&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "대전·세종·충남 흐리고 비…예상 강수량 5∼30㎜",
-     "link": "https://www.yna.co.kr/view/AKR20261114010000063"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "강원 흐리고 비…예상 강수량 5∼10㎜",
-     "link": "https://www.yna.co.kr/view/AKR20261114011900062"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "부산·울산·경남 내일 새벽까지 가끔 비…5∼30㎜ 예상",
-     "link": "https://www.yna.co.kr/view/AKR20261114008900052"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "대구·경북 흐리고 비…15일 새벽까지 예상 강수량 5∼30㎜",
-     "link": "https://www.yna.co.kr/view/AKR20261114009800053"
+     "title": "배우 고경표, 만취 음주운전 사고…\"잘못 인정, 깊이 반성\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845828&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   },
   {
    "category": "국제",
-   "headline": "이란, 바레인 미군 레이더 공격 주장…IAEA는 핵물질 전용 여부 확인 못 해",
-   "body": "이란 혁명수비대는 바레인에 있는 미국의 조기경보 레이더를 공격했다고 밝혔다. 미군은 이란 드론을 요격했다고 발표했다. 국제원자력기구(IAEA)는 13일 이란이 핵물질을 평화적 목적 외로 전용하지 않았는지 확인할 수 없다고 밝혔다. 같은 날 로만 고프만 모사드 국장이 워싱턴에서 존 랫클리프 CIA 국장을 만날 예정이라는 보도가 나왔다. 이스라엘이 미국에 이란 공격을 부추기려는 것 아니냐는 관측도 함께 나왔다.",
-   "image": "https://img.yna.co.kr/photo/reuters/2026/11/09/PRU20261109084301009_P2.jpg",
+   "headline": "APEC 계기 19일 미중러 3자 정상회담…북한 논의 가능성",
+   "body": "트럼프 미국 대통령과 시진핑 중국 국가주석, 푸틴 러시아 대통령이 19일 APEC 정상회의를 계기로 중국 선전에서 3자 정상회담을 연다고 미국이 발표했다. 회담에서 북한 문제가 논의될 가능성이 거론된다. 다만 미국 측은 트럼프-김정은 회담 예정은 없다고 밝혔다.",
+   "image": "https://img.yna.co.kr/photo/ap/2026/09/24/PAP20260924268301009_P2.jpg",
    "outlets": 2,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "이란 혁명수비대 \"바레인 내 美 조기경보 레이더 타격\"",
-     "link": "https://www.yna.co.kr/view/AKR20261113126600009"
-    },
-    {
-     "source": "SBS",
-     "title": "이란 혁명수비대 \"바레인 내 미군 조기경보 레이더 타격\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845261&plink=RSSLINK&cooper=RSSREADER"
+     "title": "\"APEC 계기 미중러 정상회담 19일 개최…북한 논의 가능성\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114011500071"
     },
     {
      "source": "연합뉴스",
-     "title": "이란 \"바레인 美 조기경보 레이더 타격\"…미군 \"이란 드론 요격\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261113126651009"
+     "title": "\"APEC 계기 미중러 정상회담 19일 개최…북한 논의 가능성\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261114011551071"
     },
     {
      "source": "SBS",
-     "title": "이란 \"바레인 미 조기경보 레이더 타격\"…미군 \"이란 드론 요격\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845516&plink=RSSLINK&cooper=RSSREADER"
+     "title": "\"APEC 계기 미중러 정상회담 19일 개최…북한 논의 가능성\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845761&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "연합뉴스",
-     "title": "IAEA \"이란 핵물질 평화적 목적 외 전용 여부 확인 불가\"",
-     "link": "https://www.yna.co.kr/view/AKR20261113180900079"
-    },
-    {
-     "source": "SBS",
-     "title": "IAEA \"이란 핵물질 평화적 목적 외 전용 여부 확인 불가\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845517&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "\"이스라엘 모사드 국장, CIA국장 만난다\"…이란공격 부추기나",
-     "link": "https://www.yna.co.kr/view/AKR20261114000600071"
-    },
-    {
-     "source": "SBS",
-     "title": "\"이스라엘 모사드 국장, CIA국장 만난다\"…이란 공격 부추기나",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845574&plink=RSSLINK&cooper=RSSREADER"
-    }
-   ]
-  },
-  {
-   "category": "국제",
-   "headline": "밴스 부통령, 중간선거 참패 뒤 2028년 대선 불출마 검토",
-   "body": "CNN은 JD 밴스 부통령이 2028년 대선에 나서지 않는 방안을 진지하게 검토하고 있다고 13일 보도했다. 측근 등 10여 명을 취재한 결과이며, 아직 결정을 내린 것은 아니라고 전했다. 밴스 부통령은 공화당의 유력한 차기 대선 후보로 꼽혀 왔으나 최근 중간선거에서 집권당이 참패했다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261106/202238709.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "연합뉴스",
-     "title": "\"밴스 美부통령, 중간선거 참패로 2028년 대선 출마 포기 검토\"",
-     "link": "https://www.yna.co.kr/view/AKR20261114004000071"
-    },
-    {
-     "source": "SBS",
-     "title": "\"밴스 미 부통령, 중간선거 참패로 2028년 대선 출마 포기 검토\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845570&plink=RSSLINK&cooper=RSSREADER"
+     "title": "美, 19일 미중러 정상회담 발표…\"트럼프-김정은 회담예정 없어\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114024600009"
     }
    ]
   },
   {
    "category": "스포츠",
-   "headline": "야구대표팀, APBC 일본전 5-9 패배로 2연패",
-   "body": "한국 야구대표팀이 2026 아시아프로야구챔피언십(APBC) 일본전에서 5-9로 졌다. 8회초 김휘집의 홈런으로 극적인 동점을 만들었지만 이후 다시 점수를 내줬다. 이번 대회는 아시아 4개국 유망주가 기량을 겨루며, 한국은 2연패를 당했다.",
-   "image": "https://img.yna.co.kr/photo/ap/2026/11/13/PAP20261113301601009_P2.jpg",
+   "headline": "모레노호, 사우디와 평가전 2-3 패배…선수들 '반성과 희망'",
+   "body": "한국 축구 대표팀이 13일 카타르 도하 자심 빈 하마드 스타디움에서 열린 사우디아라비아와의 평가전에서 2-3으로 졌다. 수비수 김민재는 3실점에 대해 '조그마한 집중력 부족이 만든 결과'라며 고개를 숙였다. 주장 손흥민은 완벽한 득점 기회를 놓친 뒤 '내 역할을 못 해 선수들에게 미안하다'고 했다. 동점골의 발판을 놓은 황인범은 불화설에 입을 열며 '대표팀이 단단해질 수 있는 희망을 봤다'고 말했다.",
+   "image": "https://img.sbs.co.kr/newimg/news/20261114/202240918.jpg",
    "outlets": 2,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "한국 야구, APBC 일본전 8회 극적 동점 만들고도 5-9 패배",
-     "link": "https://www.yna.co.kr/view/AKR20261113180600007"
+     "title": "'사우디에 3실점' 속상한 김민재 \"조그마한 집중력 부족이 원인\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114008300007"
     },
     {
      "source": "SBS",
-     "title": "한국 야구, APBC 일본전 9대 5 패배…2연패",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845508&plink=RSSLINK&cooper=RSSREADER"
+     "title": "'사우디에 3실점' 김민재 \"조그마한 집중력 부족이 원인\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845827&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "동점골 발판 놓은 황인범 \"대표팀 단단해질 수 있는 희망 봤다\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114011400007"
+    },
+    {
+     "source": "SBS",
+     "title": "'불화설'에 입 연 황인범 \"대표팀 단단해질 수 있는 희망 봤다\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845813&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "완벽한 골 기회 놓친 손흥민 \"내 역할 못 해서 선수들에게 미안\"",
+     "link": "https://www.yna.co.kr/view/AKR20261114004900007"
+    },
+    {
+     "source": "SBS",
+     "title": "득점 기회 놓친 손흥민 \"내 역할 못 해서 선수들에게 미안\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845810&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   },
   {
    "category": "사회",
-   "headline": "정보유출 잇따라…금융보안원은 스스로 보안 낮췄고 모두의창업은 같은 취약점 반복",
-   "body": "SBS는 해킹을 당한 금융보안원이 불편하다는 이유로 시스템 접근 제한을 스스로 풀었던 것으로 확인됐다고 단독 보도했다. 금융보안원은 4년 전 감사에서 정보 유출 위험을 지적받은 바 있다. 중소벤처기업부가 주관하는 '2차 모두의창업' 개인정보 유출도 1차 사고와 마찬가지로 취약한 API를 노린 공격이었던 것으로 드러났다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261113/202240829.jpg",
+   "headline": "'이 대통령 무고' 혐의 박상용 검사 사건, 공수처로 이첩",
+   "body": "쌍방울 대북송금 사건 수사 과정에서 이화영 전 경기도 평화부지사에게 허위 진술을 유도해 이재명 대통령을 무고했다는 의혹으로 고발된 박상용 인천지방공소청 부부장검사 사건이 공수처로 넘어갔다. 서울 영등포경찰서가 박 검사의 무고 및 직권남용 혐의 사건을 이첩했다. 공수처의 수사 착수 여부가 다음 관심사다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/08/27/PYH2026082704670001300_P2.jpg",
+   "outlets": 2,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "경찰, 박상용 검사 '李대통령 무고' 고발된 사건 공수처로 이첩",
+     "link": "https://www.yna.co.kr/view/AKR20261114019600004"
+    },
+    {
+     "source": "경향신문",
+     "title": "경찰, 박상용 검사 ‘이 대통령 무고’ 고발 사건 공수처로 이첩",
+     "link": "https://www.khan.co.kr/article/202611141022001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news"
+    }
+   ]
+  },
+  {
+   "category": "사회",
+   "headline": "'장동혁 대표 암살' 협박 문자 보낸 20대 검거",
+   "body": "충남 태안경찰서는 국민의힘 장동혁 대표를 암살하겠다는 협박 문자를 112에 보낸 20대 A씨를 협박미수 혐의로 입건했다. SBS는 A씨가 현행범으로 체포됐다고 단독 보도했다.",
+   "image": "https://img.yna.co.kr/photo/cms/2021/05/19/90/PCM20210519000090990_P2.jpg",
    "outlets": 2,
    "sources": [
     {
      "source": "SBS",
-     "title": "[단독] 금융보안원 뚫린 이유…\"불편하다고 제한 풀어\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845374&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "[단독] 금융보안원 뚫린 이유…\"불편하다고 제한 풀어\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845530&plink=RSSLINK&cooper=RSSREADER"
+     "title": "[단독] \"장동혁 암살하겠다\" 협박 문자 보낸 20대 남성 현행범 체포",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845478&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "연합뉴스",
-     "title": "2차 모두의창업 정보유출도 '취약한 API' 타깃…1차 사고 판박이",
-     "link": "https://www.yna.co.kr/view/AKR20261113174100030"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "2차 모두의창업 정보 유출, 1차 사고 판박이…'취약한 API' 타깃(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261113174151030"
+     "title": "\"장동혁 대표 암살하겠다\" 112에 문자 보낸 20대 입건",
+     "link": "https://www.yna.co.kr/view/AKR20261114021800063"
     }
    ]
   },
   {
-   "category": "국제",
-   "headline": "미 10월 생산자물가 6.5% 상승…약 4년 만에 최대폭",
-   "body": "미 노동부 노동통계국은 10월 생산자물가지수(PPI)가 1년 전보다 6.5% 올랐다고 13일 발표했다. 2022년 11월 이후 가장 큰 상승폭으로, 약 4년 만의 최고치다.",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/11/13/AKR20261113181300072_01_i_P2.jpg",
-   "outlets": 1,
+   "category": "사회",
+   "headline": "'발달장애 아들 학대치사' 40대 모친 영장심사",
+   "body": "대전지법 천안지원은 14일 오후 3시 중증 발달장애가 있는 10대 아들을 학대해 숨지게 한 혐의(아동학대치사)를 받는 40대 어머니에 대한 구속 전 피의자 심문을 연다.",
+   "image": "https://img.yna.co.kr/photo/cms/2026/11/12/60/PCM20261112000160990_P2.jpg",
+   "outlets": 2,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "美 10월 도매물가 전년 대비 6.5%↑…2022년 11월 이후 최고",
-     "link": "https://www.yna.co.kr/view/AKR20261113181300072"
+     "title": "'발달장애 아들 학대 치사' 혐의 40대 모친 오늘 영장심사",
+     "link": "https://www.yna.co.kr/view/AKR20261114022700063"
     },
     {
-     "source": "연합뉴스",
-     "title": "美 10월 도매물가 전년 대비 6.5%↑…약 4년만에 최고(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261113181351072"
+     "source": "SBS",
+     "title": "'발달장애 아들 학대 치사' 혐의 40대 모친 오늘 영장심사",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845781&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   },
   {
-   "category": "경제",
-   "headline": "정부, 구글에 국내 정밀지도 반출 첫 허용",
-   "body": "정부가 군 시설 노출 등 보안 문제로 외국 기업에 주지 않던 국내 정밀지도를 처음으로 미국 구글에 반출하기로 했다. 이에 따라 내년부터 국내에서도 구글 지도로 실시간 길 찾기를 할 수 있을 전망이다. 국내 지도 시장의 경쟁은 더 치열해질 것으로 보인다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261114/202240868.jpg",
-   "outlets": 1,
+   "category": "사회",
+   "headline": "2027 롤드컵 결승, 창동 서울아레나서 열린다",
+   "body": "라이엇게임즈가 14일(한국시간) 미국 뉴욕 '2026 LoL 쇼케이스'에서 내년 리그 오브 레전드 월드 챔피언십 결승전을 서울 도봉구 창동 서울아레나에서 연다고 발표했다. 서울 개최는 2023년 고척스카이돔 대회 이후 4년 만이다. 서울아레나는 내년 완공 예정이다.",
+   "image": "https://img.yna.co.kr/etc/inner/KR/2026/11/13/AKR20261113179900004_01_i_P2.jpg",
+   "outlets": 2,
    "sources": [
     {
-     "source": "SBS",
-     "title": "지도 확보한 구글 \"경로 안내를 시작합니다\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845373&plink=RSSLINK&cooper=RSSREADER"
+     "source": "연합뉴스",
+     "title": "2027 롤드컵 결승전, 창동 서울아레나 개최 확정",
+     "link": "https://www.yna.co.kr/view/AKR20261113179900004"
     },
     {
-     "source": "SBS",
-     "title": "지도 확보한 구글…\"경로 안내를 시작합니다\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845531&plink=RSSLINK&cooper=RSSREADER"
+     "source": "경향신문",
+     "title": "내년 롤드컵 결승전 서울에서 열린다···창동 서울아레나 개최",
+     "link": "https://www.khan.co.kr/article/202611140800021/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news"
     }
    ]
   },
   {
-   "category": "문화",
-   "headline": "유홍준 전 관장, 문화재청장 시절 자택 담장 문화유산 등록 논란",
-   "body": "지난달 국립중앙박물관 전시 '셀프 출품' 문제로 사임한 유홍준 전 관장이 이해충돌 논란에 휩싸였다. 문화재청장 재직 당시 지정한 국가등록문화재에 자신의 집 담장이 포함된 사실이 뒤늦게 알려졌다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261114/202240894.jpg",
+   "category": "사회",
+   "headline": "토요일 전국 가을비, 늦은 밤부터 그쳐",
+   "body": "14일 전국 대부분 지역에 가을비가 내리고 있으며 제주는 최대 50㎜가 예상된다. 비는 늦은 밤부터 차차 그칠 전망이다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/05/PYH2026110507680005300_P2.jpg",
+   "outlets": 2,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "전국 대부분 가을비, 제주 최대 50㎜…늦은 밤부터 차차 그쳐",
+     "link": "https://www.yna.co.kr/view/AKR20261114021300530"
+    },
+    {
+     "source": "한겨레",
+     "title": "토요일 전국 대부분 지역에 비…늦은 밤부터 그쳐",
+     "link": "https://www.hani.co.kr/arti/society/society_general/1287308.html"
+    }
+   ]
+  },
+  {
+   "category": "사회",
+   "headline": "LG가 3세 구본현, 8년 해외 도피 끝 주가조작 혐의로 구속",
+   "body": "주가조작 혐의 수사를 피해 8년간 해외에 머물던 LG가 3세 구본현 씨가 구속됐다. 구씨는 자기 자금 없이 코스닥 상장사를 인수한 뒤 허위 공시로 주가를 띄워 100억 원 넘는 부당이득을 챙긴 혐의를 받는다. 개인투자자 1만여 명이 2천억 원대 피해를 본 것으로 전해졌다.",
+   "image": "https://img.sbs.co.kr/newimg/news/20261114/202240875.jpg",
    "outlets": 1,
    "sources": [
     {
      "source": "SBS",
-     "title": "집 담장을 '문화유산'으로…청장 때 직접 신청",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845372&plink=RSSLINK&cooper=RSSREADER"
+     "title": "1만 명 2천 억 피해…LG가 3세 8년 도피 끝 '구속'",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845547&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "SBS",
-     "title": "자택 담장을 문화유산으로…유홍준, 청장 때 직접 신청",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845602&plink=RSSLINK&cooper=RSSREADER"
+     "title": "개미 1만 명 울린 LG가 3세, 도피 8년 만에 구속",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845371&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   }
  ],
  "links": [
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008837221&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008841200&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008842260&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843474&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843779&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843947&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843955&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843965&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843966&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843967&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008843968&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844129&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844186&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844187&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844189&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844240&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844244&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844310&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844317&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844453&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844455&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844456&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844480&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844640&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844655&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844671&plink=RSSLINK&cooper=RSSREADER",
@@ -387,39 +413,20 @@
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844826&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844842&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844885&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844965&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844966&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008844937&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845010&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845067&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845082&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845095&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845143&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845189&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845219&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845223&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845242&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845253&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845260&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845261&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845234&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845301&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845314&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845319&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845320&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845333&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845347&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845355&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845359&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845360&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845361&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845362&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845363&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845364&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845365&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845366&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845367&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845368&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845369&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845370&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845371&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845372&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845373&plink=RSSLINK&cooper=RSSREADER",
@@ -433,7 +440,6 @@
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845387&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845389&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845390&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845399&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845400&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845413&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845478&plink=RSSLINK&cooper=RSSREADER",
@@ -447,6 +453,7 @@
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845508&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845516&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845517&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845525&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845527&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845528&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845529&plink=RSSLINK&cooper=RSSREADER",
@@ -454,6 +461,7 @@
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845531&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845537&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845541&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845547&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845551&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845568&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845569&plink=RSSLINK&cooper=RSSREADER",
@@ -472,17 +480,38 @@
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845601&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845602&plink=RSSLINK&cooper=RSSREADER",
   "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845635&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845654&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845701&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845704&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845741&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845754&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845756&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845757&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845759&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845761&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845762&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845763&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845765&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845766&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845781&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845783&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845799&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845806&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845810&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845812&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845813&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845815&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845827&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845828&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845829&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008845842&plink=RSSLINK&cooper=RSSREADER",
   "https://www.hani.co.kr/arti/culture/book/1287300.html",
   "https://www.hani.co.kr/arti/culture/book/1287301.html",
   "https://www.hani.co.kr/arti/culture/book/1287302.html",
   "https://www.hani.co.kr/arti/culture/book/1287305.html",
-  "https://www.hani.co.kr/arti/culture/culture_general/1287149.html",
-  "https://www.hani.co.kr/arti/culture/culture_general/1287154.html",
   "https://www.hani.co.kr/arti/culture/culture_general/1287222.html",
   "https://www.hani.co.kr/arti/culture/music/1287281.html",
   "https://www.hani.co.kr/arti/culture/music/1287303.html",
-  "https://www.hani.co.kr/arti/economy/economy_general/1287156.html",
-  "https://www.hani.co.kr/arti/economy/economy_general/1287174.html",
   "https://www.hani.co.kr/arti/economy/economy_general/1287179.html",
   "https://www.hani.co.kr/arti/economy/economy_general/1287182.html",
   "https://www.hani.co.kr/arti/economy/economy_general/1287188.html",
@@ -491,11 +520,11 @@
   "https://www.hani.co.kr/arti/economy/economy_general/1287255.html",
   "https://www.hani.co.kr/arti/economy/economy_general/1287274.html",
   "https://www.hani.co.kr/arti/economy/economy_general/1287278.html",
-  "https://www.hani.co.kr/arti/economy/finance/1287173.html",
   "https://www.hani.co.kr/arti/economy/finance/1287202.html",
   "https://www.hani.co.kr/arti/economy/finance/1287213.html",
   "https://www.hani.co.kr/arti/economy/finance/1287215.html",
   "https://www.hani.co.kr/arti/economy/finance/1287249.html",
+  "https://www.hani.co.kr/arti/economy/finance/1287310.html",
   "https://www.hani.co.kr/arti/economy/it/1287253.html",
   "https://www.hani.co.kr/arti/economy/it/1287276.html",
   "https://www.hani.co.kr/arti/economy/it/1287277.html",
@@ -503,6 +532,7 @@
   "https://www.hani.co.kr/arti/economy/property/1287184.html",
   "https://www.hani.co.kr/arti/international/america/1287190.html",
   "https://www.hani.co.kr/arti/international/america/1287246.html",
+  "https://www.hani.co.kr/arti/international/america/1287306.html",
   "https://www.hani.co.kr/arti/international/arabafrica/1287243.html",
   "https://www.hani.co.kr/arti/international/china/1287231.html",
   "https://www.hani.co.kr/arti/international/china/1287257.html",
@@ -521,11 +551,12 @@
   "https://www.hani.co.kr/arti/international/international_general/1287292.html",
   "https://www.hani.co.kr/arti/international/international_general/1287293.html",
   "https://www.hani.co.kr/arti/international/international_general/1287304.html",
-  "https://www.hani.co.kr/arti/science/science_general/1287157.html",
+  "https://www.hani.co.kr/arti/international/international_general/1287311.html",
+  "https://www.hani.co.kr/arti/international/international_general/1287312.html",
   "https://www.hani.co.kr/arti/science/science_general/1287187.html",
   "https://www.hani.co.kr/arti/science/science_general/1287265.html",
+  "https://www.hani.co.kr/arti/science/technology/1287313.html",
   "https://www.hani.co.kr/arti/society/internalmove/1287248.html",
-  "https://www.hani.co.kr/arti/society/labor/1287162.html",
   "https://www.hani.co.kr/arti/society/labor/1287180.html",
   "https://www.hani.co.kr/arti/society/labor/1287233.html",
   "https://www.hani.co.kr/arti/society/labor/1287266.html",
@@ -536,12 +567,7 @@
   "https://www.hani.co.kr/arti/society/obituary/1287251.html",
   "https://www.hani.co.kr/arti/society/religious/1287185.html",
   "https://www.hani.co.kr/arti/society/schooling/1287220.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287153.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287161.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287167.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287168.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287171.html",
-  "https://www.hani.co.kr/arti/society/society_general/1287177.html",
+  "https://www.hani.co.kr/arti/society/schooling/1287309.html",
   "https://www.hani.co.kr/arti/society/society_general/1287204.html",
   "https://www.hani.co.kr/arti/society/society_general/1287208.html",
   "https://www.hani.co.kr/arti/society/society_general/1287214.html",
@@ -554,35 +580,14 @@
   "https://www.hani.co.kr/arti/society/society_general/1287283.html",
   "https://www.hani.co.kr/arti/society/society_general/1287285.html",
   "https://www.hani.co.kr/arti/society/society_general/1287298.html",
+  "https://www.hani.co.kr/arti/society/society_general/1287308.html",
+  "https://www.hani.co.kr/arti/society/society_general/1287314.html",
   "https://www.hani.co.kr/arti/sports/baduk/1287291.html",
   "https://www.hani.co.kr/arti/sports/baseball/1287199.html",
   "https://www.hani.co.kr/arti/sports/baseball/1287240.html",
-  "https://www.hani.co.kr/arti/sports/soccer/1287159.html",
   "https://www.hani.co.kr/arti/sports/soccer/1287256.html",
   "https://www.hani.co.kr/arti/sports/soccer/1287295.html",
   "https://www.hani.co.kr/arti/sports/volleyball/1287227.html",
-  "https://www.khan.co.kr/article/202611130722001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611130734001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611130750001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611130828001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611130859001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611130915001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611130919001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611130950001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
-  "https://www.khan.co.kr/article/202611130950011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611131001001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131007001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131010001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
-  "https://www.khan.co.kr/article/202611131019001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131022001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
-  "https://www.khan.co.kr/article/202611131025001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
-  "https://www.khan.co.kr/article/202611131028001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
-  "https://www.khan.co.kr/article/202611131043001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131059001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611131104001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131109001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
-  "https://www.khan.co.kr/article/202611131114001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
-  "https://www.khan.co.kr/article/202611131118001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
   "https://www.khan.co.kr/article/202611131123001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
   "https://www.khan.co.kr/article/202611131124001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
   "https://www.khan.co.kr/article/202611131125001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
@@ -652,135 +657,51 @@
   "https://www.khan.co.kr/article/202611140600091/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
   "https://www.khan.co.kr/article/202611140700031/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
   "https://www.khan.co.kr/article/202611140711001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+  "https://www.khan.co.kr/article/202611140752001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=economy_news",
+  "https://www.khan.co.kr/article/202611140800011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
+  "https://www.khan.co.kr/article/202611140800021/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+  "https://www.khan.co.kr/article/202611140841001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+  "https://www.khan.co.kr/article/202611140848001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=science_news",
+  "https://www.khan.co.kr/article/202611140916001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+  "https://www.khan.co.kr/article/202611140924001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=kh_world",
+  "https://www.khan.co.kr/article/202611141022001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+  "https://www.khan.co.kr/article/202611141100001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=culture_news",
+  "https://www.khan.co.kr/article/202611141117001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=society_news",
+  "https://www.yna.co.kr/view/AKR20261006200900079",
   "https://www.yna.co.kr/view/AKR20261108044154007",
-  "https://www.yna.co.kr/view/AKR20261109125500005",
   "https://www.yna.co.kr/view/AKR20261112119800003",
-  "https://www.yna.co.kr/view/AKR20261112126500051",
-  "https://www.yna.co.kr/view/AKR20261112142900005",
-  "https://www.yna.co.kr/view/AKR20261112143800371",
-  "https://www.yna.co.kr/view/AKR20261112161300005",
+  "https://www.yna.co.kr/view/AKR20261112132000052",
+  "https://www.yna.co.kr/view/AKR20261112153800004",
   "https://www.yna.co.kr/view/AKR20261112172200030",
-  "https://www.yna.co.kr/view/AKR20261112175500797",
-  "https://www.yna.co.kr/view/AKR20261113005552071",
   "https://www.yna.co.kr/view/AKR20261113008651091",
   "https://www.yna.co.kr/view/AKR20261113012351075",
-  "https://www.yna.co.kr/view/AKR20261113022300051",
-  "https://www.yna.co.kr/view/AKR20261113022500051",
-  "https://www.yna.co.kr/view/AKR20261113022600051",
-  "https://www.yna.co.kr/view/AKR20261113023900007",
-  "https://www.yna.co.kr/view/AKR20261113024400005",
-  "https://www.yna.co.kr/view/AKR20261113025800007",
-  "https://www.yna.co.kr/view/AKR20261113026200007",
-  "https://www.yna.co.kr/view/AKR20261113026800030",
-  "https://www.yna.co.kr/view/AKR20261113027200007",
-  "https://www.yna.co.kr/view/AKR20261113027600030",
-  "https://www.yna.co.kr/view/AKR20261113028900007",
-  "https://www.yna.co.kr/view/AKR20261113031000007",
-  "https://www.yna.co.kr/view/AKR20261113034300007",
-  "https://www.yna.co.kr/view/AKR20261113034500004",
-  "https://www.yna.co.kr/view/AKR20261113034700004",
-  "https://www.yna.co.kr/view/AKR20261113035900007",
-  "https://www.yna.co.kr/view/AKR20261113036800062",
-  "https://www.yna.co.kr/view/AKR20261113036900542",
-  "https://www.yna.co.kr/view/AKR20261113037700057",
   "https://www.yna.co.kr/view/AKR20261113038751008",
-  "https://www.yna.co.kr/view/AKR20261113039800005",
   "https://www.yna.co.kr/view/AKR20261113040151008",
-  "https://www.yna.co.kr/view/AKR20261113040251002",
-  "https://www.yna.co.kr/view/AKR20261113040600004",
-  "https://www.yna.co.kr/view/AKR20261113040900005",
-  "https://www.yna.co.kr/view/AKR20261113041200062",
-  "https://www.yna.co.kr/view/AKR20261113041500005",
-  "https://www.yna.co.kr/view/AKR20261113041800004",
-  "https://www.yna.co.kr/view/AKR20261113042000064",
-  "https://www.yna.co.kr/view/AKR20261113042400007",
-  "https://www.yna.co.kr/view/AKR20261113043000064",
-  "https://www.yna.co.kr/view/AKR20261113043400062",
-  "https://www.yna.co.kr/view/AKR20261113043800017",
-  "https://www.yna.co.kr/view/AKR20261113044200062",
-  "https://www.yna.co.kr/view/AKR20261113044600030",
-  "https://www.yna.co.kr/view/AKR20261113044800061",
-  "https://www.yna.co.kr/view/AKR20261113044900371",
-  "https://www.yna.co.kr/view/AKR20261113045551073",
   "https://www.yna.co.kr/view/AKR20261113045900002",
   "https://www.yna.co.kr/view/AKR20261113046051003",
-  "https://www.yna.co.kr/view/AKR20261113047000005",
-  "https://www.yna.co.kr/view/AKR20261113047700005",
-  "https://www.yna.co.kr/view/AKR20261113048700003",
-  "https://www.yna.co.kr/view/AKR20261113051700005",
-  "https://www.yna.co.kr/view/AKR20261113052000005",
-  "https://www.yna.co.kr/view/AKR20261113053000005",
-  "https://www.yna.co.kr/view/AKR20261113053051005",
-  "https://www.yna.co.kr/view/AKR20261113053400055",
-  "https://www.yna.co.kr/view/AKR20261113054000030",
-  "https://www.yna.co.kr/view/AKR20261113054200054",
-  "https://www.yna.co.kr/view/AKR20261113055600007",
-  "https://www.yna.co.kr/view/AKR20261113060000005",
-  "https://www.yna.co.kr/view/AKR20261113060100005",
-  "https://www.yna.co.kr/view/AKR20261113060200007",
-  "https://www.yna.co.kr/view/AKR20261113060400007",
-  "https://www.yna.co.kr/view/AKR20261113060800007",
-  "https://www.yna.co.kr/view/AKR20261113061700055",
-  "https://www.yna.co.kr/view/AKR20261113061900009",
-  "https://www.yna.co.kr/view/AKR20261113062400017",
-  "https://www.yna.co.kr/view/AKR20261113062700011",
   "https://www.yna.co.kr/view/AKR20261113062952004",
-  "https://www.yna.co.kr/view/AKR20261113063700062",
-  "https://www.yna.co.kr/view/AKR20261113063900017",
-  "https://www.yna.co.kr/view/AKR20261113064300017",
+  "https://www.yna.co.kr/view/AKR20261113063500052",
   "https://www.yna.co.kr/view/AKR20261113064700030",
-  "https://www.yna.co.kr/view/AKR20261113066400004",
-  "https://www.yna.co.kr/view/AKR20261113066500062",
-  "https://www.yna.co.kr/view/AKR20261113066700051",
   "https://www.yna.co.kr/view/AKR20261113066800505",
   "https://www.yna.co.kr/view/AKR20261113066900002",
-  "https://www.yna.co.kr/view/AKR20261113067400051",
-  "https://www.yna.co.kr/view/AKR20261113068000009",
-  "https://www.yna.co.kr/view/AKR20261113068100063",
-  "https://www.yna.co.kr/view/AKR20261113068700007",
-  "https://www.yna.co.kr/view/AKR20261113069000073",
+  "https://www.yna.co.kr/view/AKR20261113067700051",
+  "https://www.yna.co.kr/view/AKR20261113068800051",
   "https://www.yna.co.kr/view/AKR20261113069100060",
-  "https://www.yna.co.kr/view/AKR20261113069700009",
   "https://www.yna.co.kr/view/AKR20261113070100030",
-  "https://www.yna.co.kr/view/AKR20261113070200005",
-  "https://www.yna.co.kr/view/AKR20261113070400060",
-  "https://www.yna.co.kr/view/AKR20261113070700009",
+  "https://www.yna.co.kr/view/AKR20261113071100065",
   "https://www.yna.co.kr/view/AKR20261113071200003",
-  "https://www.yna.co.kr/view/AKR20261113071500055",
-  "https://www.yna.co.kr/view/AKR20261113071900008",
-  "https://www.yna.co.kr/view/AKR20261113072000003",
   "https://www.yna.co.kr/view/AKR20261113072051003",
-  "https://www.yna.co.kr/view/AKR20261113072100051",
-  "https://www.yna.co.kr/view/AKR20261113072200104",
-  "https://www.yna.co.kr/view/AKR20261113072300004",
-  "https://www.yna.co.kr/view/AKR20261113072400009",
-  "https://www.yna.co.kr/view/AKR20261113072700054",
   "https://www.yna.co.kr/view/AKR20261113072900017",
-  "https://www.yna.co.kr/view/AKR20261113073200051",
-  "https://www.yna.co.kr/view/AKR20261113073400061",
-  "https://www.yna.co.kr/view/AKR20261113073700073",
-  "https://www.yna.co.kr/view/AKR20261113073751073",
   "https://www.yna.co.kr/view/AKR20261113074300030",
-  "https://www.yna.co.kr/view/AKR20261113074400005",
-  "https://www.yna.co.kr/view/AKR20261113074500005",
-  "https://www.yna.co.kr/view/AKR20261113074700007",
-  "https://www.yna.co.kr/view/AKR20261113074851004",
-  "https://www.yna.co.kr/view/AKR20261113075100504",
-  "https://www.yna.co.kr/view/AKR20261113075500052",
-  "https://www.yna.co.kr/view/AKR20261113075800009",
   "https://www.yna.co.kr/view/AKR20261113076000002",
   "https://www.yna.co.kr/view/AKR20261113076500030",
-  "https://www.yna.co.kr/view/AKR20261113077351065",
-  "https://www.yna.co.kr/view/AKR20261113077600005",
-  "https://www.yna.co.kr/view/AKR20261113078100009",
+  "https://www.yna.co.kr/view/AKR20261113076800008",
   "https://www.yna.co.kr/view/AKR20261113078200008",
   "https://www.yna.co.kr/view/AKR20261113078251008",
   "https://www.yna.co.kr/view/AKR20261113079300055",
   "https://www.yna.co.kr/view/AKR20261113080000017",
   "https://www.yna.co.kr/view/AKR20261113080300053",
-  "https://www.yna.co.kr/view/AKR20261113080600073",
   "https://www.yna.co.kr/view/AKR20261113080800002",
-  "https://www.yna.co.kr/view/AKR20261113081100083",
   "https://www.yna.co.kr/view/AKR20261113081300056",
   "https://www.yna.co.kr/view/AKR20261113081400063",
   "https://www.yna.co.kr/view/AKR20261113081700030",
@@ -793,35 +714,23 @@
   "https://www.yna.co.kr/view/AKR20261113084400008",
   "https://www.yna.co.kr/view/AKR20261113084600003",
   "https://www.yna.co.kr/view/AKR20261113084800004",
-  "https://www.yna.co.kr/view/AKR20261113084900009",
   "https://www.yna.co.kr/view/AKR20261113085000005",
-  "https://www.yna.co.kr/view/AKR20261113086000704",
-  "https://www.yna.co.kr/view/AKR20261113086100091",
+  "https://www.yna.co.kr/view/AKR20261113085700505",
   "https://www.yna.co.kr/view/AKR20261113086400007",
   "https://www.yna.co.kr/view/AKR20261113086500017",
   "https://www.yna.co.kr/view/AKR20261113086551017",
-  "https://www.yna.co.kr/view/AKR20261113087000704",
-  "https://www.yna.co.kr/view/AKR20261113087500704",
-  "https://www.yna.co.kr/view/AKR20261113087600009",
   "https://www.yna.co.kr/view/AKR20261113088700030",
-  "https://www.yna.co.kr/view/AKR20261113089000083",
   "https://www.yna.co.kr/view/AKR20261113089700073",
   "https://www.yna.co.kr/view/AKR20261113090000530",
-  "https://www.yna.co.kr/view/AKR20261113090100003",
   "https://www.yna.co.kr/view/AKR20261113090300530",
-  "https://www.yna.co.kr/view/AKR20261113090600030",
-  "https://www.yna.co.kr/view/AKR20261113090700527",
   "https://www.yna.co.kr/view/AKR20261113090800005",
   "https://www.yna.co.kr/view/AKR20261113091400064",
   "https://www.yna.co.kr/view/AKR20261113091500017",
-  "https://www.yna.co.kr/view/AKR20261113091700075",
   "https://www.yna.co.kr/view/AKR20261113094700017",
-  "https://www.yna.co.kr/view/AKR20261113096100052",
-  "https://www.yna.co.kr/view/AKR20261113096851004",
   "https://www.yna.co.kr/view/AKR20261113096900052",
   "https://www.yna.co.kr/view/AKR20261113097300060",
-  "https://www.yna.co.kr/view/AKR20261113098500054",
   "https://www.yna.co.kr/view/AKR20261113099700054",
+  "https://www.yna.co.kr/view/AKR20261113100400065",
   "https://www.yna.co.kr/view/AKR20261113100500030",
   "https://www.yna.co.kr/view/AKR20261113100700002",
   "https://www.yna.co.kr/view/AKR20261113101300008",
@@ -829,12 +738,10 @@
   "https://www.yna.co.kr/view/AKR20261113101700017",
   "https://www.yna.co.kr/view/AKR20261113102100003",
   "https://www.yna.co.kr/view/AKR20261113102600055",
-  "https://www.yna.co.kr/view/AKR20261113102700062",
   "https://www.yna.co.kr/view/AKR20261113102800054",
   "https://www.yna.co.kr/view/AKR20261113103600060",
   "https://www.yna.co.kr/view/AKR20261113104300011",
   "https://www.yna.co.kr/view/AKR20261113104400062",
-  "https://www.yna.co.kr/view/AKR20261113104500073",
   "https://www.yna.co.kr/view/AKR20261113104700057",
   "https://www.yna.co.kr/view/AKR20261113105200065",
   "https://www.yna.co.kr/view/AKR20261113105500009",
@@ -846,7 +753,6 @@
   "https://www.yna.co.kr/view/AKR20261113106100007",
   "https://www.yna.co.kr/view/AKR20261113106300017",
   "https://www.yna.co.kr/view/AKR20261113106400505",
-  "https://www.yna.co.kr/view/AKR20261113106500009",
   "https://www.yna.co.kr/view/AKR20261113106600007",
   "https://www.yna.co.kr/view/AKR20261113106700007",
   "https://www.yna.co.kr/view/AKR20261113106900005",
@@ -856,6 +762,7 @@
   "https://www.yna.co.kr/view/AKR20261113107500007",
   "https://www.yna.co.kr/view/AKR20261113107651004",
   "https://www.yna.co.kr/view/AKR20261113107800030",
+  "https://www.yna.co.kr/view/AKR20261113107900057",
   "https://www.yna.co.kr/view/AKR20261113108600057",
   "https://www.yna.co.kr/view/AKR20261113109000003",
   "https://www.yna.co.kr/view/AKR20261113109200017",
@@ -866,14 +773,18 @@
   "https://www.yna.co.kr/view/AKR20261113111400017",
   "https://www.yna.co.kr/view/AKR20261113111500051",
   "https://www.yna.co.kr/view/AKR20261113111600064",
+  "https://www.yna.co.kr/view/AKR20261113112000052",
+  "https://www.yna.co.kr/view/AKR20261113112300063",
   "https://www.yna.co.kr/view/AKR20261113112400002",
   "https://www.yna.co.kr/view/AKR20261113112500002",
+  "https://www.yna.co.kr/view/AKR20261113112600061",
   "https://www.yna.co.kr/view/AKR20261113112900051",
   "https://www.yna.co.kr/view/AKR20261113113100002",
   "https://www.yna.co.kr/view/AKR20261113113500065",
   "https://www.yna.co.kr/view/AKR20261113113800530",
   "https://www.yna.co.kr/view/AKR20261113114100017",
   "https://www.yna.co.kr/view/AKR20261113114400704",
+  "https://www.yna.co.kr/view/AKR20261113115000052",
   "https://www.yna.co.kr/view/AKR20261113115100005",
   "https://www.yna.co.kr/view/AKR20261113115200371",
   "https://www.yna.co.kr/view/AKR20261113115300083",
@@ -892,6 +803,7 @@
   "https://www.yna.co.kr/view/AKR20261113120100062",
   "https://www.yna.co.kr/view/AKR20261113120300005",
   "https://www.yna.co.kr/view/AKR20261113120500005",
+  "https://www.yna.co.kr/view/AKR20261113120800053",
   "https://www.yna.co.kr/view/AKR20261113121200051",
   "https://www.yna.co.kr/view/AKR20261113121300009",
   "https://www.yna.co.kr/view/AKR20261113121400063",
@@ -906,6 +818,7 @@
   "https://www.yna.co.kr/view/AKR20261113123300009",
   "https://www.yna.co.kr/view/AKR20261113123400009",
   "https://www.yna.co.kr/view/AKR20261113123500030",
+  "https://www.yna.co.kr/view/AKR20261113123700061",
   "https://www.yna.co.kr/view/AKR20261113123900009",
   "https://www.yna.co.kr/view/AKR20261113124200054",
   "https://www.yna.co.kr/view/AKR20261113124500009",
@@ -914,13 +827,13 @@
   "https://www.yna.co.kr/view/AKR20261113125000057",
   "https://www.yna.co.kr/view/AKR20261113125100004",
   "https://www.yna.co.kr/view/AKR20261113125300009",
+  "https://www.yna.co.kr/view/AKR20261113125600017",
   "https://www.yna.co.kr/view/AKR20261113125800083",
   "https://www.yna.co.kr/view/AKR20261113125900007",
-  "https://www.yna.co.kr/view/AKR20261113126000055",
   "https://www.yna.co.kr/view/AKR20261113126100009",
+  "https://www.yna.co.kr/view/AKR20261113126200051",
   "https://www.yna.co.kr/view/AKR20261113126600009",
   "https://www.yna.co.kr/view/AKR20261113126651009",
-  "https://www.yna.co.kr/view/AKR20261113126800055",
   "https://www.yna.co.kr/view/AKR20261113126900008",
   "https://www.yna.co.kr/view/AKR20261113127300002",
   "https://www.yna.co.kr/view/AKR20261113127600052",
@@ -936,19 +849,20 @@
   "https://www.yna.co.kr/view/AKR20261113130200005",
   "https://www.yna.co.kr/view/AKR20261113130600017",
   "https://www.yna.co.kr/view/AKR20261113130900004",
-  "https://www.yna.co.kr/view/AKR20261113131300530",
+  "https://www.yna.co.kr/view/AKR20261113131100051",
   "https://www.yna.co.kr/view/AKR20261113131400371",
   "https://www.yna.co.kr/view/AKR20261113131600089",
-  "https://www.yna.co.kr/view/AKR20261113133100055",
+  "https://www.yna.co.kr/view/AKR20261113132800054",
   "https://www.yna.co.kr/view/AKR20261113133200063",
   "https://www.yna.co.kr/view/AKR20261113133300008",
   "https://www.yna.co.kr/view/AKR20261113133400003",
-  "https://www.yna.co.kr/view/AKR20261113133800055",
   "https://www.yna.co.kr/view/AKR20261113134000079",
   "https://www.yna.co.kr/view/AKR20261113134500005",
+  "https://www.yna.co.kr/view/AKR20261113134700061",
   "https://www.yna.co.kr/view/AKR20261113134900054",
   "https://www.yna.co.kr/view/AKR20261113135000030",
   "https://www.yna.co.kr/view/AKR20261113135100065",
+  "https://www.yna.co.kr/view/AKR20261113135300005",
   "https://www.yna.co.kr/view/AKR20261113135400005",
   "https://www.yna.co.kr/view/AKR20261113135800063",
   "https://www.yna.co.kr/view/AKR20261113135900055",
@@ -957,27 +871,22 @@
   "https://www.yna.co.kr/view/AKR20261113136700009",
   "https://www.yna.co.kr/view/AKR20261113137100009",
   "https://www.yna.co.kr/view/AKR20261113137600002",
-  "https://www.yna.co.kr/view/AKR20261113137700063",
   "https://www.yna.co.kr/view/AKR20261113137900051",
   "https://www.yna.co.kr/view/AKR20261113138300052",
-  "https://www.yna.co.kr/view/AKR20261113138400055",
   "https://www.yna.co.kr/view/AKR20261113138500003",
   "https://www.yna.co.kr/view/AKR20261113138600009",
   "https://www.yna.co.kr/view/AKR20261113138800017",
   "https://www.yna.co.kr/view/AKR20261113139100004",
-  "https://www.yna.co.kr/view/AKR20261113139500061",
-  "https://www.yna.co.kr/view/AKR20261113139800054",
   "https://www.yna.co.kr/view/AKR20261113139900083",
   "https://www.yna.co.kr/view/AKR20261113140100505",
+  "https://www.yna.co.kr/view/AKR20261113140500062",
   "https://www.yna.co.kr/view/AKR20261113140700002",
   "https://www.yna.co.kr/view/AKR20261113140800054",
   "https://www.yna.co.kr/view/AKR20261113140900004",
-  "https://www.yna.co.kr/view/AKR20261113141200062",
   "https://www.yna.co.kr/view/AKR20261113141500065",
   "https://www.yna.co.kr/view/AKR20261113141600005",
   "https://www.yna.co.kr/view/AKR20261113142400371",
   "https://www.yna.co.kr/view/AKR20261113142500527",
-  "https://www.yna.co.kr/view/AKR20261113142800004",
   "https://www.yna.co.kr/view/AKR20261113143000060",
   "https://www.yna.co.kr/view/AKR20261113143100704",
   "https://www.yna.co.kr/view/AKR20261113143700062",
@@ -985,27 +894,27 @@
   "https://www.yna.co.kr/view/AKR20261113144300704",
   "https://www.yna.co.kr/view/AKR20261113144600002",
   "https://www.yna.co.kr/view/AKR20261113145000002",
+  "https://www.yna.co.kr/view/AKR20261113145100052",
+  "https://www.yna.co.kr/view/AKR20261113145200052",
   "https://www.yna.co.kr/view/AKR20261113145400062",
   "https://www.yna.co.kr/view/AKR20261113145600004",
   "https://www.yna.co.kr/view/AKR20261113145700003",
+  "https://www.yna.co.kr/view/AKR20261113146100052",
   "https://www.yna.co.kr/view/AKR20261113146400009",
-  "https://www.yna.co.kr/view/AKR20261113146500060",
   "https://www.yna.co.kr/view/AKR20261113146700008",
   "https://www.yna.co.kr/view/AKR20261113146751008",
   "https://www.yna.co.kr/view/AKR20261113147100007",
-  "https://www.yna.co.kr/view/AKR20261113147300061",
+  "https://www.yna.co.kr/view/AKR20261113147500062",
   "https://www.yna.co.kr/view/AKR20261113147600062",
   "https://www.yna.co.kr/view/AKR20261113147700065",
   "https://www.yna.co.kr/view/AKR20261113148000062",
-  "https://www.yna.co.kr/view/AKR20261113148200797",
   "https://www.yna.co.kr/view/AKR20261113148400057",
   "https://www.yna.co.kr/view/AKR20261113148500530",
   "https://www.yna.co.kr/view/AKR20261113148600054",
-  "https://www.yna.co.kr/view/AKR20261113148700054",
   "https://www.yna.co.kr/view/AKR20261113149000030",
-  "https://www.yna.co.kr/view/AKR20261113149300054",
   "https://www.yna.co.kr/view/AKR20261113149600073",
   "https://www.yna.co.kr/view/AKR20261113149800062",
+  "https://www.yna.co.kr/view/AKR20261113150000053",
   "https://www.yna.co.kr/view/AKR20261113150100073",
   "https://www.yna.co.kr/view/AKR20261113150300062",
   "https://www.yna.co.kr/view/AKR20261113150400052",
@@ -1019,8 +928,10 @@
   "https://www.yna.co.kr/view/AKR20261113152700371",
   "https://www.yna.co.kr/view/AKR20261113153000004",
   "https://www.yna.co.kr/view/AKR20261113153500109",
+  "https://www.yna.co.kr/view/AKR20261113153600005",
   "https://www.yna.co.kr/view/AKR20261113154000530",
   "https://www.yna.co.kr/view/AKR20261113154100056",
+  "https://www.yna.co.kr/view/AKR20261113154400546",
   "https://www.yna.co.kr/view/AKR20261113154600060",
   "https://www.yna.co.kr/view/AKR20261113154900030",
   "https://www.yna.co.kr/view/AKR20261113154951030",
@@ -1042,12 +953,15 @@
   "https://www.yna.co.kr/view/AKR20261113157600054",
   "https://www.yna.co.kr/view/AKR20261113157700017",
   "https://www.yna.co.kr/view/AKR20261113157900062",
+  "https://www.yna.co.kr/view/AKR20261113158100371",
   "https://www.yna.co.kr/view/AKR20261113158300003",
   "https://www.yna.co.kr/view/AKR20261113158700005",
   "https://www.yna.co.kr/view/AKR20261113158800004",
+  "https://www.yna.co.kr/view/AKR20261113158900017",
   "https://www.yna.co.kr/view/AKR20261113159000055",
   "https://www.yna.co.kr/view/AKR20261113159100005",
   "https://www.yna.co.kr/view/AKR20261113159200054",
+  "https://www.yna.co.kr/view/AKR20261113159600064",
   "https://www.yna.co.kr/view/AKR20261113159800007",
   "https://www.yna.co.kr/view/AKR20261113160100061",
   "https://www.yna.co.kr/view/AKR20261113160300704",
@@ -1071,6 +985,7 @@
   "https://www.yna.co.kr/view/AKR20261113168500064",
   "https://www.yna.co.kr/view/AKR20261113169000002",
   "https://www.yna.co.kr/view/AKR20261113169100109",
+  "https://www.yna.co.kr/view/AKR20261113169600004",
   "https://www.yna.co.kr/view/AKR20261113169900054",
   "https://www.yna.co.kr/view/AKR20261113170200085",
   "https://www.yna.co.kr/view/AKR20261113170500003",
@@ -1082,9 +997,11 @@
   "https://www.yna.co.kr/view/AKR20261113172100005",
   "https://www.yna.co.kr/view/AKR20261113172400007",
   "https://www.yna.co.kr/view/AKR20261113172700061",
+  "https://www.yna.co.kr/view/AKR20261113172800064",
   "https://www.yna.co.kr/view/AKR20261113172900083",
   "https://www.yna.co.kr/view/AKR20261113173100083",
   "https://www.yna.co.kr/view/AKR20261113173200030",
+  "https://www.yna.co.kr/view/AKR20261113173300004",
   "https://www.yna.co.kr/view/AKR20261113173500061",
   "https://www.yna.co.kr/view/AKR20261113173900098",
   "https://www.yna.co.kr/view/AKR20261113174000005",
@@ -1111,10 +1028,12 @@
   "https://www.yna.co.kr/view/AKR20261113177900797",
   "https://www.yna.co.kr/view/AKR20261113178400007",
   "https://www.yna.co.kr/view/AKR20261113178500007",
+  "https://www.yna.co.kr/view/AKR20261113178600004",
   "https://www.yna.co.kr/view/AKR20261113178700089",
   "https://www.yna.co.kr/view/AKR20261113179100109",
   "https://www.yna.co.kr/view/AKR20261113179200007",
   "https://www.yna.co.kr/view/AKR20261113179300065",
+  "https://www.yna.co.kr/view/AKR20261113179900004",
   "https://www.yna.co.kr/view/AKR20261113180100098",
   "https://www.yna.co.kr/view/AKR20261113180600007",
   "https://www.yna.co.kr/view/AKR20261113180900079",
@@ -1156,6 +1075,8 @@
   "https://www.yna.co.kr/view/AKR20261114006600034",
   "https://www.yna.co.kr/view/AKR20261114006900007",
   "https://www.yna.co.kr/view/AKR20261114007500072",
+  "https://www.yna.co.kr/view/AKR20261114007700071",
+  "https://www.yna.co.kr/view/AKR20261114007900004",
   "https://www.yna.co.kr/view/AKR20261114008200072",
   "https://www.yna.co.kr/view/AKR20261114008300007",
   "https://www.yna.co.kr/view/AKR20261114008800075",
@@ -1167,12 +1088,64 @@
   "https://www.yna.co.kr/view/AKR20261114010000063",
   "https://www.yna.co.kr/view/AKR20261114010300071",
   "https://www.yna.co.kr/view/AKR20261114010351071",
+  "https://www.yna.co.kr/view/AKR20261114010352071",
   "https://www.yna.co.kr/view/AKR20261114010400072",
   "https://www.yna.co.kr/view/AKR20261114010600052",
   "https://www.yna.co.kr/view/AKR20261114011100087",
   "https://www.yna.co.kr/view/AKR20261114011400007",
   "https://www.yna.co.kr/view/AKR20261114011500071",
+  "https://www.yna.co.kr/view/AKR20261114011551071",
   "https://www.yna.co.kr/view/AKR20261114011900062",
-  "https://www.yna.co.kr/view/AKR20261114012500056"
+  "https://www.yna.co.kr/view/AKR20261114012500056",
+  "https://www.yna.co.kr/view/AKR20261114012600075",
+  "https://www.yna.co.kr/view/AKR20261114012651075",
+  "https://www.yna.co.kr/view/AKR20261114013100064",
+  "https://www.yna.co.kr/view/AKR20261114013900060",
+  "https://www.yna.co.kr/view/AKR20261114014100009",
+  "https://www.yna.co.kr/view/AKR20261114014500002",
+  "https://www.yna.co.kr/view/AKR20261114016200007",
+  "https://www.yna.co.kr/view/AKR20261114016300062",
+  "https://www.yna.co.kr/view/AKR20261114016500007",
+  "https://www.yna.co.kr/view/AKR20261114016700062",
+  "https://www.yna.co.kr/view/AKR20261114017200009",
+  "https://www.yna.co.kr/view/AKR20261114019200007",
+  "https://www.yna.co.kr/view/AKR20261114019400091",
+  "https://www.yna.co.kr/view/AKR20261114019600004",
+  "https://www.yna.co.kr/view/AKR20261114020200005",
+  "https://www.yna.co.kr/view/AKR20261114020400087",
+  "https://www.yna.co.kr/view/AKR20261114020600017",
+  "https://www.yna.co.kr/view/AKR20261114020700017",
+  "https://www.yna.co.kr/view/AKR20261114021000063",
+  "https://www.yna.co.kr/view/AKR20261114021100009",
+  "https://www.yna.co.kr/view/AKR20261114021200007",
+  "https://www.yna.co.kr/view/AKR20261114021300530",
+  "https://www.yna.co.kr/view/AKR20261114021400009",
+  "https://www.yna.co.kr/view/AKR20261114021500007",
+  "https://www.yna.co.kr/view/AKR20261114021600009",
+  "https://www.yna.co.kr/view/AKR20261114021700007",
+  "https://www.yna.co.kr/view/AKR20261114021800063",
+  "https://www.yna.co.kr/view/AKR20261114022000091",
+  "https://www.yna.co.kr/view/AKR20261114022100055",
+  "https://www.yna.co.kr/view/AKR20261114022200007",
+  "https://www.yna.co.kr/view/AKR20261114022700063",
+  "https://www.yna.co.kr/view/AKR20261114024000530",
+  "https://www.yna.co.kr/view/AKR20261114024100007",
+  "https://www.yna.co.kr/view/AKR20261114024300104",
+  "https://www.yna.co.kr/view/AKR20261114024400091",
+  "https://www.yna.co.kr/view/AKR20261114024600009",
+  "https://www.yna.co.kr/view/AKR20261114024800007",
+  "https://www.yna.co.kr/view/AKR20261114024900009",
+  "https://www.yna.co.kr/view/AKR20261114025000004",
+  "https://www.yna.co.kr/view/AKR20261114025051004",
+  "https://www.yna.co.kr/view/AKR20261114025200011",
+  "https://www.yna.co.kr/view/AKR20261114025400007",
+  "https://www.yna.co.kr/view/AKR20261114026000030",
+  "https://www.yna.co.kr/view/AKR20261114026100005",
+  "https://www.yna.co.kr/view/AKR20261114026300003",
+  "https://www.yna.co.kr/view/AKR20261114026400089",
+  "https://www.yna.co.kr/view/AKR20261114026500054",
+  "https://www.yna.co.kr/view/AKR20261114026800009",
+  "https://www.yna.co.kr/view/AKR20261114028100091",
+  "https://www.yna.co.kr/view/AKR20261114028400003"
  ]
 }
