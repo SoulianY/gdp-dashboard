@@ -1,766 +1,765 @@
 {
- "generated_at": "2026-11-18T07:20:37.209608+09:00",
- "overview": "19일 수능을 앞두고 AI 부정행위 대책이 정국 한복판에 섰다. 정부는 무관용 대응을 내놨고 국민의힘은 총리·교육장관 해임을 건의했다. 조작기소 특검법 공포안이 국무회의를 통과했고, 이 대통령은 마닐라에서 아세안 외교를 이어갔다.",
+ "generated_at": "2026-11-19T07:19:44.471932+09:00",
+ "overview": "이재명 대통령이 선전에서 시진핑 주석과 34분간 회담해 북미 대화 지지와 FTA 서비스·투자 협상 타결을 확인했다. 수능 AI 부정행위에 당정이 10년 응시제한 소급입법을 추진하고, 추경호 1심 무죄를 두고 여야가 정면 충돌했다.",
  "stories": [
   {
    "category": "정치",
-   "headline": "수능 이틀 앞두고 정부, AI 부정행위에 '무관용' 총력 대응",
-   "body": "이재명 대통령은 순방지 필리핀에서 화상으로 수능 비상 점검회의를 주재하고 부정행위를 '중대범죄'로 규정해 무관용 엄정 대응을 지시했다. 시험 중 재난문자 수시 발신 검토, 첨단 부정행위 신고 포상금 1억원 검토, 10년 응시 기회 박탈 등을 언급했다. 포상금은 매체에 따라 '1억원 검토'(경향·한겨레)와 '최소 1억원 검토 지시'(SBS)로 표현이 다르다. 한성숙 총리는 대국민 담화에서 스마트기기 휴대 원천 차단, 1교시 전 안경·시계 전수 점검, 가방 복도 보관, 재난문자로 미제출 휴대전화 적발 방침을 밝혔다. 군도 수능 당일 군용기 이착륙과 군가 제창을 통제한다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/17/PYH2026111719660001300_P2.jpg",
+   "headline": "한중 정상, 한반도 긴장 완화 공감…시진핑 \"북미 대화 지지\"",
+   "body": "이재명 대통령은 18일 APEC 정상회의가 열리는 중국 선전에서 시진핑 국가주석과 취임 후 세 번째 정상회담을 34분간 가졌다. 이 대통령은 한반도 문제를 '사활적 이익'이라며 중국의 건설적 역할을 당부했고, 한반도 평화가 한중의 공동이익이라고 강조했다. 시 주석은 북미 대화 등 한반도 긴장 완화를 위한 다양한 노력을 지지한다고 밝히고 북중 관계 동향을 설명했다. 시 주석은 또 한중 모두 다자주의의 수혜자라며 소통·조율 강화를 언급했다. 19일 미중러 정상회담을 앞두고 나온 중국의 입장이어서 그 자리에서 한반도 문제가 다뤄질지가 관심이다.",
+   "image": "https://img.sbs.co.kr/newimg/news/20261119/202242276.jpg",
    "outlets": 4,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "李대통령 \"부정행위는 중대범죄…수능 신뢰 절대 흔들려선 안돼\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117169600001"
-    },
-    {
-     "source": "SBS",
-     "title": "이 대통령 \"부정행위는 중대범죄…수능 신뢰 절대 흔들려선 안돼\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850534&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "李대통령 \"부정행위는 중대범죄…수능 신뢰 절대 흔들려선 안돼\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117169651001"
-    },
-    {
-     "source": "SBS",
-     "title": "이 대통령 \"부정행위는 중대범죄…요행 노리다 인생 망치지 말라\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850607&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "[속보] 韓총리 \"수능 스마트기기 휴대 원천차단…안경·시계 전수점검\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117062200001"
+     "title": "[속보] 시진핑 \"북미대화 등 한반도 긴장완화 위한 다양한 노력 지지\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118137600001"
     },
     {
      "source": "경향신문",
-     "title": "[속보] 한성숙 “수능 때 안경·시계 전수점검, 수험생 가방은 복도에 보관…스마트기기 휴대 원천차단”",
-     "link": "https://www.khan.co.kr/article/202611171039001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "韓총리 \"수능서 스마트기기 원천 차단…안경·시계 전수검사\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117065300001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "韓총리 \"수능서 스마트기기 원천 차단…안경·시계 전수검사\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117065351001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "[수능 AI부정 대책] 李대통령, 필리핀서 '비상 점검회의' 화상 주재",
-     "link": "https://www.yna.co.kr/view/AKR20261117150500001"
-    },
-    {
-     "source": "한겨레",
-     "title": "이 대통령, 오늘 필리핀서 화상 ‘수능 부정행위 비상 점검회의’",
-     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287766.html"
-    },
-    {
-     "source": "한겨레",
-     "title": "이 대통령 “부정행위자 무관용 엄정 대응”…필리핀서 화상회의 주재",
-     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287834.html"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "[속보] 李대통령 \"재난문자 수능 시험 중 수시 발신 검토\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117170800001"
-    },
-    {
-     "source": "한겨레",
-     "title": "이 대통령 “수능 중 재난문자 수시 발신, 첨단 부정행위 신고 1억 포상”",
-     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287836.html"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "[속보] 李대통령 \"수능, 공정성의 상징…부정행위자 무관용 엄정대응\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117168900001"
+     "title": "[속보] 시진핑 “북·미 대화 등 한반도 긴장 완화 노력 지지”…이 대통령에 ‘북·중 관계 동향’ 설명",
+     "link": "https://www.khan.co.kr/article/202611181549011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
      "source": "경향신문",
-     "title": "[속보] 이 대통령 “수능 부정행위, 무관용 대응···신고 땐 1억원 포상금 검토”",
-     "link": "https://www.khan.co.kr/article/202611172106001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "[속보] 韓총리 \"수능 시작전 재난문자 발송…미제출 휴대전화 적발\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117119400001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "韓총리 \"1교시前 안경 전수검사…재난문자로 미제출 전화기 적발\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117126600001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "韓총리 \"1교시前 안경 전수검사…재난문자로 미제출 전화기 적발\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117126651001"
+     "title": "이 대통령 “한반도 문제에 건설적 역할 당부”…시진핑 “북·미 대화 등 다양한 노력 지지”",
+     "link": "https://www.khan.co.kr/article/202611181716001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
      "source": "SBS",
-     "title": "\"부정행위는 중대범죄…무관용 원칙으로 엄정 대응\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850640&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "\"부정행위는 중대범죄…무관용 엄정 대응\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850748&plink=RSSLINK&cooper=RSSREADER"
+     "title": "시진핑 \"북미 대화 지지\"…미·중·러에 한반도 논의?",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852738&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "한겨레",
-     "title": "이 대통령 “요행 노리다가 인생 망치지 말고 수능 부정행위 포기하라”",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287837.html"
+     "title": "이 대통령 만난 시진핑 “북-미 대화 등 한반도 긴장완화 노력 지지”",
+     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287954.html"
+    },
+    {
+     "source": "SBS",
+     "title": "한반도 긴장 완화 논의…시진핑 \"북미 대화 지지\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852805&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "연합뉴스",
-     "title": "수능날엔 軍도 조심조심…군용기 이착륙, 군가제창도 통제",
-     "link": "https://www.yna.co.kr/view/AKR20261117145600504"
+     "title": "李대통령 \"한반도 평화, 韓中 공동이익…함께 노력하길\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118101700001"
+    },
+    {
+     "source": "SBS",
+     "title": "이 대통령 \"한반도 평화, 한중 공동이익…함께 노력하길\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851848&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "한겨레",
+     "title": "이 대통령·시진핑, 34분간 회담…“한반도 평화는 공동이익”",
+     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287903.html"
+    },
+    {
+     "source": "경향신문",
+     "title": "이 대통령, 오늘 시진핑 주석과 한·중 정상회담…한반도 평화 등 의견 교환",
+     "link": "https://www.khan.co.kr/article/202611180915001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+    },
+    {
+     "source": "한겨레",
+     "title": "이 대통령, 시진핑 주석과 오늘 정상회담…한반도 정세 논의",
+     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287858.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "시진핑 \"한중 모두 다자주의 수혜자…'국민 행복' 목표 같아\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118102500001"
+    },
+    {
+     "source": "SBS",
+     "title": "시진핑 \"한중 모두 다자주의 수혜자…'국민 행복' 목표 같아\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851816&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 李대통령-시진핑, 中 선전서 정상회담 시작",
+     "link": "https://www.yna.co.kr/view/AKR20261118097900001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "李대통령-시진핑, 中 선전서 정상회담 시작…취임 후 세 번째",
+     "link": "https://www.yna.co.kr/view/AKR20261118098000001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 李대통령-시진핑, 韓中 정상회담 종료…34분간 대좌",
+     "link": "https://www.yna.co.kr/view/AKR20261118099400001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "李대통령-시진핑, 中 선전서 세번째 정상회담…34분 대좌(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118098051001"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "조작기소 특검법 공포안 국무회의 통과…여야 또 충돌",
-   "body": "윤석열 정부 시절 검찰·국정원·감사원 등의 조작수사·조작기소 의혹을 수사하는 특검법 공포안이 17일 국무회의에서 의결됐다. 특검은 최대 309명, 200일간 활동한다. 이 대통령이 순방 중이어서 한성숙 총리가 회의를 주재했고, 대통령은 순방 중 재가할 것으로 보인다(경향). 국민의힘은 '총리도 공범'이라며 반발했고, 한겨레는 정국 경색을 예고한다고 짚었다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261117/202241861.jpg",
+   "headline": "수능 AI 부정행위에 당정청 총력전…10년 응시제한 소급·1억 포상금",
+   "body": "수능을 하루 앞둔 18일 당정은 AI를 활용한 부정행위 시 응시자격 제한을 1년에서 최대 10년으로 늘리고 올해 수능부터 소급 적용하는 고등교육법 개정을 추진하기로 했고, 민주당은 관련 법안을 발의했다. 정부는 부정행위 제보 시 최대 1억원 포상금을 이번 수능부터 지급하는 방안을 추진하고, 수능 직후 한성숙 총리가 반장을 맡는 대응 TF를 가동한다. 이 대통령은 시험 중 재난문자 발송으로 방해받은 시간만큼 시험시간을 연장하는 방안도 검토하라고 지시했다고 밝혔다. 경향신문은 늑장대응 비판과 당내 우려도 함께 전했고, 국민의힘은 포상금·재난문자 지시를 '무책임·무대책한 재래식 대응'이라고 비판했다. 법안 처리 속도와 시험 당일 대응이 다음 관전 포인트다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111805310001300_P2.jpg",
    "outlets": 4,
    "sources": [
     {
      "source": "경향신문",
-     "title": "조작기소 특검법, 오늘 국무회의 상정…이 대통령 순방 중 총리 주재 의결",
-     "link": "https://www.khan.co.kr/article/202611170743001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "title": "당정, 올해 수능부터 AI커닝 시 ‘10년 응시 제한’ 소급입법 추진…늑장대응 비판 속 당내 우려도",
+     "link": "https://www.khan.co.kr/article/202611181104001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
      "source": "연합뉴스",
-     "title": "[속보] '조작기소 특검법' 공포안 국무회의 통과…韓총리가 주재",
-     "link": "https://www.yna.co.kr/view/AKR20261117030300001"
-    },
-    {
-     "source": "경향신문",
-     "title": "조작기소특검법 공포안, 이 대통령 순방 중 한성숙 총리 주재 국무회의서 의결",
-     "link": "https://www.khan.co.kr/article/202611171134001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "SBS",
-     "title": "[성민종합정치] '조작기소 특검법' 국무회의 의결…여야 또 충돌",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008849880&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "경향신문",
-     "title": "정부 ‘조작기소특검법’ 공포안 의결…이 대통령, 아시아 순방 중 재가할 듯",
-     "link": "https://www.khan.co.kr/article/202611172126005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "SBS",
-     "title": "'조작기소 특검법' 의결…\"총리도 공범\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850425&plink=RSSLINK&cooper=RSSREADER"
+     "title": "당정, '올 수능부터 AI커닝시 10년 응시제한' 소급 입법 시동",
+     "link": "https://www.yna.co.kr/view/AKR20261118066951001"
     },
     {
      "source": "연합뉴스",
-     "title": "'조작기소 특검법' 공포안 국무회의 통과…최대 309명·200일 활동",
-     "link": "https://www.yna.co.kr/view/AKR20261117030800001"
+     "title": "당정, '올 수능부터 AI커닝시 10년 응시제한' 소급 입법 추진(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118066952001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 韓총리 \"당정청 AI부정행위 총력 대응…수험생 걱정 덜 것\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118052800001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "韓총리 \"당정청 AI부정행위 총력 대응…수험생 걱정 덜 것\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118058700001"
+    },
+    {
+     "source": "경향신문",
+     "title": "한성숙 “AI 부정행위, 당·정·청이 총력 대응…수험생·학부모 걱정 덜 것”",
+     "link": "https://www.khan.co.kr/article/202611181033001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "與 '올 수능부터 AI 부정행위시 응시정지 10년' 법안 발의",
+     "link": "https://www.yna.co.kr/view/AKR20261118177800001"
     },
     {
      "source": "한겨레",
-     "title": "조작기소특검법 공포안 국무회의 통과…최대 309명·200일 활동",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287691.html"
+     "title": "올 수능부터 ‘AI 커닝’ 최대 10년 응시 제한…민주, 법안 발의",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1288009.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 정부, 수능 직후 '부정행위 대응TF' 가동…총리가 TF반장",
+     "link": "https://www.yna.co.kr/view/AKR20261118183900001"
+    },
+    {
+     "source": "SBS",
+     "title": "정부, 수능 직후 '부정행위 대응TF' 가동…총리가 TF반장",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852658&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "정부, 내일 수능부터 '부정행위 제보시 1억 포상금' 지급 추진",
+     "link": "https://www.yna.co.kr/view/AKR20261118185400001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "정부, 내일 수능부터 '부정행위 제보시 1억 포상금' 지급 추진(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118185451001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 與, '수능 부정행위 포상금 1억'에 \"입법 취지 맞게 적극 검토\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118070400001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 정부, 수능 부정행위 제보 1억 포상금 즉시 적용 추진",
+     "link": "https://www.yna.co.kr/view/AKR20261118183800001"
+    },
+    {
+     "source": "경향신문",
+     "title": "이 대통령 “수능 시험 중 재난문자로 방해받으면 그만큼 시간 연장 검토”",
+     "link": "https://www.khan.co.kr/article/202611181010001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
      "source": "한겨레",
-     "title": "‘조작기소 특검법’ 국무회의 통과…국힘 반발, 정국 경색 예고",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287823.html"
+     "title": "이 대통령 “수능 중 재난문자로 방해받으면 시간 연장 검토”",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287866.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "국힘, 李대통령 포상금·재난문자 지시에 \"재래식 대응 무책임\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118064500001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "국힘, 李대통령 포상금·재난문자 지시에 \"무책임·무대책 대응\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118064551001"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "마닐라 아세안 외교…한중일 협력 강조, 한일 정상 네 번째 회담",
-   "body": "이 대통령은 아세안+3 정상회의에서 1999년 김대중·주룽지·오부치 3국 협력을 '배워야 할 교범'으로 꼽으며 불확실한 정세 속 한중일 협력을 강조했고, 회의는 무역·에너지 안보 관련 성명을 채택했다. 동아시아 정상회의에서는 남북대화 재개에 관심을 당부했다. 다카이치 사나에 일본 총리와는 취임 후 네 번째 회담을 열어 셔틀외교 공고화에 뜻을 모았고, 이 대통령은 양국 국민 선호도가 사상 최고 수준이라며 안보 협력을 언급했다. 청와대는 19일 예고된 사상 첫 미·중·러 3자 정상회담에 대해 한반도 문제 등 국익 직결 사안에는 우리 이해관계가 반영돼야 한다고 밝혔다.",
-   "image": "https://img.yna.co.kr/etc/inner/KR/2026/11/17/AKR20261117035951001_01_i_P2.jpg",
+   "headline": "육사만 충청권 이전, 해·공사 유지…국군사관학교 2029년 첫 선발",
+   "body": "당정은 18일 국군사관학교 창설 기본계획 수정안을 발표하고 육군사관학교를 충청권으로 옮기되 해군사관학교(진해)와 공군사관학교(청주)는 현 위치를 활용하기로 했다. 생도는 1·4학년을 국군사관학교에서 통합교육받고 2·3학년은 각 군 사관학교에서 군종별 교육을 받는 '1+2+1' 학제다. 새 교육체계는 2029년 신입생부터 적용된다. 기존 3군 사관학교 체제는 유지된다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111802420001300_P2.jpg",
    "outlets": 4,
    "sources": [
     {
-     "source": "경향신문",
-     "title": "이 대통령 “김대중·주룽지·오부치 협력, 복합 위기 시대의 교범”…아세안+3 정상회의 참석",
-     "link": "https://www.khan.co.kr/article/202611171025001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "source": "연합뉴스",
+     "title": "육사, 충청권 이전…국군사관학교 학제 '1+2+1' 형태로(종합3보)",
+     "link": "https://www.yna.co.kr/view/AKR20261118032254001"
     },
     {
-     "source": "연합뉴스",
-     "title": "李대통령 \"김대중·주룽지·오부치 한중일 협력, 배워야할 교범\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117035951001"
+     "source": "SBS",
+     "title": "육사, 충청권 이전…국군사관학교 학제 '1+2+1' 형태로",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851998&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "한겨레",
-     "title": "이 대통령 “김대중·주룽지·오부치 3국 협력… 우리가 배워야 할 교범”",
-     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287662.html"
+     "title": "당정 “육사, 충청권 이전…국군사관학교 1+2+1 통합교육”",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287862.html"
     },
     {
      "source": "경향신문",
-     "title": "이 대통령 “김대중·주룽지·오부치, 선구적 협력 교범”",
-     "link": "https://www.khan.co.kr/article/202611172112005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "title": "육사 충청 이전·기존 3군 사관학교 체제 유지…‘국군사관학교 1기’ 2029년 입학",
+     "link": "https://www.khan.co.kr/article/202611181625001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
-     "source": "연합뉴스",
-     "title": "李대통령, 동아시아 정상회의 참석…남북대화 재개에 관심 당부",
-     "link": "https://www.yna.co.kr/view/AKR20261117167000001"
-    },
-    {
-     "source": "SBS",
-     "title": "이 대통령, 동아시아 정상회의 참석…남북대화 재개에 관심 당부",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850489&plink=RSSLINK&cooper=RSSREADER"
+     "source": "한겨레",
+     "title": "육사만 충청 이전, 해·공사 유지…2029년 ‘국군사관학교 1기’ 선발",
+     "link": "https://www.hani.co.kr/arti/politics/defense/1288025.html"
     },
     {
      "source": "경향신문",
-     "title": "이 대통령, 동아시아 정상회의 참석…남북대화 재개에 관심 당부",
-     "link": "https://www.khan.co.kr/article/202611172016001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "title": "당정 “육사 충청권 이전, 해사·공사 기존 위치 활용…새 교육체계 2029년 신입생부터”",
+     "link": "https://www.khan.co.kr/article/202611180900001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
      "source": "연합뉴스",
-     "title": "李대통령 \"韓日국민 선호도 사상 최고수준…안보문제 서로 도움\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117162000001"
-    },
-    {
-     "source": "경향신문",
-     "title": "이 대통령 “한·일 국민 선호도 사상 최고 수준…안보문제 서로 도움” 다카이치 총리와 정상회담",
-     "link": "https://www.khan.co.kr/article/202611172010001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "李대통령 \"韓日국민 선호도 사상 최고수준…안보문제 서로 도움\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117162051001"
-    },
-    {
-     "source": "SBS",
-     "title": "'미중러' 바라만 보는 한일…\"서로 협력\" 강조",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850416&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "'미중러' 바라만 보는 한일…\"서로 협력\" 강조",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850647&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "靑, 미중러 회담에 \"국익직결 사안엔 우리 이해관계 반영돼야\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117109700001"
-    },
-    {
-     "source": "SBS",
-     "title": "청와대, 미중러 회담에 \"국익 직결 사안엔 우리 이해관계 반영돼야\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850417&plink=RSSLINK&cooper=RSSREADER"
+     "title": "육사, 충청권 이전…국군사관학교 신입생 선발은 2029년부터(종합2보)",
+     "link": "https://www.yna.co.kr/view/AKR20261118032253001"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "세무사 시험 고득점자 급증에 'AI 조직범죄' 의혹…여당은 특별법 착수",
-   "body": "국민의힘 안철수 의원은 올해 제63회 세무사 1차 회계학개론에서 90점 이상 응시자가 1년 새 2명에서 66명으로 늘었다며 AI를 활용한 조직범죄를 의심했다. 민주당은 세무사 시험 등 각종 시험에서 AI 부정행위가 잇따르자 특별법 제정에 착수했고, 수능 부정행위자 10년 응시 제한을 올해부터 적용하겠다고 밝혔다. AI 부정 문제가 수능을 넘어 자격시험 전반으로 번지는 양상이다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2025/03/08/PYH2025030802260001300_P2.jpg",
+   "headline": "한중 FTA 서비스·투자 협상 타결…K콘텐츠 최혜국 대우로 한한령 완화 기대",
+   "body": "양국 정상은 FTA 서비스·투자 후속협상 타결을 계기로 협력을 확대하기로 했다. 이번 타결로 한국 영화·게임 등 콘텐츠가 중국에서 최혜국 대우를 받고 법률·건설 분야 개방도 넓어진다. 이 대통령은 이를 '새로운 한중관계의 토대'라고 평가했고, 언론은 일제히 한한령 빗장이 풀릴지에 주목했다. 다만 시 주석은 AI 등 첨단산업 협력을 강조하면서도 문화교류는 '점진적'으로 하겠다고 밝혀 속도에는 단서를 달았다. 이 대통령은 APEC 무대에서 지정학적 위기 속 핵심광물·에너지 수급과 공급망 위험 조기 파악 시스템을 위한 공동 노력도 촉구했다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111811520001300_P2.jpg",
    "outlets": 3,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "\"세무사시험 90점↑ 고득점자 1년새 2명→66명…조직범죄 의심\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117151800001"
-    },
-    {
-     "source": "SBS",
-     "title": "안철수 \"세무사 시험 90점 이상 고득점자 1년새 2명→66명\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850397&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "한겨레",
-     "title": "세무사 시험 ‘90점 이상’ 2025년 2명→2026년 66명…“AI 조직범죄 의심”",
-     "link": "https://www.hani.co.kr/arti/politics/assembly/1287830.html"
+     "title": "[속보] 韓中정상 \"FTA 서비스·투자협상 타결 계기로 협력 확대\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118136900001"
     },
     {
      "source": "연합뉴스",
-     "title": "與, AI부정행위 특별법 제정착수…\"수능 10년제한 올해부터 적용\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117103300001"
+     "title": "韓中정상 \"FTA 서비스·투자 협상 타결 계기로 협력 확대\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118143000001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "韓中정상 \"FTA 서비스·투자 협상 타결\"…한한령 진전 관심(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118143051001"
     },
     {
      "source": "SBS",
-     "title": "여당, 'AI 부정행위' 특별법 제정 착수…\"수능 10년 제한 올해부터\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850073&plink=RSSLINK&cooper=RSSREADER"
+     "title": "한중 정상 \"FTA 서비스·투자 협상 타결\"…한한령 진전 관심",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852466&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "한겨레",
+     "title": "한·중 정상 “FTA 서비스·투자 협상 타결”…한한령 빗장 풀리나",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1288035.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "李대통령, 中 'K콘텐츠 최혜국대우'에 \"새로운 한중관계 토대\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118177100001"
+    },
+    {
+     "source": "SBS",
+     "title": "이 대통령, 중국 'K콘텐츠 최혜국 대우'에 \"새로운 한중관계 토대\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852603&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "K-영화·게임, 중국서 최혜국대우…법률·건설 등 개방 확대",
+     "link": "https://www.yna.co.kr/view/AKR20261118152400003"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "K-영화·게임, 중국서 최혜국대우…한한령 빗장 풀리나(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118152451003"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 시진핑 \"中韓, AI 등 과학기술 산업협력 협력 생태계 육성해야\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118138300083"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "시진핑 \"中韓, AI 등 협력 육성해야…점진적 문화교류할 것\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118149500083"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "李대통령 \"지정학적 위기…핵심광물·에너지수급 함께 노력해야\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118145000001"
+    },
+    {
+     "source": "SBS",
+     "title": "이 대통령 \"공급망 위기…핵심 광물·에너지 수급 함께 노력해야\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852453&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "트럼프 '김정은, 중국서 만나길 원해'…북미 회동 가능성 부상",
-   "body": "트럼프 미국 대통령은 김정은 국무위원장이 APEC 정상회의가 열리는 중국에서 만남을 원한다며 '지켜보자'고 했다. 경향신문은 성사 여부를 시진핑 주석에 돌린 점, 러시아도 북한 참석 시 만나겠다고 한 점을 전했다. 북한은 김 위원장이 백두산 인근 삼지연 스키장에서 딸 주애를 지켜보는 영상을 공개했고, SBS는 중국 접경 방문이 대화 국면 신호인지 분석했다. 트럼프는 한국의 대미 투자 덕에 알래스카 LNG 파이프라인 사업을 승인했다고도 말했고, 이 대통령은 필리핀 대통령 주최 만찬 전 트럼프와 대화를 나눴다.",
-   "image": "https://img.khan.co.kr/news/2026/11/17/news-p.v1.20261117.e056c4988d9e45479b805e83abd617d7_P1.png",
+   "headline": "이 대통령, 7년 만에 푸틴과 한반도 논의…미중러 담판 하루 앞",
+   "body": "이 대통령은 18일 APEC 환영만찬을 계기로 블라디미르 푸틴 러시아 대통령과 10여분간 만나 한반도 정세와 북핵 문제를 논의했다. 경향신문은 양측이 한반도 정세 악화 방지에 의견을 같이했다고 전했다. 한국 정상이 러시아 정상과 한반도 현안을 논의한 것은 7년 만이다. 19일 초유의 미국·중국·러시아 정상 담판을 앞두고 중·러 양측에 한국 입장을 전달한 셈으로, 이 회담에서 북핵·한반도 문제가 오를지가 관건이다.",
+   "image": "https://flexible.img.hani.co.kr/flexible/normal/300/180/imgdb/original/2026/1119/20261119500169.webp",
    "outlets": 3,
    "sources": [
     {
      "source": "경향신문",
-     "title": "[속보]트럼프 “김정은, 중국서 만남 원한다…어떻게 될지 지켜보자”",
-     "link": "https://www.khan.co.kr/article/202611172007001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "title": "이 대통령, 푸틴 러 대통령과 10여분 회동…“한반도 정세 악화 방지 의견 일치”",
+     "link": "https://www.khan.co.kr/article/202611190701001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
     },
     {
-     "source": "경향신문",
-     "title": "트럼프 “김정은, 중국서 만남 원해”…‘깜짝 회동’ 띄우기",
-     "link": "https://www.khan.co.kr/article/202611172109005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "SBS",
-     "title": "스키 타는 김주애, 백두산 오른 김정은…결단 임박?",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850415&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "스키 타는 김주애, 백두산 오른 김정은…결단 임박?",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850646&plink=RSSLINK&cooper=RSSREADER"
+     "source": "한겨레",
+     "title": "이 대통령, 푸틴과 7년 만에 한반도 현안 논의… “10여분간 대화”",
+     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1288055.html"
     },
     {
      "source": "연합뉴스",
-     "title": "트럼프 \"韓 역사적 투자 덕에 알래스카 LNG파이프라인 사업승인\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117173900071"
-    },
-    {
-     "source": "경향신문",
-     "title": "트럼프 “한국 역사적 투자 덕에 알래스카 LNG 파이프라인 사업승인했다”",
-     "link": "https://www.khan.co.kr/article/202611172257001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+     "title": "하루 앞 다가온 미중러 담판…북핵·한반도 논의 가능성은",
+     "link": "https://www.yna.co.kr/view/AKR20261118082500504"
     },
     {
      "source": "연합뉴스",
-     "title": "李대통령, 필리핀 대통령 주최 만찬…트럼프도 참석",
-     "link": "https://www.yna.co.kr/view/AKR20261117173200001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "李대통령, 필리핀 대통령 주최 만찬…행사前 트럼프와 대화도(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117173251001"
+     "title": "하루 앞 다가온 미중러 담판…북핵·한반도 논의 가능성 주목(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118082551504"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "민주당 초선 55명, 최민희 수석최고위원에 거취 결단 압박",
-   "body": "민주당 초선 모임 소속 55명은 '이 대통령이 윤석열 탄핵에 반대했다'는 발언 등으로 윤리심판원에 회부된 최민희 수석최고위원에 대해 엄중 징계와 최고위원직 사퇴를 포함한 거취 판단을 촉구했다. 중징계 가능성에 당내 긴장이 커진 가운데, 경향신문은 친청계에서 '신천지 의혹 등을 제기한 김민석 대표가 윤리심판 조사 대상'이라는 반론도 나왔다고 전했다. 최 의원은 앞서 기자를 '하이에나'에 빗댄 표현으로도 논란을 빚었다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/02/02/PYH2026020205510001300_P2.jpg",
+   "headline": "추경호 '계엄 해제 방해' 1심 무죄…여야 정반대 반응",
+   "body": "12·3 비상계엄 당시 국회의 계엄 해제 표결을 방해한 혐의로 기소된 추경호 대구시장이 18일 1심에서 무죄를 선고받았다. 국민의힘은 '내란몰이에 종지부를 찍었다'며 조은석 특검을 법 왜곡죄로 고발하는 방안을 검토하겠다고 했다. 민주당은 '역사에 대한 반역'이라며 특검의 즉각 항소를 요구했고, 친청계에서는 조희대 대법원장 탄핵 주장까지 나왔다. 특검 항소 여부와 함께 판결이 사법부를 둘러싼 여야 공방으로 번질지 주목된다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111815130001300_P2.jpg",
    "outlets": 3,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "與초선 55명 \"최민희 엄중 징계·거취 판단 촉구\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117064800001"
+     "title": "국힘, 추경호 1심 무죄에 \"내란몰이에 종지부…특검 고발 검토\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118121200001"
     },
     {
      "source": "연합뉴스",
-     "title": "與초선 55명, '최민희 신속 징계' 요청…최고위원직 사퇴도 압박(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117064851001"
+     "title": "국힘, 秋 1심 무죄에 \"이제 내란몰이는 끝나 …특검 고발 검토\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118121251001"
+    },
+    {
+     "source": "SBS",
+     "title": "국힘, 추경호 1심 무죄에 \"내란몰이 종지부…조은석 특검 고발 검토\"",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852251&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "국힘, 추경호 1심 무죄에 \"이제 내란몰이 끝나 …특검고발 검토\"(종합2보)",
+     "link": "https://www.yna.co.kr/view/AKR20261118121252001"
     },
     {
      "source": "한겨레",
-     "title": "민주 초선 55명 “최민희 엄중 징계”…최고위원직 사퇴 검토 촉구",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287676.html"
+     "title": "국힘, 추경호 1심 무죄에 “사필귀정…특검 ‘법 왜곡죄’ 고발 검토”",
+     "link": "https://www.hani.co.kr/arti/politics/assembly/1287921.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "與, 추경호 1심무죄에 \"역사에 대한 반역…특검, 즉각 항소해야\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118131900001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "與, 秋 1심 무죄에 \"역사에 대한 반역\"…친청계 \"조희대 탄핵\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118131951001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "與, 추경호 1심 무죄에 \"역사에 대한 반역\"…친청계 \"조희대 탄핵\"(종합2보)",
+     "link": "https://www.yna.co.kr/view/AKR20261118131952001"
+    }
+   ]
+  },
+  {
+   "category": "정치",
+   "headline": "최민희 징계 놓고 민주당 계파 갈등 격화…정청래 직접 반대",
+   "body": "민주당 최민희 최고위원 징계 문제를 두고 침묵하던 정청래 전 대표가 징계에 강력 반대한다는 입장을 밝혔다. 정 전 대표는 김민석 대표 측을 겨냥해 '신천지 공세가 더 큰 해당 행위'라고 주장했고, 추미애 경기지사도 반대 목소리를 냈다. 앞서 민주당은 최 의원의 '하이에나 발언' 여파로 그가 단장인 미디어공공성 TF를 해산했다. 한겨레는 친명·친청 갈등이 격화일로라고 평가했다.",
+   "image": "https://img.sbs.co.kr/newimg/news/20261118/202242237.jpg",
+   "outlets": 3,
+   "sources": [
+    {
+     "source": "SBS",
+     "title": "[여담야담] \"최민희 징계 반대\" 정청래 참전…민주 '내홍' 불붙나",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852022&plink=RSSLINK&cooper=RSSREADER"
+    },
+    {
+     "source": "SBS",
+     "title": "\"최민희 징계 반대\" 정청래 참전에 '폭풍전야'",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852542&plink=RSSLINK&cooper=RSSREADER"
     },
     {
      "source": "한겨레",
-     "title": "민주 초선 55명 ‘최민희 엄중 징계’ 요구…“스스로 거취 판단하라”",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287793.html"
-    },
-    {
-     "source": "경향신문",
-     "title": "민주당 초선 55명 “최민희, 최고위원직 사퇴 포함 스스로 거취 판단해야”",
-     "link": "https://www.khan.co.kr/article/202611171053011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "경향신문",
-     "title": "민주 초선 55명 “최민희 최고위원 사퇴 스스로 결단하라”",
-     "link": "https://www.khan.co.kr/article/202611172103015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "경향신문",
-     "title": "[점선면]‘하이에나’가 불편하십니까",
-     "link": "https://www.khan.co.kr/article/202611180700011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    }
-   ]
-  },
-  {
-   "category": "정치",
-   "headline": "AI 커닝 대책 놓고 여야 정면충돌…국민의힘, 총리·교육장관 해임 건의",
-   "body": "국민의힘은 정부 대책 미비를 이유로 한성숙 총리와 최교진 교육부 장관 해임건의안을 제출하고, 대통령이 수용하지 않으면 탄핵 절차에 들어가겠다고 밝혔다. 보수 야권은 '단추 스티커·수험생 상호 감시가 대책이냐'며 비판했다. 민주당 교육특위 위원장 김문수 의원은 '대책이 막막하다, 수험생 상호 감독밖에 없다'고 했다가 발언을 번복했고, SBS는 앞서 나온 교육부 장관 발언과 함께 수험생·학부모 반발을 키웠다고 전했다.",
-   "image": "https://img.sbs.co.kr/newimg/news/20261117/202241773.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "연합뉴스",
-     "title": "野 \"단추 스티커·수험생 상호감시가 AI커닝 대책이냐\" 맹폭(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117084451001"
-    },
-    {
-     "source": "SBS",
-     "title": "국민의힘 \"단추 스티커·수험생 상호 감시가 AI커닝 대책이냐\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850393&plink=RSSLINK&cooper=RSSREADER"
+     "title": "“최민희 징계 반대” 정청래 직접 참전…친명·친청 갈등 격화일로",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1288027.html"
     },
     {
      "source": "연합뉴스",
-     "title": "국힘 \"한성숙·최교진 해임 건의…미수용시 탄핵 절차 돌입\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117143500001"
-    },
-    {
-     "source": "SBS",
-     "title": "국민의힘 \"한성숙·최교진 해임 건의…미수용 시 탄핵 돌입\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850392&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "여당 의원의 황당 대책…\"수험생이 서로 감시\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850405&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "SBS",
-     "title": "여당 의원의 황당 대책…\"수험생이 서로 감시\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850771&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "與교육특위 위원장, AI커닝에 \"대책 막막…수험생 상호감독밖에\"",
-     "link": "https://www.yna.co.kr/view/AKR20261117068500001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "與교육특위 위원장, AI커닝에 \"옆 학생이 신고해야\" 말했다 번복(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117068551001"
-    }
-   ]
-  },
-  {
-   "category": "정치",
-   "headline": "국민의힘 지도부, 한동훈 장인상 조문…'징계조작' 공방은 계속",
-   "body": "장동혁 대표와 정점식 의원 등 국민의힘 '투톱'이 무소속 한동훈 의원의 장인 고 진형구 전 대전고검장 빈소를 찾았고, 장 대표와 한 의원은 짧은 대화도 나눴다. 같은 날 '한동훈 징계 조작' 의혹을 제기해온 황경성 윤리위원은 친한계 배현진 의원 관련 자료를 먼저 공개했다. 조문으로 대면은 이뤄졌지만 당내 계파 갈등은 이어지고 있다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/17/PYH2026111701920001300_P2.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "경향신문",
-     "title": "장동혁, 한동훈 장인상 조문…한 “대표님 잠깐” 짧은 대화도",
-     "link": "https://www.khan.co.kr/article/202611171042001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "국힘 '투톱' 장동혁·정점식, 한동훈 장인상 조문(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117042751001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "국힘 '투톱' 장동혁·정점식, 한동훈 장인상 조문(종합2보)",
-     "link": "https://www.yna.co.kr/view/AKR20261117042752001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "국힘 윤리위원, 친한계 배현진 '징계조작 의혹' 자료 먼저 공개",
-     "link": "https://www.yna.co.kr/view/AKR20261117078600001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "국힘 윤리위원, 친한계 배현진 '징계조작 의혹' 자료 선공개(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117078651001"
-    }
-   ]
-  },
-  {
-   "category": "정치",
-   "headline": "이용철 법무장관 후보 '3주택' 전력…경찰청장 청문회도 열려",
-   "body": "이용철 법무부 장관 후보자는 재산 39억4천265만원을 신고했고, 과거 2년 8개월간 강남 빌라 등 주택 3채를 보유한 사실이 드러났다. 후보자 측은 '공직 취임 전 일시적'이라며 '무거운 마음'이라고 밝혔다. 국회 행정안전위원회는 18일 김종철 경찰청장 후보자 인사청문회를 연다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/17/PYH2026111701980001300_P2.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "SBS",
-     "title": "[단독] 이용철 법무장관 후보자, 3주택자 전력…\"무거운 마음\"",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850502&plink=RSSLINK&cooper=RSSREADER"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "이용철 법무장관 후보, 한때 '3주택자'…\"공직 취임 전 일시적\"(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117115351001"
-    },
-    {
-     "source": "연합뉴스",
-     "title": "국회, 오늘 김종철 경찰청장 후보자 인사청문회",
-     "link": "https://www.yna.co.kr/view/AKR20261117178400001"
-    }
-   ]
-  },
-  {
-   "category": "정치",
-   "headline": "'윤석열 영치금' 겨냥 400만원 한도법, 법사소위 통과",
-   "body": "교정시설 수용자의 영치금 한도를 400만원으로 제한하는 법 개정안이 민주당 주도로 국회 법사위 소위를 통과했다. 윤석열 전 대통령 부부의 영치금 논란이 계기가 됐다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/10/27/PYH2026102716660001300_P2.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "연합뉴스",
-     "title": "'尹 영치금' 논란에 '400만원 제한법', 법사소위 與주도 의결",
-     "link": "https://www.yna.co.kr/view/AKR20261117160000001"
-    },
-    {
-     "source": "SBS",
-     "title": "'윤석열 영치금' 논란에 '400만 원 제한법', 법사소위 여당 주도 의결",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850456&plink=RSSLINK&cooper=RSSREADER"
-    }
-   ]
-  },
-  {
-   "category": "정치",
-   "headline": "민주당, 교제·가정폭력 묶는 '친밀관계 종합법' 추진",
-   "body": "민주당은 교제폭력·가정폭력 등 관계성 범죄를 아우르는 '친밀관계 종합법' 마련을 포함한 대책을 추진하기로 했다.",
-   "image": "https://img.yna.co.kr/photo/yna/YH/2026/08/21/PYH2026082112000001300_P2.jpg",
-   "outlets": 2,
-   "sources": [
-    {
-     "source": "연합뉴스",
-     "title": "與, '친밀관계 종합법' 마련 포함 관계성 범죄 대책 추진",
-     "link": "https://www.yna.co.kr/view/AKR20261117129100001"
+     "title": "정청래 \"최민희 징계 강력반대\"…金에 \"신천지가 더 큰 해당행위\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118115000001"
     },
     {
      "source": "한겨레",
-     "title": "민주당, 관계성 범죄 대응 ‘친밀관계 종합법’ 추진",
-     "link": "https://www.hani.co.kr/arti/politics/politics_general/1287821.html"
+     "title": "정청래 “최민희 징계 반대…신천지 공세가 해당 행위”",
+     "link": "https://www.hani.co.kr/arti/politics/assembly/1287906.html"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "민주당, 미디어공공성 TF 해산…최민희 '하이에나 발언' 여파",
+     "link": "https://www.yna.co.kr/view/AKR20261118096100001"
+    },
+    {
+     "source": "SBS",
+     "title": "민주당, 미디어공공성 TF 해산…최민희 '하이에나 발언' 여파",
+     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851924&plink=RSSLINK&cooper=RSSREADER"
     }
    ]
   },
   {
    "category": "정치",
-   "headline": "러시아 군용기 여러 대 KADIZ 진입…공군 전투기 출격",
-   "body": "러시아 군용기 여러 대가 17일 새벽 동해 쪽 한국 방공식별구역에 진입해 공군이 전투기를 출격시켜 대응했다고 합동참모본부가 밝혔다.",
-   "image": "https://img.yna.co.kr/photo/cms/2019/07/23/06/PCM20190723000106990_P2.jpg",
+   "headline": "국힘, '조작기소 특검' 후보 추천 거부하고 장외투쟁 예고",
+   "body": "국무회의 의결로 가동을 앞둔 '조작기소 특검'에 대해 국민의힘 정점식 원내대표는 18일 특검법상 국민의힘 몫 후보 추천을 거부하겠다고 밝혔다. 정 원내대표는 도보투쟁 등 대응을 전개하겠다며 '불퇴전의 각오'를 내세웠다. 추경호 무죄 판결과 맞물려 특검을 둘러싼 여야 대치가 한층 거세질 전망이다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111810290001300_P2.jpg",
    "outlets": 2,
    "sources": [
     {
      "source": "연합뉴스",
-     "title": "러 군용기 여러 대 새벽 KADIZ 진입…공군 전투기 출격대응(종합)",
-     "link": "https://www.yna.co.kr/view/AKR20261117014451504"
+     "title": "정점식 \"국힘몫 조작기소특검 추천 거부…도보투쟁 등 전개\"",
+     "link": "https://www.yna.co.kr/view/AKR20261118095500001"
     },
     {
-     "source": "SBS",
-     "title": "러 군용기 카디즈 진입…공군 전투기 대응 출격",
-     "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850429&plink=RSSLINK&cooper=RSSREADER"
+     "source": "한겨레",
+     "title": "국힘, ‘조작기소 특검’ 후보 추천 거부…“불퇴전 각오”",
+     "link": "https://www.hani.co.kr/arti/politics/politics_general/1288012.html"
+    }
+   ]
+  },
+  {
+   "category": "정치",
+   "headline": "안보실, '자바' 치명적 취약점에 민·관·군 긴급대책회의",
+   "body": "청와대 국가안보실은 웹 개발 언어 자바(JAVA)에서 치명적 수준의 보안 취약점이 확인됨에 따라 17일 민·관·군 사이버안보 긴급대책회의를 열었다고 18일 밝혔다. 안보실은 공개 전 취약점 정보를 입수해 부문별 대비 태세를 점검하고 대응 전략을 선제적으로 세웠다고 설명했다.",
+   "image": "https://flexible.img.hani.co.kr/flexible/normal/300/180/imgdb/child/2026/1118/53_17949696257703_20261118501406.webp",
+   "outlets": 2,
+   "sources": [
+    {
+     "source": "경향신문",
+     "title": "청와대, ‘자바’ 취약점 확인에 민·관·군 긴급회의…“대응 전략 선제 수립”",
+     "link": "https://www.khan.co.kr/article/202611181017001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news"
+    },
+    {
+     "source": "한겨레",
+     "title": "국가안보실, 웹 언어 ‘자바’ 취약점 확인에 민·관·군 긴급대책회의",
+     "link": "https://www.hani.co.kr/arti/politics/bluehouse/1287888.html"
+    }
+   ]
+  },
+  {
+   "category": "정치",
+   "headline": "6·3 지방선거 투표용지 부족 사태, 선관위 직원 8명 구속영장",
+   "body": "특검은 투표용지 부족 사태가 벌어진 6·3 지방선거와 관련해 선거관리위원회 직원 8명에게 구속영장을 청구했다. 혐의는 투표율 허위 입력과 공문서 위·변조, 직무유기 등이다. 선거 이후 5개월여 만의 신병 확보 시도로, 영장 발부 여부가 선관위 책임 규명의 분수령이 될 전망이다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111816890001300_P2.jpg",
+   "outlets": 1,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "특검, '투표율 허위입력·공문서 위변조' 선관위 8명 구속영장(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118120352004"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "특검, '투표율 허위입력·공문서 위변조' 선관위 8명 구속영장(종합2보)",
+     "link": "https://www.yna.co.kr/view/AKR20261118120353004"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[1보] 특검, 선관위 직원 8명 구속영장…지방선거 5개월만",
+     "link": "https://www.yna.co.kr/view/AKR20261118120300004"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[2보] 특검, 선관위직원 8명 구속영장…공문서 위·변조, 직무유기",
+     "link": "https://www.yna.co.kr/view/AKR20261118120351004"
+    }
+   ]
+  },
+  {
+   "category": "정치",
+   "headline": "김종철 경찰청장 후보 청문회서 중립성 공방…보고서는 당일 채택",
+   "body": "이재명 정부 첫 경찰청장 후보자인 김종철 후보자의 인사청문회가 18일 열렸다. 여당은 후보자의 사명감을 높이 평가한 반면 야당은 수사 중립성 우려를 제기했다. 공방에도 국회 행정안전위원회는 청문 당일 인사청문경과보고서를 채택했다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/11/18/PYH2026111809190001300_P2.jpg",
+   "outlets": 1,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "與 \"사명감 투철\"·野 \"중립 우려\"…경찰청장 후보 청문회 공방",
+     "link": "https://www.yna.co.kr/view/AKR20261118090200001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "與 \"사명감 투철\"·野 \"중립 우려\"…경찰청장 후보 청문회 공방(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118090251001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "[속보] 행안위, 김종철 경찰청장 후보자 인사청문보고서 채택",
+     "link": "https://www.yna.co.kr/view/AKR20261118178700001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "행안위, 인사청문 당일 김종철 경찰청장 후보자 보고서 채택",
+     "link": "https://www.yna.co.kr/view/AKR20261118178751001"
+    }
+   ]
+  },
+  {
+   "category": "정치",
+   "headline": "국힘 윤리위 '하명 징계' 의혹 확산…\"내주 초 추가 폭로\"",
+   "body": "국민의힘 황경성 윤리위원은 친한계 배현진 의원에 대한 이른바 하명 징계 의혹을 제기한 데 이어 18일 '張 대리인'이 윤리위를 실질적으로 관리했다는 추가 의혹을 내놨다. 황 위원은 다음 주 초 추가 폭로도 예고해 당내 갈등이 이어질 전망이다.",
+   "image": "https://img.yna.co.kr/photo/yna/YH/2026/02/13/PYH2026021317480001300_P2.jpg",
+   "outlets": 1,
+   "sources": [
+    {
+     "source": "연합뉴스",
+     "title": "국힘 윤리위원 \"張대리인이 윤리위 실질 관리\"…추가 의혹 제기",
+     "link": "https://www.yna.co.kr/view/AKR20261118061300001"
+    },
+    {
+     "source": "연합뉴스",
+     "title": "국힘 윤리위원 \"張대리인이 윤리위 관리…내주초 추가폭로\"(종합)",
+     "link": "https://www.yna.co.kr/view/AKR20261118061351001"
     }
    ]
   }
  ],
  "links": [
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008849880&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850073&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850080&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850210&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850231&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850234&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850392&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850393&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850397&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850405&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850415&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850416&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850417&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850423&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850425&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850426&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850429&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850456&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850457&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850488&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850489&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850502&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850534&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850607&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850640&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850646&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850647&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850748&plink=RSSLINK&cooper=RSSREADER",
-  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008850771&plink=RSSLINK&cooper=RSSREADER",
-  "https://www.hani.co.kr/arti/politics/assembly/1287695.html",
-  "https://www.hani.co.kr/arti/politics/assembly/1287764.html",
-  "https://www.hani.co.kr/arti/politics/assembly/1287813.html",
-  "https://www.hani.co.kr/arti/politics/assembly/1287830.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287662.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287681.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287749.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287766.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287834.html",
-  "https://www.hani.co.kr/arti/politics/bluehouse/1287836.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287663.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287666.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287669.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287670.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287676.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287691.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287707.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287709.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287716.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287720.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287721.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287724.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287793.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287795.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287803.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287808.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287821.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287823.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287824.html",
-  "https://www.hani.co.kr/arti/politics/politics_general/1287837.html",
-  "https://www.khan.co.kr/article/202611170743001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611170746001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611170918001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171002001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171025001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171039001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171042001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171053011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171054001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171134001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171353001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171359001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171507011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171703001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171719001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171741001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171758001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171812001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611171826001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172007001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172010001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172016001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172102001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172103005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172103015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172105005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172106001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172109005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172112005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172112015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172112025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172126005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172221005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172222001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611172257001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.khan.co.kr/article/202611180700011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
-  "https://www.yna.co.kr/view/AKR20261116151800001",
-  "https://www.yna.co.kr/view/AKR20261117014451504",
-  "https://www.yna.co.kr/view/AKR20261117024251001",
-  "https://www.yna.co.kr/view/AKR20261117028600001",
-  "https://www.yna.co.kr/view/AKR20261117030300001",
-  "https://www.yna.co.kr/view/AKR20261117030800001",
-  "https://www.yna.co.kr/view/AKR20261117035951001",
-  "https://www.yna.co.kr/view/AKR20261117042751001",
-  "https://www.yna.co.kr/view/AKR20261117042752001",
-  "https://www.yna.co.kr/view/AKR20261117043351001",
-  "https://www.yna.co.kr/view/AKR20261117044800504",
-  "https://www.yna.co.kr/view/AKR20261117050200053",
-  "https://www.yna.co.kr/view/AKR20261117054200001",
-  "https://www.yna.co.kr/view/AKR20261117059800530",
-  "https://www.yna.co.kr/view/AKR20261117062200001",
-  "https://www.yna.co.kr/view/AKR20261117062300001",
-  "https://www.yna.co.kr/view/AKR20261117062700001",
-  "https://www.yna.co.kr/view/AKR20261117063300504",
-  "https://www.yna.co.kr/view/AKR20261117064800001",
-  "https://www.yna.co.kr/view/AKR20261117064851001",
-  "https://www.yna.co.kr/view/AKR20261117065300001",
-  "https://www.yna.co.kr/view/AKR20261117065351001",
-  "https://www.yna.co.kr/view/AKR20261117068000504",
-  "https://www.yna.co.kr/view/AKR20261117068400001",
-  "https://www.yna.co.kr/view/AKR20261117068500001",
-  "https://www.yna.co.kr/view/AKR20261117068551001",
-  "https://www.yna.co.kr/view/AKR20261117071700504",
-  "https://www.yna.co.kr/view/AKR20261117075900371",
-  "https://www.yna.co.kr/view/AKR20261117076700004",
-  "https://www.yna.co.kr/view/AKR20261117077000030",
-  "https://www.yna.co.kr/view/AKR20261117078600001",
-  "https://www.yna.co.kr/view/AKR20261117078651001",
-  "https://www.yna.co.kr/view/AKR20261117079800001",
-  "https://www.yna.co.kr/view/AKR20261117081900054",
-  "https://www.yna.co.kr/view/AKR20261117083900064",
-  "https://www.yna.co.kr/view/AKR20261117084400001",
-  "https://www.yna.co.kr/view/AKR20261117084451001",
-  "https://www.yna.co.kr/view/AKR20261117086800001",
-  "https://www.yna.co.kr/view/AKR20261117087351004",
-  "https://www.yna.co.kr/view/AKR20261117087800704",
-  "https://www.yna.co.kr/view/AKR20261117088900004",
-  "https://www.yna.co.kr/view/AKR20261117094500704",
-  "https://www.yna.co.kr/view/AKR20261117096600055",
-  "https://www.yna.co.kr/view/AKR20261117098600001",
-  "https://www.yna.co.kr/view/AKR20261117103300001",
-  "https://www.yna.co.kr/view/AKR20261117104400004",
-  "https://www.yna.co.kr/view/AKR20261117104600001",
-  "https://www.yna.co.kr/view/AKR20261117105400052",
-  "https://www.yna.co.kr/view/AKR20261117107400064",
-  "https://www.yna.co.kr/view/AKR20261117108700001",
-  "https://www.yna.co.kr/view/AKR20261117109700001",
-  "https://www.yna.co.kr/view/AKR20261117109900061",
-  "https://www.yna.co.kr/view/AKR20261117110000001",
-  "https://www.yna.co.kr/view/AKR20261117110600504",
-  "https://www.yna.co.kr/view/AKR20261117111300064",
-  "https://www.yna.co.kr/view/AKR20261117111700051",
-  "https://www.yna.co.kr/view/AKR20261117112300054",
-  "https://www.yna.co.kr/view/AKR20261117113700001",
-  "https://www.yna.co.kr/view/AKR20261117115300001",
-  "https://www.yna.co.kr/view/AKR20261117115351001",
-  "https://www.yna.co.kr/view/AKR20261117119000001",
-  "https://www.yna.co.kr/view/AKR20261117119400001",
-  "https://www.yna.co.kr/view/AKR20261117120000001",
-  "https://www.yna.co.kr/view/AKR20261117120100001",
-  "https://www.yna.co.kr/view/AKR20261117120700001",
-  "https://www.yna.co.kr/view/AKR20261117120851073",
-  "https://www.yna.co.kr/view/AKR20261117120852073",
-  "https://www.yna.co.kr/view/AKR20261117122000001",
-  "https://www.yna.co.kr/view/AKR20261117122200001",
-  "https://www.yna.co.kr/view/AKR20261117125300004",
-  "https://www.yna.co.kr/view/AKR20261117126600001",
-  "https://www.yna.co.kr/view/AKR20261117126651001",
-  "https://www.yna.co.kr/view/AKR20261117129100001",
-  "https://www.yna.co.kr/view/AKR20261117129500001",
-  "https://www.yna.co.kr/view/AKR20261117130400001",
-  "https://www.yna.co.kr/view/AKR20261117133700504",
-  "https://www.yna.co.kr/view/AKR20261117138100051",
-  "https://www.yna.co.kr/view/AKR20261117140200051",
-  "https://www.yna.co.kr/view/AKR20261117141400052",
-  "https://www.yna.co.kr/view/AKR20261117143300001",
-  "https://www.yna.co.kr/view/AKR20261117143500001",
-  "https://www.yna.co.kr/view/AKR20261117143600504",
-  "https://www.yna.co.kr/view/AKR20261117145200704",
-  "https://www.yna.co.kr/view/AKR20261117145400001",
-  "https://www.yna.co.kr/view/AKR20261117145600504",
-  "https://www.yna.co.kr/view/AKR20261117146100001",
-  "https://www.yna.co.kr/view/AKR20261117147300055",
-  "https://www.yna.co.kr/view/AKR20261117148100504",
-  "https://www.yna.co.kr/view/AKR20261117150500001",
-  "https://www.yna.co.kr/view/AKR20261117151800001",
-  "https://www.yna.co.kr/view/AKR20261117154900054",
-  "https://www.yna.co.kr/view/AKR20261117155500001",
-  "https://www.yna.co.kr/view/AKR20261117156500704",
-  "https://www.yna.co.kr/view/AKR20261117160000001",
-  "https://www.yna.co.kr/view/AKR20261117162000001",
-  "https://www.yna.co.kr/view/AKR20261117162051001",
-  "https://www.yna.co.kr/view/AKR20261117162700001",
-  "https://www.yna.co.kr/view/AKR20261117162800001",
-  "https://www.yna.co.kr/view/AKR20261117163500504",
-  "https://www.yna.co.kr/view/AKR20261117163700001",
-  "https://www.yna.co.kr/view/AKR20261117165700001",
-  "https://www.yna.co.kr/view/AKR20261117165900062",
-  "https://www.yna.co.kr/view/AKR20261117167000001",
-  "https://www.yna.co.kr/view/AKR20261117168900001",
-  "https://www.yna.co.kr/view/AKR20261117169100001",
-  "https://www.yna.co.kr/view/AKR20261117169200001",
-  "https://www.yna.co.kr/view/AKR20261117169600001",
-  "https://www.yna.co.kr/view/AKR20261117169651001",
-  "https://www.yna.co.kr/view/AKR20261117169900001",
-  "https://www.yna.co.kr/view/AKR20261117170000001",
-  "https://www.yna.co.kr/view/AKR20261117170800001",
-  "https://www.yna.co.kr/view/AKR20261117170900001",
-  "https://www.yna.co.kr/view/AKR20261117171000001",
-  "https://www.yna.co.kr/view/AKR20261117172300001",
-  "https://www.yna.co.kr/view/AKR20261117173200001",
-  "https://www.yna.co.kr/view/AKR20261117173251001",
-  "https://www.yna.co.kr/view/AKR20261117173900071",
-  "https://www.yna.co.kr/view/AKR20261117175800001",
-  "https://www.yna.co.kr/view/AKR20261117178400001",
-  "https://www.yna.co.kr/view/AKR20261118015000001"
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851816&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851848&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851867&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851869&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851917&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851924&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008851998&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852022&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852025&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852102&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852152&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852251&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852339&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852371&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852413&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852453&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852466&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852530&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852539&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852542&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852576&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852587&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852596&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852597&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852603&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852658&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852738&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852805&plink=RSSLINK&cooper=RSSREADER",
+  "https://news.sbs.co.kr/news/endPage.do?news_id=N1008852931&plink=RSSLINK&cooper=RSSREADER",
+  "https://www.hani.co.kr/arti/politics/assembly/1287889.html",
+  "https://www.hani.co.kr/arti/politics/assembly/1287906.html",
+  "https://www.hani.co.kr/arti/politics/assembly/1287921.html",
+  "https://www.hani.co.kr/arti/politics/assembly/1287992.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1287858.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1287888.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1287903.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1287954.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1287975.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1288010.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1288055.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1288056.html",
+  "https://www.hani.co.kr/arti/politics/bluehouse/1288058.html",
+  "https://www.hani.co.kr/arti/politics/defense/1288025.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287862.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287865.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287866.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287872.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287910.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287929.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287935.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1287979.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1288007.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1288009.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1288012.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1288027.html",
+  "https://www.hani.co.kr/arti/politics/politics_general/1288035.html",
+  "https://www.khan.co.kr/article/202611180730001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611180837001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611180900001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611180915001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181010001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181017001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181033001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181104001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181351001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181406001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181444001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181549011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181625001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181627001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181646001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181652001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181711001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181716001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181755001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181907001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611181927011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182102025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182112005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182112015/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182121005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182121025/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611182130005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190600005/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190600021/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190600041/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190701001/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190701011/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.khan.co.kr/article/202611190701021/?utm_source=khan_rss&utm_medium=rss&utm_campaign=politic_news",
+  "https://www.yna.co.kr/view/AKR20261118008751071",
+  "https://www.yna.co.kr/view/AKR20261118032253001",
+  "https://www.yna.co.kr/view/AKR20261118032254001",
+  "https://www.yna.co.kr/view/AKR20261118035600071",
+  "https://www.yna.co.kr/view/AKR20261118042600001",
+  "https://www.yna.co.kr/view/AKR20261118046200003",
+  "https://www.yna.co.kr/view/AKR20261118049100504",
+  "https://www.yna.co.kr/view/AKR20261118052800001",
+  "https://www.yna.co.kr/view/AKR20261118055600055",
+  "https://www.yna.co.kr/view/AKR20261118058700001",
+  "https://www.yna.co.kr/view/AKR20261118058900001",
+  "https://www.yna.co.kr/view/AKR20261118061300001",
+  "https://www.yna.co.kr/view/AKR20261118061351001",
+  "https://www.yna.co.kr/view/AKR20261118062600003",
+  "https://www.yna.co.kr/view/AKR20261118063600062",
+  "https://www.yna.co.kr/view/AKR20261118064500001",
+  "https://www.yna.co.kr/view/AKR20261118064551001",
+  "https://www.yna.co.kr/view/AKR20261118064700001",
+  "https://www.yna.co.kr/view/AKR20261118066900001",
+  "https://www.yna.co.kr/view/AKR20261118066951001",
+  "https://www.yna.co.kr/view/AKR20261118066952001",
+  "https://www.yna.co.kr/view/AKR20261118070400001",
+  "https://www.yna.co.kr/view/AKR20261118072600001",
+  "https://www.yna.co.kr/view/AKR20261118072900001",
+  "https://www.yna.co.kr/view/AKR20261118076600001",
+  "https://www.yna.co.kr/view/AKR20261118079400001",
+  "https://www.yna.co.kr/view/AKR20261118079500504",
+  "https://www.yna.co.kr/view/AKR20261118079700060",
+  "https://www.yna.co.kr/view/AKR20261118081500001",
+  "https://www.yna.co.kr/view/AKR20261118082500504",
+  "https://www.yna.co.kr/view/AKR20261118082551504",
+  "https://www.yna.co.kr/view/AKR20261118084400704",
+  "https://www.yna.co.kr/view/AKR20261118086600504",
+  "https://www.yna.co.kr/view/AKR20261118089000004",
+  "https://www.yna.co.kr/view/AKR20261118090200001",
+  "https://www.yna.co.kr/view/AKR20261118090251001",
+  "https://www.yna.co.kr/view/AKR20261118093600704",
+  "https://www.yna.co.kr/view/AKR20261118095400009",
+  "https://www.yna.co.kr/view/AKR20261118095500001",
+  "https://www.yna.co.kr/view/AKR20261118095600704",
+  "https://www.yna.co.kr/view/AKR20261118096100001",
+  "https://www.yna.co.kr/view/AKR20261118096200001",
+  "https://www.yna.co.kr/view/AKR20261118097300001",
+  "https://www.yna.co.kr/view/AKR20261118097800055",
+  "https://www.yna.co.kr/view/AKR20261118097900001",
+  "https://www.yna.co.kr/view/AKR20261118098000001",
+  "https://www.yna.co.kr/view/AKR20261118098051001",
+  "https://www.yna.co.kr/view/AKR20261118098800053",
+  "https://www.yna.co.kr/view/AKR20261118099100504",
+  "https://www.yna.co.kr/view/AKR20261118099352073",
+  "https://www.yna.co.kr/view/AKR20261118099400001",
+  "https://www.yna.co.kr/view/AKR20261118099600061",
+  "https://www.yna.co.kr/view/AKR20261118101700001",
+  "https://www.yna.co.kr/view/AKR20261118102500001",
+  "https://www.yna.co.kr/view/AKR20261118112700065",
+  "https://www.yna.co.kr/view/AKR20261118115000001",
+  "https://www.yna.co.kr/view/AKR20261118116300001",
+  "https://www.yna.co.kr/view/AKR20261118116900504",
+  "https://www.yna.co.kr/view/AKR20261118119800504",
+  "https://www.yna.co.kr/view/AKR20261118120300004",
+  "https://www.yna.co.kr/view/AKR20261118120351004",
+  "https://www.yna.co.kr/view/AKR20261118120352004",
+  "https://www.yna.co.kr/view/AKR20261118120353004",
+  "https://www.yna.co.kr/view/AKR20261118121200001",
+  "https://www.yna.co.kr/view/AKR20261118121251001",
+  "https://www.yna.co.kr/view/AKR20261118121252001",
+  "https://www.yna.co.kr/view/AKR20261118124500001",
+  "https://www.yna.co.kr/view/AKR20261118131900001",
+  "https://www.yna.co.kr/view/AKR20261118131951001",
+  "https://www.yna.co.kr/view/AKR20261118131952001",
+  "https://www.yna.co.kr/view/AKR20261118136700065",
+  "https://www.yna.co.kr/view/AKR20261118136900001",
+  "https://www.yna.co.kr/view/AKR20261118137200001",
+  "https://www.yna.co.kr/view/AKR20261118137400054",
+  "https://www.yna.co.kr/view/AKR20261118137500001",
+  "https://www.yna.co.kr/view/AKR20261118137600001",
+  "https://www.yna.co.kr/view/AKR20261118138000083",
+  "https://www.yna.co.kr/view/AKR20261118138100001",
+  "https://www.yna.co.kr/view/AKR20261118138300083",
+  "https://www.yna.co.kr/view/AKR20261118142700001",
+  "https://www.yna.co.kr/view/AKR20261118143000001",
+  "https://www.yna.co.kr/view/AKR20261118143051001",
+  "https://www.yna.co.kr/view/AKR20261118143900001",
+  "https://www.yna.co.kr/view/AKR20261118145000001",
+  "https://www.yna.co.kr/view/AKR20261118145100060",
+  "https://www.yna.co.kr/view/AKR20261118147000001",
+  "https://www.yna.co.kr/view/AKR20261118149500083",
+  "https://www.yna.co.kr/view/AKR20261118152400003",
+  "https://www.yna.co.kr/view/AKR20261118152451003",
+  "https://www.yna.co.kr/view/AKR20261118158000704",
+  "https://www.yna.co.kr/view/AKR20261118158600504",
+  "https://www.yna.co.kr/view/AKR20261118162000504",
+  "https://www.yna.co.kr/view/AKR20261118162100055",
+  "https://www.yna.co.kr/view/AKR20261118163300004",
+  "https://www.yna.co.kr/view/AKR20261118164900055",
+  "https://www.yna.co.kr/view/AKR20261118165200504",
+  "https://www.yna.co.kr/view/AKR20261118165700504",
+  "https://www.yna.co.kr/view/AKR20261118166200001",
+  "https://www.yna.co.kr/view/AKR20261118167800001",
+  "https://www.yna.co.kr/view/AKR20261118169400001",
+  "https://www.yna.co.kr/view/AKR20261118170000062",
+  "https://www.yna.co.kr/view/AKR20261118170500704",
+  "https://www.yna.co.kr/view/AKR20261118170600004",
+  "https://www.yna.co.kr/view/AKR20261118173200001",
+  "https://www.yna.co.kr/view/AKR20261118174500001",
+  "https://www.yna.co.kr/view/AKR20261118174900001",
+  "https://www.yna.co.kr/view/AKR20261118177100001",
+  "https://www.yna.co.kr/view/AKR20261118177800001",
+  "https://www.yna.co.kr/view/AKR20261118178300001",
+  "https://www.yna.co.kr/view/AKR20261118178700001",
+  "https://www.yna.co.kr/view/AKR20261118178751001",
+  "https://www.yna.co.kr/view/AKR20261118179100004",
+  "https://www.yna.co.kr/view/AKR20261118183800001",
+  "https://www.yna.co.kr/view/AKR20261118183900001",
+  "https://www.yna.co.kr/view/AKR20261118185400001",
+  "https://www.yna.co.kr/view/AKR20261118185451001",
+  "https://www.yna.co.kr/view/AKR20261118187600001",
+  "https://www.yna.co.kr/view/AKR20261119001600083",
+  "https://www.yna.co.kr/view/AKR20261119002200001",
+  "https://www.yna.co.kr/view/AKR20261119002700055"
  ]
 }
