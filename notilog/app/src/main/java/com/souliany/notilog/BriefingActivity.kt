@@ -50,8 +50,8 @@ class BriefingActivity : AppCompatActivity() {
         body.addView(text(created.format(DATE), R.style.Text_Small).pad(4, 2))
         if (b.summary.isNotEmpty()) body.addView(text(b.summary, R.style.Text_BodyLarge).pad(4, 12))
 
-        // 뉴스·정치의 첫 섹션 '요약'은 위의 summary와 같은 글이라 뺀다.
-        val sections = b.sections.filterNot { it.items.size == 1 && it.items[0].text == b.summary }
+        // 뉴스·정치의 '요약' 섹션에서 위의 summary와 같은 글은 뺀다(합친 브리핑이면 이전 회차 요약만 남는다).
+        val sections = b.sections.map { s -> s.copy(items = s.items.filterNot { it.text == b.summary }) }.filter { it.items.isNotEmpty() }
         val chats = sections.filter { it.chat }
         val rest = sections.filter { !it.chat }
         // 영역 제목은 메시지와 알림·요약이 함께 있을 때만
