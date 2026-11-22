@@ -7,7 +7,7 @@ import java.io.File
 import java.time.LocalDate
 import java.time.OffsetDateTime
 
-/** 받아 온 브리핑 파일(최근 30일, 지난 것은 지운다)과 읽음 표시. 앱의 브리핑 목록은 여기서 읽는다. */
+/** 받아 온 브리핑 파일(최근 7일, 지난 것은 지운다)과 읽음 표시. 앱의 브리핑 목록은 여기서 읽는다. */
 class BriefingStore(private val context: Context) {
     private val dir = File(context.filesDir, "briefings").apply { mkdirs() }
     private val prefs = context.getSharedPreferences("briefing", Context.MODE_PRIVATE)
@@ -38,11 +38,32 @@ class BriefingStore(private val context: Context) {
 
     fun isNew(id: String) = id !in read
 
-    /** 읽음 표시. 읽은 브리핑의 폰 알림도 지운다(다른 앱처럼 앱에서 읽으면 알림이 사라짐). */
+    /** 읽음 표시. 읽은 브리핑의 폰 알림도 지운다(다른 앱처럼 앱에서 읽으면 알림이 사라짐).
+     *  알림 브리핑이면 어디까지 읽었는지(notiReadThrough)도 남긴다. BriefingWorker가 push-inbox에 올리면,
+     *  다음 회차가 그 뒤 안 읽은 회차를 합쳐 다시 집계한다. */
     fun markRead(ids: Collection<String>) {
         prefs.edit().putStringSet("read", read + ids).apply()
         val nm = NotificationManagerCompat.from(context)
         ids.forEach { nm.cancel(BriefingWorker.notificationId(it)) }
+        ids.mapNotNull(::get).filter { it.kind == "noti" }.maxByOrNull { OffsetDateTime.parse(it.created) }?.let {
+            if (notiReadThrough.isEmpty() || OffsetDateTime.parse(it.created) > OffsetDateTime.parse(notiReadThrough)) {
+                notiReadThrough = it.created
+            }
+        }
+    }
+
+    /** 읽은 알림 브리핑 중 가장 최근 created. 올린 값은 notiReadUploaded. */
+    var notiReadThrough: String
+        get() = prefs.getString("notiReadThrough", "").orEmpty()
+        set(v) = prefs.edit().putString("notiReadThrough", v).apply()
+
+    var notiReadUploaded: String
+        get() = prefs.getString("notiReadUploaded", "").orEmpty()
+        set(v) = prefs.edit().putString("notiReadUploaded", v).apply()
+
+    fun delete(id: String) {
+        file(id).delete()
+        NotificationManagerCompat.from(context).cancel(BriefingWorker.notificationId(id))
     }
 
     fun prune(keepDays: Long) {
