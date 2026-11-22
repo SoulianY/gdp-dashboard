@@ -100,13 +100,14 @@ class MainActivity : AppCompatActivity() {
         }
         R.id.read_all -> {
             store.markRead(store.all().map { it.id })
+            BriefingWorker.refresh(this)
             renderBriefings()
             true
         }
         else -> super.onOptionsItemSelected(item)
     }
 
-    /** 최근 30일 중 하루를 골라 그날 브리핑만 본다. */
+    /** 최근 7일 중 하루를 골라 그날 브리핑만 본다. */
     private fun pickDate() {
         val today = LocalDate.now()
         val utcMillis = { d: LocalDate -> d.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli() }
@@ -182,7 +183,7 @@ class MainActivity : AppCompatActivity() {
             }
         } else {
             val items = all.filter { it.kind == filter }
-            if (items.isEmpty()) list.addView(note(if (day != null) "이 날짜의 브리핑이 없습니다." else "최근 30일 동안 받은 브리핑이 없습니다."))
+            if (items.isEmpty()) list.addView(note(if (day != null) "이 날짜의 브리핑이 없습니다." else "최근 7일 동안 받은 브리핑이 없습니다."))
             else list.addView(sheet(items).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = dp(8) })
         }
     }

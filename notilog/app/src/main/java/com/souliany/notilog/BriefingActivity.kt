@@ -30,6 +30,7 @@ class BriefingActivity : AppCompatActivity() {
         val store = BriefingStore(this)
         val b = intent.getStringExtra(EXTRA_ID)?.let(store::get) ?: return finish()
         store.markRead(listOf(b.id))
+        if (b.kind == "noti") BriefingWorker.refresh(this)  // 읽음 상태를 바로 올려 다음 회차가 합칠 범위를 안다
         setContentView(R.layout.activity_briefing)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.apply {

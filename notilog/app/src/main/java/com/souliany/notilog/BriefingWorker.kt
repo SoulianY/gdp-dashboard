@@ -16,7 +16,9 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import android.util.Base64
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.HttpURLConnection
@@ -44,13 +46,20 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
         val today = LocalDate.now(KST)
         val fresh = mutableListOf<Briefing>()
         try {
+            if (settings.configured) uploadReadState(settings, store)
             for ((repo, root) in sources) {
                 for (back in 0 until if (first) KEEP_DAYS else 2) {
                     val date = today.minusDays(back.toLong())
-                    for (name in list(repo, "$root/$date", settings.token)) {
+                    val names = list(repo, "$root/$date", settings.token)
+                    for (name in names) {
                         if (!store.has("$date/${name.removeSuffix(".json")}")) {
                             fresh += store.save(fetch(repo, "$root/$date/$name", settings.token))
                         }
+                    }
+                    // 안 읽은 알림 브리핑은 다음 회차에 합쳐지고 push-inbox에서 지워진다. 여기서도 지운다.
+                    if (repo == settings.repo) {
+                        val kept = names.map { "$date/${it.removeSuffix(".json")}" }.toSet()
+                        store.all().filter { it.kind == "noti" && it.id.startsWith("$date/") && it.id !in kept }.forEach { store.delete(it.id) }
                     }
                 }
             }
@@ -65,6 +74,35 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
         }
         store.prune(KEEP_DAYS)
         return Result.success()
+    }
+
+    /** 앱에서 어디까지 읽었는지 push-inbox의 state/read.json에 올린다(바뀌었을 때만). */
+    private fun uploadReadState(settings: Settings, store: BriefingStore) {
+        val through = store.notiReadThrough
+        if (through.isEmpty() || through == store.notiReadUploaded) return
+        val url = "https://api.github.com/repos/${settings.repo}/contents/$READ_PATH"
+        val sha = try {
+            JSONObject(get(url, settings.token, "application/vnd.github+json")).getString("sha")
+        } catch (e: FileNotFoundException) {
+            null
+        }
+        val body = JSONObject().put("noti", through).toString(1).toByteArray()
+        val payload = JSONObject()
+            .put("message", "read: noti $through")
+            .put("content", Base64.encodeToString(body, Base64.NO_WRAP))
+            .apply { sha?.let { put("sha", it) } }
+        val conn = URL(url).openConnection() as HttpURLConnection
+        try {
+            conn.requestMethod = "PUT"
+            conn.doOutput = true
+            conn.setRequestProperty("Authorization", "Bearer ${settings.token}")
+            conn.setRequestProperty("Accept", "application/vnd.github+json")
+            conn.outputStream.use { it.write(payload.toString().toByteArray()) }
+            if (conn.responseCode !in 200..299) throw IOException("read.json HTTP ${conn.responseCode}")
+        } finally {
+            conn.disconnect()
+        }
+        store.notiReadUploaded = through
     }
 
     /** 폴더의 .json 파일 이름들. 폴더가 없으면(그날 브리핑 없음) 빈 목록. */
@@ -116,7 +154,8 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
     companion object {
         private const val PUBLIC_REPO = "SoulianY/gdp-dashboard"
         private const val CHANNEL = "briefing"
-        const val KEEP_DAYS = 30L
+        const val KEEP_DAYS = 7L
+        private const val READ_PATH = "state/read.json"
         private val KST = ZoneId.of("Asia/Seoul")
         fun notificationId(briefingId: String) = briefingId.hashCode()
 
