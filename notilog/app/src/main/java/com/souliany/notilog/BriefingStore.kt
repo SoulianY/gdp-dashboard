@@ -14,7 +14,21 @@ class BriefingStore(private val context: Context) {
 
     private fun file(id: String) = File(dir, id.replace('/', '_') + ".json")
 
-    fun has(id: String) = file(id).exists()
+    /** 받아 온 적 있는 브리핑인지(다른 회차에 합쳐져 지운 것 포함). 동기화가 다시 받지 않게 한다. */
+    fun has(id: String) = file(id).exists() || id in mergedAway
+
+    private val mergedAway: Set<String> get() = prefs.getStringSet("mergedAway", emptySet())!!
+
+    /** b보다 먼저 온 같은 종류의 안 읽은 브리핑이 있으면 b에 합치고 그 회차들은 지운다. 결과(b 또는 합친 것)를 돌려준다. */
+    fun mergeUnread(b: Briefing): Briefing {
+        val older = all().filter { it.kind == b.kind && it.id != b.id && isNew(it.id) && OffsetDateTime.parse(it.created) < OffsetDateTime.parse(b.created) }
+        if (older.isEmpty()) return b
+        val merged = Briefing.merge(older + b)
+        file(b.id).writeText(merged.toJson().toString())
+        older.forEach { delete(it.id) }
+        prefs.edit().putStringSet("mergedAway", mergedAway + older.map { it.id }).apply()
+        return merged
+    }
 
     fun save(json: String): Briefing {
         val b = Briefing.parse(JSONObject(json))
@@ -70,6 +84,7 @@ class BriefingStore(private val context: Context) {
         val cutoff = LocalDate.now().minusDays(keepDays).toString()
         dir.listFiles().orEmpty().filter { it.name.take(10) < cutoff }.forEach { it.delete() }
         val kept = dir.listFiles().orEmpty().map { it.name.removeSuffix(".json").replaceFirst('_', '/') }.toSet()
-        prefs.edit().putStringSet("read", read intersect kept).apply()
+        prefs.edit().putStringSet("read", read intersect kept)
+            .putStringSet("mergedAway", mergedAway.filter { it.take(10) >= cutoff }.toSet()).apply()
     }
 }

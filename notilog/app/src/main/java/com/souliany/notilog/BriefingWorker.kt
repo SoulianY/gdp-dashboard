@@ -24,6 +24,7 @@ import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.time.LocalDate
+import java.time.OffsetDateTime
 import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 
@@ -70,7 +71,11 @@ class BriefingWorker(context: Context, params: WorkerParameters) : CoroutineWork
             store.markRead(fresh.map { it.id })
             store.initialized = true
         } else {
-            fresh.forEach(::show)
+            // 안 읽은 이전 회차는 새 회차에 합친다(알림 브리핑은 push-inbox가 이미 합쳐서 보낸다). 합쳐져 지워진 회차는 알리지 않는다.
+            fresh.sortedBy { OffsetDateTime.parse(it.created) }
+                .map { if (it.kind == "noti") it else store.mergeUnread(it) }
+                .filter { store.get(it.id) != null }
+                .forEach(::show)
         }
         store.prune(KEEP_DAYS)
         return Result.success()
