@@ -2,6 +2,7 @@ name: news-briefing-publish
 
 # 예약 작업 세션이 data/news/<kind>.json 브리핑을 main에 푸시하면
 # 1) 브리핑 페이지(GitHub Pages)를 갱신하고 2) 카톡으로 알린다.
+# 메일·알림·커뮤니티 예약 작업은 workflow_dispatch(kind)로 카톡만 보낸다(페이지는 바뀐 게 없어 배포하지 않음).
 on:
   push:
     branches: [main]
@@ -24,32 +25,44 @@ concurrency:
 
 jobs:
   pages:
+    # 페이지 내용(data/news, site)이 바뀐 푸시, 또는 kind 없이 수동 실행했을 때만
+    if: github.event_name == 'push' || inputs.kind == ''
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy-retry.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: cp data/news/*.json site/
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
+      # 업로드 직후 배포가 방금 올린 artifact를 못 찾는 일이 가끔 있다("No artifacts named github-pages").
+      # GitHub 쪽 반영 지연이라 잠시 뒤 한 번 더 배포한다.
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - if: steps.deploy.outcome == 'failure'
+        run: sleep 30
+      - id: deploy-retry
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v5
 
   notify:
+    # 푸시면 페이지 배포 뒤에 보내되, 배포가 실패하거나 건너뛰어도 카톡은 보낸다.
     needs: pages
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: write  # data/briefings 커밋
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
